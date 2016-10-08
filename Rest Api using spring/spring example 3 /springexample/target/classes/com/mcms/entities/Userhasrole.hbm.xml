@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 6, 2011 10:52:40 AM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.mcms.entities.Userhasrole" table="userhasrole">
+       <id name="id" type="long">
+            <column name="id" length="32"/>
+            <generator class="increment" />
+        </id>
+        <property name="userid" type="string">
+            <column name="userid" length="15" not-null="true"/>
+        </property>
+        <property name="roleId" type="int">
+            <column name="role_id" not-null="true"/>
+        </property>
+        <property name="startDate" type="date">
+            <column name="start_date" length="10"/>
+        </property>
+        <property name="endDate" type="date">
+            <column name="end_date" length="10"/>
+        </property>
+    </class>
+</hibernate-mapping>

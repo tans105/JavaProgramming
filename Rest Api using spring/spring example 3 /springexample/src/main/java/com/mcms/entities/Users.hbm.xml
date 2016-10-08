@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 9, 2011 8:08:11 PM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.mcms.entities.Users" table="users">
+        
+        <id name="id" type="long">
+            <column name="id" length="32"/>
+            <generator class="increment" />
+        </id>
+        <property name="userid" type="string">
+            <column name="userid" length="15" not-null="true" unique="true"/>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50" not-null="true"/>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="50"/>
+        </property>
+        <property name="ecode" type="string">
+            <column name="ecode" length="20" />
+        </property>
+        <property name="compCode" type="string">
+            <column name="comp_code" length="15" />
+        </property>
+        <property name="userStatusId" type="java.lang.Integer">
+            <column name="user_status_id"/>
+        </property>
+         <property name="primaryLocCode" type="string">
+            <column name="primary_loc_code" length="50"/>
+        </property>
+        <property name="locCode" type="string">
+            <column name="loc_code" length="65535"/>
+        </property>
+        <property name="caCode" type="string">
+            <column name="ca_code" length="65535"/>
+        </property>
+        <property name="branchCode" type="string">
+            <column name="branch_code" length="50"/>
+        </property>
+        <property name="zoneCode" type="string">
+            <column name="zone_code" length="50"/>
+        </property>
+         <property name="regCode" type="string">
+            <column name="reg_code" length="50"/>
+        </property>
+        <property name="wrongPwdCnt" type="java.lang.Integer">
+            <column name="wrong_pwd_cnt"/>
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" length="15"/>
+        </property>
+        <property name="creationDtm" type="timestamp">
+            <column name="creation_dtm" length="19"/>
+        </property>
+        <property name="updatedBy" type="string">
+            <column name="updated_by" length="15"/>
+        </property>
+        <property name="updationDtm" type="timestamp">
+            <column name="updation_dtm" length="19"/>
+        </property>
+         <property name="collectorId" type="string">
+            <column name="collector_id" length="5"/>
+        </property>
+         <property name="userType" type="java.lang.Integer">
+            <column name="user_type"/>
+        </property>
+        <property name="lastLoginDtm" type="timestamp">
+            <column name="last_login_dtm" length="19"/>
+        </property>
+        <property name="collectionUnitCode" type="string">
+            <column name="collection_unit_code" length="16"/>
+        </property>
+        <property name="vertical" type="string">
+            <column name="vertical" length="15"/>
+        </property>
+        <property name="tpin" type="string">
+            <column name="tpin" length="10"/>
+        </property>
+        <property name="stateId" type="string">
+            <column name="state_id" length="50"/>
+        </property>
+        <property name="reportUserId" type="string">
+            <column name="report_userid" />
+        </property>
+      <property name="cityCode" type="string">
+            <column name="city_code" length="15" />
+        </property>
+        <property name="unitType" type="string">
+            <column name="unit_type" length="25" />
+        </property>
+        <property name="cashId" type="string">
+            <column name="cash_id" length="20" />
+        </property>        
+         <property name="passWordChangeDtm" type="timestamp">
+            <column name="pwd_chg_dtm" length="19" />
+        </property>
+ 		<property name="lastLogoutDtm" type="timestamp">
+            <column name="last_logout_dtm" length="19" />
+        </property>
+         <property name="collectionUnitId" type="long">
+            <column name="collection_unit_id" length="32"/>
+        </property>
+        <property name="remarksForUserStatusChange" type="string">
+        	<column name="remakrs_user_status_change" length="456"></column>
+        </property>
+        <property name="blockedBy" type="string">
+        	<column name="blocked_by"></column>
+        </property>
+       	<property name="blockedDtm" type="timestamp">
+        	<column name="blocked_dtm" length="15"></column>
+        </property>
+        <property name="employeeNumber" type="string">
+        	<column name="employee_number" length="15"></column>
+        </property>
+        
+<!--         <property name="macId" type="string">
+            <column name="mac_id" length="50"/>
+        </property> -->
+    </class>
+</hibernate-mapping>

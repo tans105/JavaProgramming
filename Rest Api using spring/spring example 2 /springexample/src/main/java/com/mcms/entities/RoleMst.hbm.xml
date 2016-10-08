@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 6, 2011 10:52:40 AM by Hibernate Tools 3.2.0.beta8 -->
+<hibernate-mapping>
+    <class name="com.mcms.entities.RoleMst" table="role_mst">
+        
+       <id name="id" type="long">
+            <column name="id" length="32"/>
+            <generator class="increment" />
+        </id>
+        <property name="roleId" type="int">
+            <column name="role_id" not-null="true" unique="true"/>
+        </property>
+        <property name="roleName" type="string">
+            <column name="role_name" length="50" not-null="true"/>
+        </property>
+        <property name="vertical" type="string">
+            <column name="vertical" length="15"/>
+        </property>
+        <property name="reportType" type="string">
+            <column name="report_type" length="15"/>
+        </property>
+        <property name="reportUserRole" type="int">
+            <column name="report_user_role" />
+        </property>
+        <property name="operation1" type="int">
+            <column name="operation1" />
+        </property>
+        <property name="operation2" type="int">
+            <column name="operation2" />
+        </property>
+        <property name="operation3" type="int">
+            <column name="operation3" />
+        </property>
+        <property name="operation4" type="int">
+            <column name="operation4" />
+        </property>
+        <property name="operation5" type="int">
+            <column name="operation5" />
+        </property>
+        <property name="operation6" type="int">
+            <column name="operation6" />
+        </property>
+        <property name="operation7" type="int">
+            <column name="operation7" />
+        </property>
+        <property name="operation8" type="int">
+            <column name="operation8" />
+        </property>
+        <property name="operation9" type="int">
+            <column name="operation9" />
+        </property>
+        <property name="operation10" type="int">
+            <column name="operation10" />
+        </property>
+        <property name="operation11" type="int">
+            <column name="operation11" />
+        </property>
+        <property name="operation12" type="int">
+            <column name="operation12" />
+        </property>
+        <property name="operation13" type="int">
+            <column name="operation13" />
+        </property>
+        <property name="operation14" type="int">
+            <column name="operation14" />
+        </property>
+        <property name="operation15" type="int">
+            <column name="operation15" />
+        </property>
+        <property name="operation16" type="int">
+            <column name="operation16" />
+        </property>
+        <property name="operation17" type="int">
+            <column name="operation17" />
+        </property>
+        <property name="operation18" type="int">
+            <column name="operation18" />
+        </property>
+        <property name="operation19" type="int">
+            <column name="operation19" />
+        </property>
+        <property name="operation20" type="int">
+            <column name="operation20" />
+        </property>
+        <property name="operation21" type="int">
+            <column name="operation21" />
+        </property>
+        <property name="operation22" type="int">
+            <column name="operation22" />
+        </property>
+        <property name="operation23" type="int">
+            <column name="operation23" />
+        </property>
+        <property name="operation24" type="int">
+            <column name="operation24" />
+        </property>
+        <property name="operation25" type="int">
+            <column name="operation25" />
+        </property>
+         <property name="operation26" type="int">
+            <column name="operation26" />
+        </property>
+         <property name="operation27" type="int">
+            <column name="operation27" />
+        </property>
+         <property name="operation28" type="int">
+            <column name="operation28" />
+        </property>
+         <property name="operation29" type="int">
+            <column name="operation29" />
+        </property>
+         <property name="operation30" type="int">
+            <column name="operation30" />
+        </property>
+         <property name="operation31" type="int">
+            <column name="operation31" />
+        </property>
+         <property name="operation32" type="int">
+            <column name="operation32" />
+        </property>
+        <property name="operation33" type="int">
+            <column name="operation33" />
+        </property>
+        <property name="operation34" type="int">
+            <column name="operation34" />
+        </property>
+        <property name="operation35" type="int">
+            <column name="operation35" />
+        </property>
+        <property name="operation36" type="int">
+            <column name="operation36" />
+        </property>
+        <property name="operation37" type="int">
+            <column name="operation37" />
+        </property>
+        <property name="operation38" type="int">
+            <column name="operation38" />
+        </property>
+        <property name="operation39" type="int">
+            <column name="operation39" />
+        </property>
+        <property name="operation40" type="int">
+            <column name="operation40" />
+        </property>
+        <property name="operation41" type="int">
+            <column name="operation41" />
+        </property>
+        <property name="operation42" type="int">
+            <column name="operation42" />
+        </property>
+        <property name="operation43" type="int">
+            <column name="operation43" />
+        </property>
+        <property name="operation44" type="int">
+            <column name="operation44" />
+        </property>
+        <property name="operation46" type="int">
+            <column name="operation46" />
+        </property>
+	</class>
+    
+</hibernate-mapping>
