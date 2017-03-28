@@ -21,6 +21,7 @@ public class PairWiseSwap {
 		ll.head.next.next = new Node(2);
 		ll.head.next.next.next = new Node(3);
 		ll.head.next.next.next.next = new Node(4);
+		ll.head.next.next.next.next.next=new Node(5);
 		ll.traverseList(ll.head);
 
 		ll.parWiseSwap();
@@ -48,7 +49,7 @@ public class PairWiseSwap {
 		System.out.println();
 		//new config
 		
-		while (n != null || n.next != null) {
+		while (n != null && n.next != null  && n.next.next!=null) {
 			n1=n.next;
 			Node n2=n1.next;
 			n1.next=n2.next;
