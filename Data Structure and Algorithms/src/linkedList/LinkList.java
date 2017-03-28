@@ -365,5 +365,9 @@ public class LinkList {
 		startNode.next = temp;
 	}
 	
+	public void pairWiseSwap(Node n){
+		
+	}
+	
 
 }

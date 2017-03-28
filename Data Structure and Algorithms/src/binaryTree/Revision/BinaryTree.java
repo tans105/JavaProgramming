@@ -34,16 +34,8 @@ public class BinaryTree {
 		tree.root.right = new Node(2);
 		tree.root.right.left = new Node(3);
 		//		tree.root.right.right = new Node(2);
-		
-		inorderTraversal(tree.root);
-		System.out.println("________________________________");
-		checkChildrenSumProperty(tree.root);
-		System.out.println("________________________________");
-		convertToChildrenSumPropertyTree(tree.root);
-		System.out.println("________________________________");
-		inorderTraversal(tree.root);
-		System.out.println("________________________________");
-		checkChildrenSumProperty(tree.root);
+		printAncestors(tree.root, 3);
+	
 	}
 
 	/*
@@ -200,7 +192,7 @@ public class BinaryTree {
 		if (n.left == null && n.right == null) {
 			return;
 		}
-		
+
 		//Left is null right is not null Sum is equal
 		if (n.left == null && n.right != null && n.data == n.right.data) {
 			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " YES");
@@ -245,57 +237,83 @@ public class BinaryTree {
 	/*
 	 * Convert arbitrary tree to Children sum property tree
 	 */
-	public static void convertToChildrenSumPropertyTree(Node n) {
-		if (n.left == null && n.right == null) {
-			return;
-		}
+	//	public static void convertToChildrenSumPropertyTree(Node n) {
+	//		if (n.left == null && n.right == null) {
+	//			return;
+	//		}
+	//
+	//		//Left is null right is not null Sum is equal
+	//		if (n.left == null && n.right != null && n.data == n.right.data) {
+	//			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " OKAY");
+	//		}
+	//
+	//		//Left is null right is not null sum is not equal
+	//		if (n.left == null && n.right != null && n.data != n.right.data) {
+	//			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " NO");
+	//			n.right.data = n.data;
+	//		}
+	//		//Left is not null right is  null sum is equal
+	//		if (n.right == null && n.left != null && n.data == n.left.data) {
+	//			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " OKAY");
+	//		}
+	//
+	//		//Left is not null right is null sum is not equal
+	//		if (n.right == null && n.left != null && n.data != n.left.data) {
+	//			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " NO");
+	//			n.left.data = n.data;
+	//		}
+	//
+	//		//left is not null right is not null sum is equal
+	//		if (n.left != null && n.right != null && n.data == n.left.data + n.right.data) {
+	//			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " YES");
+	//		}
+	//
+	//		//Left is not null right is not null sum is not equal
+	//		if (n.left != null && n.right != null && n.data != n.left.data + n.right.data) {
+	//			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " NO");
+	//			int diff = n.data - (n.left.data + n.right.data);
+	//			if (diff > 0) {//parent is more
+	//				n.data=n.data-diff;
+	//			} else {
+	//				n.left.data=n.left.data+diff;
+	//			}
+	//		}
+	//		try {
+	//			if (n.left != null) {
+	//				checkChildrenSumProperty(n.left);
+	//			}
+	//			if (n.right != null) {
+	//				checkChildrenSumProperty(n.right);
+	//			}
+	//		} catch (Exception e) {
+	//			System.out.println("CAUGHT for :" + n.data);
+	//		}
+	//
+	//	}
 
-		//Left is null right is not null Sum is equal
-		if (n.left == null && n.right != null && n.data == n.right.data) {
-			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " OKAY");
-		}
+	/*
+	 * Get Ancestor of a node
+	 */
 
-		//Left is null right is not null sum is not equal
-		if (n.left == null && n.right != null && n.data != n.right.data) {
-			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " NO");
-			n.right.data = n.data;
-		}
-		//Left is not null right is  null sum is equal
-		if (n.right == null && n.left != null && n.data == n.left.data) {
-			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " OKAY");
-		}
-
-		//Left is not null right is null sum is not equal
-		if (n.right == null && n.left != null && n.data != n.left.data) {
-			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " NO");
-			n.left.data = n.data;
-		}
-
-		//left is not null right is not null sum is equal
-		if (n.left != null && n.right != null && n.data == n.left.data + n.right.data) {
-			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " YES");
-		}
-
-		//Left is not null right is not null sum is not equal
-		if (n.left != null && n.right != null && n.data != n.left.data + n.right.data) {
-			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " NO");
-			int diff = n.data - (n.left.data + n.right.data);
-			if (diff > 0) {//parent is more
-				n.data=n.data-diff;
-			} else {
-				n.left.data=n.left.data+diff;
-			}
-		}
-		try {
-			if (n.left != null) {
-				checkChildrenSumProperty(n.left);
-			}
-			if (n.right != null) {
-				checkChildrenSumProperty(n.right);
-			}
-		} catch (Exception e) {
-			System.out.println("CAUGHT for :" + n.data);
-		}
+	public static boolean printAncestors(Node node, int target) {
+		  /* base cases */
+        if (node == null)
+            return false;
+  
+        if (node.data == target)
+            return true;
+  
+        /* If target is present in either left or right subtree 
+           of this node, then print this node */
+        if (printAncestors(node.left, target)
+                || printAncestors(node.right, target)) 
+        {
+            System.out.print(node.data + " ");
+            return true;
+        }
+  
+        /* Else return false */
+        return false;
 
 	}
 	
@@ -303,6 +321,4 @@ public class BinaryTree {
 	 * Lowest Common ancestor
 	 */
 	
-	
-
 }
