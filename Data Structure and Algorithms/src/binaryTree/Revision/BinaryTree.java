@@ -27,14 +27,23 @@ public class BinaryTree {
 
 		BinaryTree tree = new BinaryTree();
 
-		tree.root = new Node(0);
-		tree.root.left = new Node(1);
-		tree.root.left.left = new Node(2);
-		tree.root.left.right = new Node(3);
-		tree.root.right = new Node(4);
-		tree.root.right.left = new Node(5);
-		tree.root.right.right = new Node(6);
-		System.out.println(maxDepth(tree.root));
+		tree.root = new Node(10);
+		tree.root.left = new Node(8);
+		tree.root.left.left = new Node(3);
+		tree.root.left.right = new Node(5);
+		tree.root.right = new Node(2);
+		tree.root.right.left = new Node(3);
+		//		tree.root.right.right = new Node(2);
+		
+		inorderTraversal(tree.root);
+		System.out.println("________________________________");
+		checkChildrenSumProperty(tree.root);
+		System.out.println("________________________________");
+		convertToChildrenSumPropertyTree(tree.root);
+		System.out.println("________________________________");
+		inorderTraversal(tree.root);
+		System.out.println("________________________________");
+		checkChildrenSumProperty(tree.root);
 	}
 
 	/*
@@ -163,11 +172,137 @@ public class BinaryTree {
 		if (n == null) {
 			return 0;
 		}
-		int lDepth=maxDepth(n.left);
-		System.out.println("left  :"+n.data);
-		int rDepth=maxDepth(n.right);
-		System.out.println("Right :"+n.data);
-		return 1+Math.max(lDepth, rDepth);
+		int lDepth = maxDepth(n.left);
+		int rDepth = maxDepth(n.right);
+		return 1 + Math.max(lDepth, rDepth);
 	}
+
+	/*
+	 * Print all the leaf node
+	 */
+	public static void printLeafNodes(Node n) {
+		if (n == null) {
+			return;
+		}
+		if (n.left == null && n.right == null) {
+			System.out.println(n.data);
+		}
+
+		printLeafNodes(n.left);
+		printLeafNodes(n.right);
+
+	}
+
+	/*
+	 * Check children sum property
+	 */
+	public static void checkChildrenSumProperty(Node n) {
+		if (n.left == null && n.right == null) {
+			return;
+		}
+		
+		//Left is null right is not null Sum is equal
+		if (n.left == null && n.right != null && n.data == n.right.data) {
+			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " YES");
+		}
+
+		//Left is null right is not null sum is not equal
+		if (n.left == null && n.right != null && n.data != n.right.data) {
+			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " NO");
+		}
+		//Left is not null right is  null sum is equal
+		if (n.right == null && n.left != null && n.data == n.left.data) {
+			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " YES");
+		}
+
+		//Left is not null right is null sum is not equal
+		if (n.right == null && n.left != null && n.data != n.left.data) {
+			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " NO");
+		}
+
+		//left is not null right is not null sum is equal
+		if (n.left != null && n.right != null && n.data == n.left.data + n.right.data) {
+			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " YES");
+		}
+
+		//Left is not null right is not null sum is not equal
+		if (n.left != null && n.right != null && n.data != n.left.data + n.right.data) {
+			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " NO");
+		}
+		try {
+			if (n.left != null) {
+				checkChildrenSumProperty(n.left);
+			}
+			if (n.right != null) {
+				checkChildrenSumProperty(n.right);
+			}
+		} catch (Exception e) {
+			System.out.println("CAUGHT for :" + n.data);
+		}
+
+	}
+
+	/*
+	 * Convert arbitrary tree to Children sum property tree
+	 */
+	public static void convertToChildrenSumPropertyTree(Node n) {
+		if (n.left == null && n.right == null) {
+			return;
+		}
+
+		//Left is null right is not null Sum is equal
+		if (n.left == null && n.right != null && n.data == n.right.data) {
+			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " OKAY");
+		}
+
+		//Left is null right is not null sum is not equal
+		if (n.left == null && n.right != null && n.data != n.right.data) {
+			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " NO");
+			n.right.data = n.data;
+		}
+		//Left is not null right is  null sum is equal
+		if (n.right == null && n.left != null && n.data == n.left.data) {
+			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " OKAY");
+		}
+
+		//Left is not null right is null sum is not equal
+		if (n.right == null && n.left != null && n.data != n.left.data) {
+			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " NO");
+			n.left.data = n.data;
+		}
+
+		//left is not null right is not null sum is equal
+		if (n.left != null && n.right != null && n.data == n.left.data + n.right.data) {
+			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " YES");
+		}
+
+		//Left is not null right is not null sum is not equal
+		if (n.left != null && n.right != null && n.data != n.left.data + n.right.data) {
+			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " NO");
+			int diff = n.data - (n.left.data + n.right.data);
+			if (diff > 0) {//parent is more
+				n.data=n.data-diff;
+			} else {
+				n.left.data=n.left.data+diff;
+			}
+		}
+		try {
+			if (n.left != null) {
+				checkChildrenSumProperty(n.left);
+			}
+			if (n.right != null) {
+				checkChildrenSumProperty(n.right);
+			}
+		} catch (Exception e) {
+			System.out.println("CAUGHT for :" + n.data);
+		}
+
+	}
+	
+	/*
+	 * Lowest Common ancestor
+	 */
+	
+	
 
 }
