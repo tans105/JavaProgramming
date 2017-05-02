@@ -29,13 +29,14 @@ public class BinaryTree {
 
 		tree.root = new Node(10);
 		tree.root.left = new Node(8);
-		tree.root.left.left = new Node(3);
-		tree.root.left.right = new Node(5);
-		tree.root.right = new Node(2);
-		tree.root.right.left = new Node(3);
-		//		tree.root.right.right = new Node(2);
-		printAncestors(tree.root, 3);
-	
+		tree.root.left.left = new Node(6);
+		tree.root.left.right = new Node(9);
+		tree.root.right = new Node(15);
+		tree.root.right.left = new Node(14);
+		tree.root.right.right = new Node(16);
+		convertToChildSum(tree.root);
+		levelorderTraversal(tree.root);
+
 	}
 
 	/*
@@ -235,90 +236,92 @@ public class BinaryTree {
 	}
 
 	/*
-	 * Convert arbitrary tree to Children sum property tree
-	 */
-	//	public static void convertToChildrenSumPropertyTree(Node n) {
-	//		if (n.left == null && n.right == null) {
-	//			return;
-	//		}
-	//
-	//		//Left is null right is not null Sum is equal
-	//		if (n.left == null && n.right != null && n.data == n.right.data) {
-	//			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " OKAY");
-	//		}
-	//
-	//		//Left is null right is not null sum is not equal
-	//		if (n.left == null && n.right != null && n.data != n.right.data) {
-	//			System.out.println("PARENT :" + n.data + " Child Right :" + n.right.data + " NO");
-	//			n.right.data = n.data;
-	//		}
-	//		//Left is not null right is  null sum is equal
-	//		if (n.right == null && n.left != null && n.data == n.left.data) {
-	//			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " OKAY");
-	//		}
-	//
-	//		//Left is not null right is null sum is not equal
-	//		if (n.right == null && n.left != null && n.data != n.left.data) {
-	//			System.out.println("PARENT :" + n.data + " Child LEFT :" + n.left.data + " NO");
-	//			n.left.data = n.data;
-	//		}
-	//
-	//		//left is not null right is not null sum is equal
-	//		if (n.left != null && n.right != null && n.data == n.left.data + n.right.data) {
-	//			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " YES");
-	//		}
-	//
-	//		//Left is not null right is not null sum is not equal
-	//		if (n.left != null && n.right != null && n.data != n.left.data + n.right.data) {
-	//			System.out.println("PARENT :" + n.data + " Child Left :" + n.left.data + " Child Right :" + n.right.data + " NO");
-	//			int diff = n.data - (n.left.data + n.right.data);
-	//			if (diff > 0) {//parent is more
-	//				n.data=n.data-diff;
-	//			} else {
-	//				n.left.data=n.left.data+diff;
-	//			}
-	//		}
-	//		try {
-	//			if (n.left != null) {
-	//				checkChildrenSumProperty(n.left);
-	//			}
-	//			if (n.right != null) {
-	//				checkChildrenSumProperty(n.right);
-	//			}
-	//		} catch (Exception e) {
-	//			System.out.println("CAUGHT for :" + n.data);
-	//		}
-	//
-	//	}
-
-	/*
 	 * Get Ancestor of a node
 	 */
 
 	public static boolean printAncestors(Node node, int target) {
-		  /* base cases */
-        if (node == null)
-            return false;
-  
-        if (node.data == target)
-            return true;
-  
-        /* If target is present in either left or right subtree 
-           of this node, then print this node */
-        if (printAncestors(node.left, target)
-                || printAncestors(node.right, target)) 
-        {
-            System.out.print(node.data + " ");
-            return true;
-        }
-  
-        /* Else return false */
-        return false;
+		/* base cases */
+		if (node == null)
+			return false;
+
+		if (node.data == target)
+			return true;
+
+		/*
+		 * If target is present in either left or right subtree
+		 * of this node, then print this node
+		 */
+		if (printAncestors(node.left, target) || printAncestors(node.right, target)) {
+			System.out.print(node.data + " ");
+			return true;
+		}
+
+		/* Else return false */
+		return false;
 
 	}
-	
+
 	/*
 	 * Lowest Common ancestor
 	 */
+
+	public static boolean printAncestorMyImplementation(Node node, int target) {
+		if (node == null) {
+			return false;
+		}
+		if (node.data == target) {
+			return true;
+		}
+		Boolean isLeft = printAncestorMyImplementation(node.left, target);
+		System.out.println("is Left: " + "Node " + node.data + " " + isLeft);
+		Boolean isRight = printAncestorMyImplementation(node.right, target);
+		System.out.println("is Right: " + "Node " + node.data + " " + isRight);
+		if (isLeft || isRight) {
+			System.out.println(node.data);
+			return true;
+		}
+		return false;
+
+	}
+
+	/*
+	 * Convert arbitary binary tree to follow child sum property
+	 */
+	public static void convertToChildSum(Node n) {
+		if (n == null || (n.left == null && n.right == null)) {
+			return;
+		}
+		int leftData = 0;
+		int rightData = 0;
+		int diff = 0;
+		convertToChildSum(n.left);
+		convertToChildSum(n.right);
+		if (n.left != null) {
+			leftData = n.left.data;
+		}
+		if (n.right != null) {
+			rightData = n.right.data;
+		}
+		diff = n.data - (n.left.data + n.right.data);
+		if (diff > 0) {//parent is more
+			increment(n, diff);
+		}
+		if (diff < 0) {
+			n.data = n.data - diff;
+		}
+	}
+
+	static void increment(Node node, int diff) {
+		if (node.left != null) {
+			node.left.data = node.left.data + diff;
+
+			increment(node.left, diff);
+		} else if (node.right != null) 
+		{
+			node.right.data = node.right.data + diff;
+
+			increment(node.right, diff);
+		}
+	}
 	
 }
