@@ -2,7 +2,7 @@ package CompetitiveProgramming;
 
 public class FindCountOfRepeatition {
 	public static void main(String[] args) {
-		String val = "daaabbbbcccccc";//i=2 counter=2 a3 d1a3b4c5
+		String val = "daaabbbbccccccaaasssssssdddddwwwww";//i=2 counter=2 a3 d1a3b4c5
 
 		Integer counter = 1;
 		Integer smallCnt = 0;
