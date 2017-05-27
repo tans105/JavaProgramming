@@ -1,4 +1,4 @@
-package CompetitiveProgramming.HackerEarth;
+package competitiveProgramming.hackerarth;
 
 import java.util.ArrayList;
 import java.util.List;

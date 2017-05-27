@@ -1,4 +1,4 @@
-package CompetitiveProgramming;
+package competitiveprogramming;
 
 import java.util.LinkedList;
 
