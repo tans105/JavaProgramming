@@ -1,4 +1,4 @@
-package competitiveprogramming;
+package competitiveProgramming;
 /**
  * 
  * @author tanmay

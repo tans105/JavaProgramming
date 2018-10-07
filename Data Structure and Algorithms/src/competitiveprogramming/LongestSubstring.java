@@ -1,4 +1,4 @@
-package competitiveprogramming;
+package competitiveProgramming;
 
 public class LongestSubstring {
 	public static void main(String[] args) {

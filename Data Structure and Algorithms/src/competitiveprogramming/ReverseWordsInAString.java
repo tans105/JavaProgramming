@@ -1,4 +1,4 @@
-package competitiveprogramming;
+package competitiveProgramming;
 
 import java.util.ArrayList;
 import java.util.List;

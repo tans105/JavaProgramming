@@ -1,4 +1,4 @@
-package StackOverflow;
+package competitiveProgramming.stackoverflow;
 
 import java.util.LinkedHashMap;
 
