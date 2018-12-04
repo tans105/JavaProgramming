@@ -1,10 +1,10 @@
 package ds;
 
 public class Node {
-	int val;
-	Node next;
+	public int val;
+	public Node next;
 
-	Node(int val) {
+	public Node(int val) {
 		this.val = val;
 	}
 }

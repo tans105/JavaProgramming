@@ -1,7 +1,8 @@
 package ds;
+import ds.Node;
 
 public class LinkedList {
-	static Node head;
+	public static Node head;
 
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
