@@ -1,4 +1,5 @@
 package ds;
+
 import ds.Node;
 
 public class LinkedList {
@@ -18,9 +19,32 @@ public class LinkedList {
 		prepend(new Node(6));
 		prepend(new Node(7));
 		append(new Node(8));
+//		delete(8);
+//		delete(5);
+//		delete(1);
+		/**
+		 * 7 6 1 2 3 4 5 8
+		 */
 		printLL();
-		delete(8);
-		delete(5);
+		reverseListIterative();
+		printLL();
+	}
+
+	private static void reverseListIterative() {
+		Node n = head;
+		Node temp = null;
+		Node prev = null;
+		while (n != null) {
+			temp = n.next;
+			if (n == head) {
+				n.next = null;
+			} else {
+				n.next = prev;
+			}
+			prev = n;
+			n = temp;
+		}
+		head = prev;
 	}
 
 	public static void printLL() {
@@ -63,6 +87,5 @@ public class LinkedList {
 		Node newNode = n.next;
 		n.next = null;
 		prev.next = newNode;
-		printLL();
 	}
 }
