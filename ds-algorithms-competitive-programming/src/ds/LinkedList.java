@@ -26,7 +26,8 @@ public class LinkedList {
 		 * 7 6 1 2 3 4 5 8
 		 */
 		printLL();
-		reverseListIterative();
+//		reverseListIterative	();
+		reverseLinkListRecursive(head, null);
 		printLL();
 	}
 
@@ -45,6 +46,19 @@ public class LinkedList {
 			n = temp;
 		}
 		head = prev;
+	}
+
+	private static Node reverseLinkListRecursive(Node curr, Node prev) {
+		if (curr.next == null) {
+			head = curr;
+			curr.next = prev;
+			return head;
+		}
+		Node temp = curr.next;
+		curr.next = prev;
+		reverseLinkListRecursive(temp, curr);
+		return head;
+
 	}
 
 	public static void printLL() {
