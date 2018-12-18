@@ -27,8 +27,9 @@ public class LinkedList {
 		 */
 		printLL();
 //		reverseListIterative	();
-		reverseLinkListRecursive(head, null);
-		printLL();
+//		reverseLinkListRecursive(head, null);
+		System.out.println(lengthOfLLRecursives(head));
+
 	}
 
 	private static void reverseListIterative() {
@@ -48,17 +49,15 @@ public class LinkedList {
 		head = prev;
 	}
 
-	private static Node reverseLinkListRecursive(Node curr, Node prev) {
+	private static void reverseLinkListRecursive(Node curr, Node prev) {
 		if (curr.next == null) {
 			head = curr;
 			curr.next = prev;
-			return head;
+			return;
 		}
 		Node temp = curr.next;
 		curr.next = prev;
 		reverseLinkListRecursive(temp, curr);
-		return head;
-
 	}
 
 	public static void printLL() {
@@ -101,5 +100,12 @@ public class LinkedList {
 		Node newNode = n.next;
 		n.next = null;
 		prev.next = newNode;
+	}
+
+	public static int lengthOfLLRecursives(Node n) {
+		if (n == null) {
+			return 0;
+		}
+		return lengthOfLLRecursives(n.next) + 1;
 	}
 }
