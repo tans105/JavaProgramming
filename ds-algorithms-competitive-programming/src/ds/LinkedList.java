@@ -1,6 +1,7 @@
 package ds;
 
 import ds.Node;
+import linkedList.PrintMiddleElementLinkList;
 
 public class LinkedList {
 	public static Node head;
@@ -29,7 +30,9 @@ public class LinkedList {
 //		reverseListIterative	();
 //		reverseLinkListRecursive(head, null);
 //		System.out.println(lengthOfLLRecursives(head));
-		System.out.println(searchElement(head, 7));
+//		System.out.println(searchElement(head, 7));
+//		printMiddleElement();
+		
 
 	}
 
@@ -118,5 +121,15 @@ public class LinkedList {
 			return false;
 		}
 		return searchElement(n.next, val);
+	}
+
+	public static void printMiddleElement() {
+		Node singleStep = head;
+		Node twoStep = head;
+		while (twoStep != null && twoStep.next !=null) {
+			singleStep = singleStep.next;
+			twoStep = twoStep.next.next;
+		}
+		System.out.println(singleStep.val);
 	}
 }
