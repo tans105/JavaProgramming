@@ -156,5 +156,9 @@ public class LinkedList {
 			return countNumberOfTimesIntOccorsRecursive(n.next, val);
 		}
 	}
+	
+	private void testMethod () {
+		
+	}
 
 }
