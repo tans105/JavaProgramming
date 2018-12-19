@@ -32,7 +32,8 @@ public class LinkedList {
 //		System.out.println(lengthOfLLRecursives(head));
 //		System.out.println(searchElement(head, 7));
 //		printMiddleElement();
-		
+//		countNumberOfTimesIntOccorsIterative(5);
+//		System.out.println(countNumberOfTimesIntOccorsRecursive(head,5));
 
 	}
 
@@ -126,10 +127,34 @@ public class LinkedList {
 	public static void printMiddleElement() {
 		Node singleStep = head;
 		Node twoStep = head;
-		while (twoStep != null && twoStep.next !=null) {
+		while (twoStep != null && twoStep.next != null) {
 			singleStep = singleStep.next;
 			twoStep = twoStep.next.next;
 		}
 		System.out.println(singleStep.val);
 	}
+
+	private static void countNumberOfTimesIntOccorsIterative(int val) {
+		Node n = head;
+		int count = 0;
+		while (n != null) {
+			if (n.val == val) {
+				count++;
+			}
+			n = n.next;
+		}
+		System.out.println(count);
+	}
+	
+	private static int countNumberOfTimesIntOccorsRecursive(Node n, int val) {
+		if(n==null) {
+			return 0;
+		}
+		if(n.val == val) {
+			return countNumberOfTimesIntOccorsRecursive(n.next, val)+1;
+		} else {
+			return countNumberOfTimesIntOccorsRecursive(n.next, val);
+		}
+	}
+
 }
