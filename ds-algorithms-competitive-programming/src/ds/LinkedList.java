@@ -28,7 +28,8 @@ public class LinkedList {
 		printLL();
 //		reverseListIterative	();
 //		reverseLinkListRecursive(head, null);
-		System.out.println(lengthOfLLRecursives(head));
+//		System.out.println(lengthOfLLRecursives(head));
+		System.out.println(searchElement(head, 7));
 
 	}
 
@@ -107,5 +108,15 @@ public class LinkedList {
 			return 0;
 		}
 		return lengthOfLLRecursives(n.next) + 1;
+	}
+
+	public static boolean searchElement(Node n, int val) {
+		if (n.val == val) {
+			return true;
+		}
+		if (n.next == null) {
+			return false;
+		}
+		return searchElement(n.next, val);
 	}
 }
