@@ -1,7 +1,7 @@
 package ds;
 
-import ds.Node;
-import linkedList.PrintMiddleElementLinkList;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class LinkedList {
 	public static Node head;
@@ -34,6 +34,8 @@ public class LinkedList {
 //		printMiddleElement();
 //		countNumberOfTimesIntOccorsIterative(5);
 //		System.out.println(countNumberOfTimesIntOccorsRecursive(head,5));
+//		append(n3);
+		System.out.println(detectLoop());
 
 	}
 
@@ -145,20 +147,31 @@ public class LinkedList {
 		}
 		System.out.println(count);
 	}
-	
+
 	private static int countNumberOfTimesIntOccorsRecursive(Node n, int val) {
-		if(n==null) {
+		if (n == null) {
 			return 0;
 		}
-		if(n.val == val) {
-			return countNumberOfTimesIntOccorsRecursive(n.next, val)+1;
+		if (n.val == val) {
+			return countNumberOfTimesIntOccorsRecursive(n.next, val) + 1;
 		} else {
 			return countNumberOfTimesIntOccorsRecursive(n.next, val);
 		}
 	}
-	
-	private void testMethod () {
-		
+
+	private static boolean detectLoop() {
+		Node n = head;
+		ArrayList<Node> nodes = new ArrayList<Node>();
+		boolean isLoop = false;
+		while (n != null) {
+			if (nodes.contains(n)) {
+				isLoop = true;
+				break;
+			}
+			nodes.add(n);
+			n = n.next;
+		}
+		return isLoop;
 	}
 
 }
