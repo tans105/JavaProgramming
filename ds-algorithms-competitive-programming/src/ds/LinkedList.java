@@ -35,7 +35,7 @@ public class LinkedList {
 //		countNumberOfTimesIntOccorsIterative(5);
 //		System.out.println(countNumberOfTimesIntOccorsRecursive(head,5));
 //		append(n3);
-		System.out.println(detectLoop());
+		System.out.println(detectLoopFloyd());
 
 	}
 
@@ -170,6 +170,21 @@ public class LinkedList {
 			}
 			nodes.add(n);
 			n = n.next;
+		}
+		return isLoop;
+	}
+
+	public static boolean detectLoopFloyd() {
+		Node singly = head;
+		Node doubly = head;
+		boolean isLoop = false;
+		while (singly != null && doubly != null && doubly.next != null) {
+			singly = singly.next;
+			doubly = doubly.next.next;
+			if (singly == doubly) {
+				isLoop = true;
+				break;
+			}
 		}
 		return isLoop;
 	}
