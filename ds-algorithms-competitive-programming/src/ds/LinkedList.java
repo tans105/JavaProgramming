@@ -2,6 +2,7 @@ package ds;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Stack;
 
 public class LinkedList {
 	public static Node head;
@@ -10,8 +11,8 @@ public class LinkedList {
 		LinkedList ll = new LinkedList();
 		Node n1 = new Node(1);
 		Node n2 = new Node(2);
-		Node n3 = new Node(3);
-		Node n4 = new Node(4);
+		Node n3 = new Node(2);
+		Node n4 = new Node(1);
 		ll.head = n1;
 		n1.next = n2;
 		n2.next = n3;
@@ -35,7 +36,8 @@ public class LinkedList {
 //		countNumberOfTimesIntOccorsIterative(5);
 //		System.out.println(countNumberOfTimesIntOccorsRecursive(head,5));
 //		append(n3);
-		System.out.println(detectLoopFloyd());
+//		System.out.println(detectLoopFloyd());
+		isPalindrome();
 
 	}
 
@@ -187,6 +189,28 @@ public class LinkedList {
 			}
 		}
 		return isLoop;
+	}
+
+	public static void isPalindrome() {
+		Node n = head;
+		Stack<Node> stack = new Stack<Node>();
+		while (n != null) {
+			stack.push(n);
+			n = n.next;
+		}
+		n = head;
+		Node temp = null;
+		boolean isPalindrome = true;
+		while (!stack.isEmpty()) {
+			temp = stack.pop();
+			if (temp.val != n.val) {
+				isPalindrome = false;
+				break;
+			}
+			n = n.next;
+		}
+
+		System.out.println("Is Palindrome: " + isPalindrome);
 	}
 
 }
