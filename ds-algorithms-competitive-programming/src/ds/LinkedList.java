@@ -38,12 +38,11 @@ public class LinkedList {
 //		append(n3);
 //		System.out.println(detectLoopFloyd());
 //		isPalindrome();
-		/**
-		 * 7 6 1 2 3 4 5 8 3 length of loop 5
-		 */
-		append(n3);
-		lengthOfLoop();
-
+//		append(n3);
+//		lengthOfLoop();
+		append(new Node(8));
+		prepend(new Node(1));
+		removeDuplicateFromLinkedList();
 	}
 
 	private static void reverseListIterative() {
@@ -233,7 +232,7 @@ public class LinkedList {
 				nodes.add(n);
 				n = n.next;
 			}
-			
+
 			int count = 0;
 			n = head;
 			while (n != detectedIntersectedLoop) {
@@ -244,6 +243,24 @@ public class LinkedList {
 		} else {
 			System.out.println("No Loop detected");
 		}
+	}
+
+	public static void removeDuplicateFromLinkedList() {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> duplicateIndexes = new ArrayList<Integer>();
+		Node n = head;
+		while (n != null) {
+			if(list.contains(n.val)) {
+				duplicateIndexes.add(n.val);
+			} else {
+				list.add(n.val);
+			}
+			n=n.next;
+		}
+		for(int i=0;i<duplicateIndexes.size();i++) {
+			delete(duplicateIndexes.get(i));
+		}
+		printLL();
 	}
 
 }
