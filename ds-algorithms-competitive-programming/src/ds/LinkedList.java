@@ -24,10 +24,6 @@ public class LinkedList {
 //		delete(8);
 //		delete(5);
 //		delete(1);
-		/**
-		 * 7 6 1 2 3 4 5 8
-		 */
-//		printLL();
 //		reverseListIterative	();
 //		reverseLinkListRecursive(head, null);
 //		System.out.println(lengthOfLLRecursives(head));
@@ -40,9 +36,14 @@ public class LinkedList {
 //		isPalindrome();
 //		append(n3);
 //		lengthOfLoop();
-		append(new Node(8));
-		prepend(new Node(1));
-		removeDuplicateFromLinkedList();
+//		append(new Node(8));
+//		prepend(new Node(1));
+//		removeDuplicateFromLinkedList();
+		/**
+		 * 7 6 1 2 3 4 5 8
+		 */
+		printLL();
+		swapNodes(7, 8);
 	}
 
 	private static void reverseListIterative() {
@@ -250,16 +251,45 @@ public class LinkedList {
 		ArrayList<Integer> duplicateIndexes = new ArrayList<Integer>();
 		Node n = head;
 		while (n != null) {
-			if(list.contains(n.val)) {
+			if (list.contains(n.val)) {
 				duplicateIndexes.add(n.val);
 			} else {
 				list.add(n.val);
 			}
-			n=n.next;
+			n = n.next;
 		}
-		for(int i=0;i<duplicateIndexes.size();i++) {
+		for (int i = 0; i < duplicateIndexes.size(); i++) {
 			delete(duplicateIndexes.get(i));
 		}
+		printLL();
+	}
+
+	public static void swapNodes(int x, int y) {
+		Node prevX = null, nextX = null, prevY = null, nextY = null, X = null, Y = null;
+		Node n = head;
+		Node prev = null;
+		while (n != null) {
+			if (n.val == x) {
+				X = n;
+				prevX = prev;
+				nextX = n.next;
+			}
+			if (n.val == y) {
+				Y = n;
+				prevY = prev;
+				nextY = n.next;
+			}
+			prev = n;
+			n = n.next;
+		}
+		if(prevX == null) { //x is head
+			head = Y;
+		} else {
+			prevX.next = Y;	
+		}
+		Y.next = nextX;
+		prevY.next = X;
+		X.next = nextY;
 		printLL();
 	}
 
