@@ -11,8 +11,8 @@ public class LinkedList {
 		LinkedList ll = new LinkedList();
 		Node n1 = new Node(1);
 		Node n2 = new Node(2);
-		Node n3 = new Node(2);
-		Node n4 = new Node(1);
+		Node n3 = new Node(3);
+		Node n4 = new Node(4);
 		ll.head = n1;
 		n1.next = n2;
 		n2.next = n3;
@@ -27,7 +27,7 @@ public class LinkedList {
 		/**
 		 * 7 6 1 2 3 4 5 8
 		 */
-		printLL();
+//		printLL();
 //		reverseListIterative	();
 //		reverseLinkListRecursive(head, null);
 //		System.out.println(lengthOfLLRecursives(head));
@@ -37,7 +37,12 @@ public class LinkedList {
 //		System.out.println(countNumberOfTimesIntOccorsRecursive(head,5));
 //		append(n3);
 //		System.out.println(detectLoopFloyd());
-		isPalindrome();
+//		isPalindrome();
+		/**
+		 * 7 6 1 2 3 4 5 8 3 length of loop 5
+		 */
+		append(n3);
+		lengthOfLoop();
 
 	}
 
@@ -211,6 +216,34 @@ public class LinkedList {
 		}
 
 		System.out.println("Is Palindrome: " + isPalindrome);
+	}
+
+	public static void lengthOfLoop() {
+		if (detectLoop()) {
+			Node n = head;
+			int countTillLoopDetected = 0;
+			Node detectedIntersectedLoop = null;
+			ArrayList<Node> nodes = new ArrayList<Node>();
+			while (n != null) {
+				countTillLoopDetected++;
+				if (nodes.contains(n)) {
+					detectedIntersectedLoop = n;
+					break;
+				}
+				nodes.add(n);
+				n = n.next;
+			}
+			
+			int count = 0;
+			n = head;
+			while (n != detectedIntersectedLoop) {
+				count++;
+				n = n.next;
+			}
+			System.out.println(countTillLoopDetected - count);
+		} else {
+			System.out.println("No Loop detected");
+		}
 	}
 
 }
