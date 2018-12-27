@@ -43,7 +43,9 @@ public class LinkedList {
 		 * 7 6 1 2 3 4 5 8
 		 */
 		printLL();
-		swapNodes(7, 8);
+//		swapNodes(5, 8);
+//		pairWiseSwapApproach1();
+		pairWiseSwapApproach2();
 	}
 
 	private static void reverseListIterative() {
@@ -282,15 +284,60 @@ public class LinkedList {
 			prev = n;
 			n = n.next;
 		}
-		if(prevX == null) { //x is head
+//		System.out.println(prevX.val+" "+X.val+" "+nextX.val);
+//		System.out.println(prevY.val+" "+Y.val+" "+nextY.val);
+
+		if (prevX == null) { // x is head
 			head = Y;
 		} else {
-			prevX.next = Y;	
+			prevX.next = Y;
 		}
-		Y.next = nextX;
-		prevY.next = X;
+
+		if (nextX == Y) {
+			Y.next = X;
+			X.next = nextY;
+		} else {
+			Y.next = nextX;
+			prevY.next = X;
+		}
 		X.next = nextY;
+	}
+
+	public static void pairWiseSwapApproach1() {
+		Node n = head;
+		Node node1 = null;
+		Node node2 = null;
+		while (n != null && n.next != null) {
+			node1 = n;
+			node2 = n.next;
+			n = n.next.next;
+			swapNodes(node1.val, node2.val);
+		}
 		printLL();
 	}
 
+	public static void pairWiseSwapApproach2() {
+		Node n = head;
+		Node node1 = null;
+		Node node2 = null;
+		Node nextNode = null;
+		Node prevNode = null;
+		while (n != null && n.next != null) {
+			node1 = n;
+			node2 = n.next;
+			nextNode = node2.next;
+			n = n.next.next;
+			if (node1 == head) {
+				head = node2;
+				node2.next = node1;
+				node1.next = nextNode;
+			} else {
+				prevNode.next = node2;
+				node2.next = node1;
+				node1.next = nextNode;
+			}
+			prevNode = node1;
+		}
+		printLL();
+	}
 }
