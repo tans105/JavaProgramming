@@ -1,12 +1,12 @@
 package ds;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Stack;
 
 public class LinkedList {
 	public static Node head;
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
 		Node n1 = new Node(1);
@@ -45,10 +45,11 @@ public class LinkedList {
 		printLL();
 //		swapNodes(5, 8);
 //		pairWiseSwapApproach1();
-		pairWiseSwapApproach2();
+//		pairWiseSwapApproach2();
+		moveLastElementToFirst();
 	}
 
-	private static void reverseListIterative() {
+	public static void reverseListIterative() {
 		Node n = head;
 		Node temp = null;
 		Node prev = null;
@@ -65,7 +66,7 @@ public class LinkedList {
 		head = prev;
 	}
 
-	private static void reverseLinkListRecursive(Node curr, Node prev) {
+	public static void reverseLinkListRecursive(Node curr, Node prev) {
 		if (curr.next == null) {
 			head = curr;
 			curr.next = prev;
@@ -145,7 +146,7 @@ public class LinkedList {
 		System.out.println(singleStep.val);
 	}
 
-	private static void countNumberOfTimesIntOccorsIterative(int val) {
+	public static void countNumberOfTimesIntOccorsIterative(int val) {
 		Node n = head;
 		int count = 0;
 		while (n != null) {
@@ -157,7 +158,7 @@ public class LinkedList {
 		System.out.println(count);
 	}
 
-	private static int countNumberOfTimesIntOccorsRecursive(Node n, int val) {
+	public static int countNumberOfTimesIntOccorsRecursive(Node n, int val) {
 		if (n == null) {
 			return 0;
 		}
@@ -338,6 +339,22 @@ public class LinkedList {
 			}
 			prevNode = node1;
 		}
+		printLL();
+	}
+
+	public static void moveLastElementToFirst() {
+		Node n = head;
+		Node nCopy = head;
+		Node secondElement = n.next;
+		while (n.next.next != null) {
+			n = n.next;
+		}
+		Node temp = n.next;
+		n.next = nCopy;
+		n = n.next;
+		n.next = null;
+		temp.next = secondElement;
+		head = temp;
 		printLL();
 	}
 }
