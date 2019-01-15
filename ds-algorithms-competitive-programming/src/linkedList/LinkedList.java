@@ -1,4 +1,4 @@
-package ds;
+package linkedList;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -357,4 +357,6 @@ public class LinkedList {
         head = temp;
         printLL();
     }
+
+
 }

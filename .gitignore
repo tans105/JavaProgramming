@@ -5,3 +5,6 @@ ds-algorithms-competitive-programming/bin/
 ds-algorithms-competitive-programming/.settings
 ds-algorithms-competitive-programming/.classpath
 ds-algorithms-competitive-programming/.project
+ds-algorithms-competitive-programming/.idea/
+ds-algorithms-competitive-programming/ds-algorithms-competitive-programming.iml
+ds-algorithms-competitive-programming/out/
