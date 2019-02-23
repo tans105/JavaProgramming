@@ -3,7 +3,7 @@ package competitiveProgramming.GeekForGeeks;
 //https://www.geeksforgeeks.org/oyorooms-interview-experience-set-12-4-experience-backend-developer/
 public class FetchEachNumberFromString {
     public static void main(String[] args) {
-        String s = "xyzonexyzthreeabrdcminusfourctgd";
+        String s = "xyzonexyzthreeabrdcminusfourctgdeight";
         int i = 0;
         int sum = 0;
         boolean isMinus = false;
@@ -129,42 +129,42 @@ public class FetchEachNumberFromString {
     }
 
     private static boolean checkO(String s) {
-        return s.lastIndexOf("one") >= 0;
+        return s.contains("one");
     }
 
     private static boolean checkF(String s, int set) {
         if (set == 1) { // four
-            return s.lastIndexOf("four") >= 0;
+            return s.contains("four");
         } else { //five
-            return s.lastIndexOf("five") >= 0;
+            return s.contains("five");
         }
     }
 
     private static boolean checkT(String s, int set) {
         if (set == 1) { // two
-            return s.lastIndexOf("two") >= 0;
+            return s.contains("two");
         } else { //three
-            return s.lastIndexOf("three") >= 0;
+            return s.contains("three");
         }
     }
 
     private static boolean checkS(String s, int set) {
         if (set == 1) { // six
-            return s.lastIndexOf("six") >= 0;
+            return s.contains("six");
         } else { //seven
-            return s.lastIndexOf("seven") >= 0;
+            return s.contains("seven");
         }
     }
 
     private static boolean checkE(String s) {
-        return s.lastIndexOf("eight") >= 0;
+        return s.contains("eight");
     }
 
     private static boolean checkN(String s) {
-        return s.lastIndexOf("nine") >= 0;
+        return s.contains("nine");
     }
 
     private static boolean checkM(String s) {
-        return s.lastIndexOf("minus") >= 0;
+        return s.contains("minus");
     }
 }
