@@ -3,20 +3,7 @@ package competitiveProgramming.GeekForGeeks;
 public class PriorityQueueUsingLinkedList {
     private static Element head;
 
-    public static void main(String[] args) {
-        PriorityQueueUsingLinkedList pl = new PriorityQueueUsingLinkedList();
-        enqueue(new Element("B", 20));
-        enqueue(new Element("D", 40));
-        enqueue(new Element("C", 30));
-        enqueue(new Element("A", 10));
-        enqueue(new Element("A1", 10));
-        enqueue(new Element("D1", 40));
-        printList();
-        dequeue();
-        printList();
-    }
-
-    private static void printList() {
+    public void printList() {
         Element el = head;
         while (el != null) {
             System.out.println("(Value)->" + el.value + " :: (Priority) ->" + el.priority + "\t");
@@ -25,19 +12,20 @@ public class PriorityQueueUsingLinkedList {
         System.out.println();
     }
 
-    private static void enqueue(Element newElement) {
+    public void enqueue(Element newElement) {
         Element el = head;
         Element prev = null;
         if (head == null) {
             head = newElement;
+            head.next = null;
         } else {
-            if (head.priority > newElement.priority) {
+            if (head.priority < newElement.priority) {
                 newElement.next = el;
                 head = newElement;
                 return;
             }
             while (el != null) {
-                if (el.priority > newElement.priority) {
+                if (el.priority < newElement.priority) {
                     prev.next = newElement;
                     newElement.next = el;
                     return;
@@ -46,25 +34,51 @@ public class PriorityQueueUsingLinkedList {
                 el = el.next;
             }
             prev.next = newElement;
+            newElement.next = null;
         }
     }
 
-    private static String peek() {
-        return head.value;
+    public Element peek() {
+        return head;
     }
 
-    private static void dequeue() {
+    public void dequeue() {
         Element el = head;
         head = el.next;
+    }
+
+    public boolean contains(char c) {
+        Element el = head;
+        while (el != null) {
+            if (el.value == c) {
+                return true;
+            }
+            el = el.next;
+        }
+        return false;
+    }
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public int size() {
+        Element el = head;
+        int count = 0;
+        while (el != null) {
+            count++;
+            el = el.next;
+        }
+        return count;
     }
 }
 
 class Element {
-    String value;
+    char value;
     int priority;
     Element next;
 
-    Element(String value, int priority) {
+    Element(char value, int priority) {
         this.value = value;
         this.priority = priority;
     }
