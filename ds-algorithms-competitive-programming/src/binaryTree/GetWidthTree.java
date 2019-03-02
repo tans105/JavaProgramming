@@ -38,7 +38,7 @@ public class GetWidthTree {
 
 	public int getMaxWidth(Node n) {
 		int maxWidth = 0, width = 0;
-		for (int i = 0; i < height(n); i++) {
+		for (int i = 1; i < height(n) + 1; i++) {
 			width = getWidth(n, i);
 			System.out.println("level :"+i+ " width: "+width);
 			if (width > maxWidth)
