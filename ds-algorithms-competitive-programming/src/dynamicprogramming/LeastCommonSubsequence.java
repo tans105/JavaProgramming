@@ -1,21 +1,27 @@
 package dynamicprogramming;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LeastCommonSubsequence {
     public static void main(String[] args) {
         String X = "ABCBDAB";
         String Y = "BDCABA";
-        System.out.println(findLCS(X, Y, X.length(), Y.length()));
+        Map<String, Integer> lookup = new HashMap<>();
+        System.out.println(findLCS(X, Y, X.length(), Y.length(), lookup));
     }
 
-    private static int findLCS(String x, String y, int lx, int ly) {
+    private static int findLCS(String x, String y, int lx, int ly, Map<String, Integer> lookup) {
         if (lx == 0 || ly == 0) {
             return 0;
         }
-
+        String key = lx + ":" + ly;
         if (x.charAt(lx - 1) == y.charAt(ly - 1)) {
-            return 1 + findLCS(x, y, lx - 1, ly - 1);
+            lookup.put(key, 1 + findLCS(x, y, lx - 1, ly - 1, lookup));
         } else {
-            return Integer.max(findLCS(x, y, lx, ly - 1), findLCS(x, y, lx - 1, ly));
+            lookup.put(key, Integer.max(findLCS(x, y, lx, ly - 1, lookup), findLCS(x, y, lx - 1, ly, lookup)));
         }
+
+        return lookup.get(key);
     }
 }
