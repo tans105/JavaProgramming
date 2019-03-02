@@ -3,7 +3,7 @@ package dynamicprogramming;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LeastCommonSubsequence {
+public class LongestCommonSubsequence {
     public static void main(String[] args) {
         String X = "ABCBDAB";
         String Y = "BDCABA";
