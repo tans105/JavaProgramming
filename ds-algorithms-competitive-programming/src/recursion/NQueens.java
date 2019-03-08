@@ -2,16 +2,12 @@ package recursion;
 
 public class NQueens {
 
-    private final static int N = 4;
+    private static int N;
 
     public static void main(String[] args) {
-        int num = 4;
-        int board[][] = {
-                {0, 0, 0, 0},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0}
-        };
+
+        int board[][] = new int[5][5];
+        N = 5;
         initNQueen(board);
     }
 

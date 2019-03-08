@@ -1,4 +1,4 @@
-package algorithms.searchingandsorting;
+package algorithms.searching;
 
 /*
  * complexity- O(logn)

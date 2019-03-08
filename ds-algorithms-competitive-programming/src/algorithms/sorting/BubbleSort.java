@@ -1,4 +1,4 @@
-package algorithms.searchingandsorting;
+package algorithms.sorting;
 /*
  * Complexity- O(n^2)
  */
