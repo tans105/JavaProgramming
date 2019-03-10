@@ -1,6 +1,6 @@
 package Utils;
 
-public class Utility {
+public class ArrayUtils {
     public static void print2DArray(int[][] T) {
         for (int i = 0; i < T.length; i++) {
             for (int j = 0; j < T[i].length; j++) {
@@ -26,5 +26,19 @@ public class Utility {
             }
             System.out.println();
         }
+    }
+
+    public static void printArray(int[] array) {
+        for (int j : array) {
+            System.out.print(j + "\t");
+        }
+        System.out.println();
+    }
+
+    public static void printArray(char[] array) {
+        for (char j : array) {
+            System.out.print(j + "\t");
+        }
+        System.out.println();
     }
 }
