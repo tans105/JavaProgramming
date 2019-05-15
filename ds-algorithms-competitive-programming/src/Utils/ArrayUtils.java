@@ -54,6 +54,13 @@ public class ArrayUtils {
         System.out.println();
     }
 
+    public static void printArray(Object[] array) {
+        for (Object j : array) {
+            System.out.print(j + "\t");
+        }
+        System.out.println();
+    }
+
     public static int getMax(int[] arr) {
         int max = 0;
         for (int anArr : arr)

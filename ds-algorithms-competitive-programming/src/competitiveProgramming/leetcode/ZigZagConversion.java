@@ -13,6 +13,7 @@ public class ZigZagConversion {
 
     private static String convert(String s, int numRows) {
         char[] arr = s.toCharArray();
+        ArrayUtils.printArray(arr);
         char[][] index = new char[numRows][arr.length / 2]; //maximum number of columns will appear when numRows = 2
         int currentCharIndex = 0;
         int i = 0, j = 0;
