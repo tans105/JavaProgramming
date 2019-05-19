@@ -1,7 +1,5 @@
 package Utils;
 
-import java.io.PrintStream;
-
 public class ArrayUtils {
 
     public static void print2DArray(char[][] T) {
@@ -62,11 +60,19 @@ public class ArrayUtils {
     }
 
     public static int getMax(int[] arr) {
-        int max = 0;
+        int max = Integer.MIN_VALUE;
         for (int anArr : arr)
             if (max < anArr)
                 max = anArr;
         return max;
+    }
+
+    public static int getMin(int[] arr) {
+        int min = Integer.MAX_VALUE;
+        for (int anArr : arr)
+            if (min > anArr)
+                min = anArr;
+        return min;
     }
 
 }

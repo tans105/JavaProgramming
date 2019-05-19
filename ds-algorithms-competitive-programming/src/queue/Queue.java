@@ -14,7 +14,7 @@ public class Queue {
 
 	}
 
-	public void enqueue(int num) {
+    public void enqueue(int num) {
 		
 		if (front < size-1) {
 			front++;
