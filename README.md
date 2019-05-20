@@ -1,2 +1,2 @@
 # JavaProgramming
-DS,Algorithms,Advanced Java, competitive programming
+Data Structures ,Algorithms, Competitive Programming
