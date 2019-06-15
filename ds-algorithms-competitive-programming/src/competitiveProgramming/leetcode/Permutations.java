@@ -37,21 +37,55 @@ public class Permutations {
 
     public static List<List<Integer>> permute2(int[] num) {
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
-        if (num.length ==0) return ans;
+        if (num.length == 0) return ans;
         List<Integer> l0 = new ArrayList<Integer>();
         l0.add(num[0]);
         ans.add(l0);
-        for (int i = 1; i< num.length; ++i){
+        for (int i = 1; i < num.length; ++i) {
             List<List<Integer>> new_ans = new ArrayList<List<Integer>>();
-            for (int j = 0; j<=i; j++){
-                for (List<Integer> l : ans){
+            for (int j = 0; j <= i; j++) {
+                for (List<Integer> l : ans) {
                     List<Integer> new_l = new ArrayList<Integer>(l);
-                    new_l.add(j,num[i]);
+                    new_l.add(j, num[i]);
                     new_ans.add(new_l);
                 }
             }
             ans = new_ans;
         }
         return ans;
+    }
+
+
+    public static List<List<Integer>> permute3(int[] nums) {
+        List<List<Integer>> finalList = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        List<List<Integer>> third = new ArrayList<>();
+        if (nums == null || nums.length == 0) return third;
+        temp.add(nums[0]);
+        finalList.add(temp);
+        third.addAll(finalList);
+        for (int i = 1; i < nums.length; i++) {
+            third = new ArrayList<>();
+            List<List<Integer>> finalListCopy = new ArrayList<>(finalList);
+            for (int j = 0; j < finalList.size(); j++) {
+                finalListCopy = createPermutation(nums[i], finalList.get(j), finalList);
+                temp.add(nums[i]);
+                third.addAll(finalListCopy);
+            }
+
+            finalList = finalListCopy;
+        }
+        return third;
+    }
+
+    private static List<List<Integer>> createPermutation(int num, List<Integer> temp, List<List<Integer>> finalList) {
+        List<List<Integer>> finalListCopy = new ArrayList<>();
+        for (int i = 0; i <= temp.size(); i++) {
+            List<Integer> temp1 = new ArrayList<>(temp);
+            temp1.add(i, num);
+            finalListCopy.add(temp1);
+        }
+        finalList = finalListCopy;
+        return finalList;
     }
 }
