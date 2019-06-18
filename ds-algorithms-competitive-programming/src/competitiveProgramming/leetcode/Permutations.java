@@ -1,5 +1,6 @@
 package competitiveProgramming.leetcode;
 
+import Utils.ArrayUtils;
 import Utils.LoggingUtil;
 
 import java.util.ArrayList;
@@ -7,12 +8,59 @@ import java.util.Arrays;
 import java.util.List;
 
 //https://leetcode.com/problems/permutations/
+//https://leetcode.com/problems/permutations-ii/
 public class Permutations {
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3, 4};
+        int[] nums = new int[]{1, 1, 2};
 //        System.out.println(permute(nums));
-        System.out.println(permute2(nums));
+//        System.out.println(permute2(nums));
+        System.out.println(permuteDuplicates(nums));
     }
+
+    private static List<List<Integer>> permuteDuplicates(int[] nums) {
+        List<List<Integer>> finalList = new ArrayList<>();
+        List<Integer> tempList = new ArrayList<>();
+        Arrays.sort(nums);
+        boolean[] used = new boolean[nums.length];
+        backtrackDuplicates(finalList, tempList, nums, used);
+        return finalList;
+    }
+
+    private static void backtrackDuplicates(List<List<Integer>> finalList, List<Integer> tempList, int[] nums, boolean[] used) {
+        LoggingUtil.logNewLine(tempList, Arrays.toString(used));
+        if (tempList.size() == nums.length) {
+            finalList.add(new ArrayList<>(tempList));
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i]) continue;
+            if (i > 0 && nums[i - 1] == nums[i] && !used[i - 1]) {
+                System.out.println(Arrays.toString(used));
+                continue;
+            }
+            used[i] = true;
+            tempList.add(nums[i]);
+            backtrackDuplicates(finalList, tempList, nums, used);
+            used[i] = false;
+            tempList.remove(tempList.size() - 1);
+        }
+    }
+
+    private static void backtrack(List<List<Integer>> finalList, List<Integer> tempList, int[] nums) {
+        if (tempList.size() == nums.length) {
+            finalList.add(new ArrayList<>(tempList));
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (tempList.contains(nums[i])) {
+                continue;
+            }
+            tempList.add(nums[i]);
+            backtrack(finalList, tempList, nums);
+            tempList.remove(tempList.size() - 1);
+        }
+    }
+
 
     private static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> finalList = new ArrayList<>();
@@ -22,18 +70,6 @@ public class Permutations {
         return finalList;
     }
 
-    private static void backtrack(List<List<Integer>> finalList, List<Integer> tempList, int[] nums) {
-        if (tempList.size() == nums.length) {
-            finalList.add(new ArrayList<>(tempList));
-        }
-
-        for (int i = 0; i < nums.length; i++) {
-            if (tempList.contains(nums[i])) continue;
-            tempList.add(nums[i]);
-            backtrack(finalList, tempList, nums);
-            tempList.remove(tempList.size() - 1);
-        }
-    }
 
     public static List<List<Integer>> permute2(int[] num) {
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
