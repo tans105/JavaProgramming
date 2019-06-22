@@ -14,7 +14,7 @@ import java.util.*;
  * Note: The result may be very large, so you need to return a string instead of an integer.
  */
 public class LargestNumber implements Comparator<String> {
-    
+
     private String largestNumber(final List<Integer> A) {
         List<String> B = new ArrayList<String>();
         for (Integer number : A) {
