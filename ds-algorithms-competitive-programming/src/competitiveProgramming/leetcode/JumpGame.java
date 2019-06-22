@@ -22,7 +22,16 @@ package competitiveProgramming.leetcode;
  * Explanation: You will always arrive at index 3 no matter what. Its maximum
  * jump length is 0, which makes it impossible to reach the last index.
  */
+
+enum Index {
+    UNKNOWN,
+    GOOD,
+    BAD
+}
+
 public class JumpGame {
+    private static Index[] memo;
+
     public static void main(String[] args) {
         int[] nums = new int[]{3, 2, 1, 0, 4};
         System.out.println(canJumpRecursive(nums));
@@ -35,22 +44,27 @@ public class JumpGame {
      * @param nums
      * @return
      */
-    public static boolean canJumpRecursive(int[] nums) {
+    private static boolean canJumpRecursive(int[] nums) {
+        memo = new Index[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            memo[i] = Index.UNKNOWN;
+        }
         return canJumpHelper(nums, 0);
     }
 
-    public static boolean canJumpHelper(int[] nums, int position) {
-        if (position == nums.length - 1) {
-            return true;
+    private static boolean canJumpHelper(int[] nums, int position) {
+        if (memo[position] != Index.UNKNOWN) {
+            return memo[position] == Index.GOOD;
         }
 
         int farthestPossible = Math.min(position + nums[position], nums.length - 1);
         for (int i = farthestPossible; i >= position + 1; i--) {
             if (canJumpHelper(nums, i)) {
+                memo[position] = Index.GOOD;
                 return true;
             }
         }
-
+        memo[position] = Index.BAD;
         return false;
     }
 
@@ -60,7 +74,7 @@ public class JumpGame {
      * @param nums
      * @return
      */
-    public static boolean canJumpGreedy(int[] nums) {
+    private static boolean canJumpGreedy(int[] nums) {
         int max = 0;
 
         for (int i = 0; i < nums.length; i++) {
