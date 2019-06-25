@@ -10,10 +10,10 @@ public class NextPermutation {
     public static void main(String[] args) {
         int[] arr = {2, 3, 1, 3, 3};
         nextPermutation(arr);
-        ArrayUtils.printArray((arr));
+//        ArrayUtils.printArray((arr));
     }
 
-    private static void nextPermutation(int[] nums) {
+    public static void nextPermutation(int[] nums) {
         int prev = Integer.MAX_VALUE;
         for (int i = nums.length - 1; i >= 0; i--) {
             if (prev == Integer.MAX_VALUE) {
@@ -50,7 +50,7 @@ public class NextPermutation {
     }
 
     private static void swap(int[] nums, int decreasingElementIndex) {
-        System.out.println(decreasingElementIndex);
+//        System.out.println(decreasingElementIndex);
         int swapIndex = -1;
         int minDiff = Integer.MAX_VALUE;
         int currentDiff;
@@ -61,8 +61,8 @@ public class NextPermutation {
                 swapIndex = i;
             }
         }
-        System.out.println(swapIndex);
+//        System.out.println(swapIndex);
         swap(nums, swapIndex, decreasingElementIndex);
-        ArrayUtils.printArray(nums);
+//        ArrayUtils.printArray(nums);
     }
 }
