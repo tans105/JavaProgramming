@@ -6,6 +6,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * https://www.geeksforgeeks.org/print-valid-words-possible-using-characters-array/
+ * Given a dictionary and a character array, print all valid words that are possible using characters from the array.
+ * <p>
+ * Examples:
+ * <p>
+ * Input : Dict - {"go","bat","me","eat","goal",
+ * "boy", "run"}
+ * arr[] = {'e','o','b', 'a','m','g', 'l'}
+ * Output : go, me, goal.
+ */
 public class FindValidWords {
     public static void main(String[] args) {
         List<String> dict = Arrays.asList("go", "baat", "me", "eat", "goal", "boy", "run");
