@@ -21,6 +21,8 @@ public class SortArrayOfOneAndZero {
         while (zeroPtr < onePtr) {
             if (arr[zeroPtr] == 1 && arr[onePtr] == 0) {
                 swap(arr, zeroPtr, onePtr);
+                zeroPtr++;
+                onePtr--;
             }
 
             if (arr[zeroPtr] == 0) {
