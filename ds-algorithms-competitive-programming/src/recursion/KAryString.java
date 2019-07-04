@@ -3,10 +3,10 @@ package recursion;
 import Utils.ArrayUtils;
 
 public class KAryString {
-    private static int[] array = new int[5];
+    private static int[] array = new int[3];
 
     public static void main(String[] args) {
-        KString(array.length, 4);
+        KString(array.length, 2);
     }
 
     private static void KString(int n, int k) {

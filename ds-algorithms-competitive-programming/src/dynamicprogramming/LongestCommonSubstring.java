@@ -1,5 +1,7 @@
 package dynamicprogramming;
 
+import Utils.ArrayUtils;
+
 public class LongestCommonSubstring {
     public static void main(String[] args) {
         String X = "ABAB";
@@ -31,6 +33,8 @@ public class LongestCommonSubstring {
                 }
             }
         }
+
+        ArrayUtils.print2DArray(T);
 
         StringBuilder resultStr = new StringBuilder();
         while (T[row][col] != 0) {
