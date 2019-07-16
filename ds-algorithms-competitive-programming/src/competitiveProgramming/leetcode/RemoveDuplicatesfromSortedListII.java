@@ -1,5 +1,8 @@
 package competitiveProgramming.leetcode;
 
+import Utils.LinkedListUtil;
+import Utils.ListNode;
+
 /**
  * Remove Duplicates from Sorted List II
  * Medium
@@ -25,27 +28,8 @@ package competitiveProgramming.leetcode;
 public class RemoveDuplicatesfromSortedListII {
     public static void main(String[] args) {
         //1->2->3->3->4->4->5
-        ListNode head = populateListNode(new int[]{2, 3, 3, 4, 4, 5}, new ListNode(1));
-        printLL(deleteDuplicates(head));
-    }
-
-    private static ListNode populateListNode(int[] arr, ListNode head) {
-        ListNode n = head;
-        ListNode head1 = n;
-        for (int i : arr) {
-            n.next = new ListNode(i);
-            n = n.next;
-        }
-
-        return head1;
-    }
-
-    private static void printLL(ListNode head) {
-        ListNode n = head;
-        while (n != null) {
-            System.out.println(n.val + "\t");
-            n = n.next;
-        }
+        ListNode head = LinkedListUtil.populateList(new int[]{2, 3, 3, 4, 4, 5, 5}, new ListNode(1));
+        LinkedListUtil.printList(deleteDuplicates(head));
     }
 
     private static ListNode deleteDuplicates(ListNode head) {
@@ -68,15 +52,10 @@ public class RemoveDuplicatesfromSortedListII {
             n = n.next;
         }
 
+        if(prev != n) {
+            prev.next = null;
+        }
+
         return head1;
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
     }
 }
