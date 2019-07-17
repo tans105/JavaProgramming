@@ -10,3 +10,6 @@ ds-algorithms-competitive-programming/ds-algorithms-competitive-programming.iml
 ds-algorithms-competitive-programming/out/
 .classpath
 .project
+ds-algorithms-competitive-programming/src/.idea/
+ds-algorithms-competitive-programming/src/ds-algorithms-competitive-programming.iml
+ds-algorithms-competitive-programming/src/out/
