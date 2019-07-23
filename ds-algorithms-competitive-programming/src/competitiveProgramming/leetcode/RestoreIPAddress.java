@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class RestoreIPAddress {
     public static void main(String[] args) {
-        System.out.println(restoreIpAddresses("0000"));
+        System.out.println(restoreIpAddresses("25522"));
     }
 
     public static List<String> restoreIpAddresses(String s) {
@@ -43,8 +43,6 @@ public class RestoreIPAddress {
     }
 
     private static boolean isValid(String s) {
-        if (s.length() > 3 || s.length() == 0 || (s.charAt(0) == '0' && s.length() > 1) || Integer.parseInt(s) > 255)
-            return false;
-        return true;
+        return s.length() <= 3 && s.length() != 0 && (s.charAt(0) != '0' || s.length() <= 1) && Integer.parseInt(s) <= 255;
     }
 }
