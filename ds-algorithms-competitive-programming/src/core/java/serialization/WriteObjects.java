@@ -13,7 +13,7 @@ public class WriteObjects {
 
         Person mike = new Person(543, "Mike");
         Person sue = new Person(123, "Sue");
-
+        Person.setCount(10);
         System.out.println(mike);
         System.out.println(sue);
 
