@@ -1,8 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
-import Utils.LoggingUtil;
-
 import java.util.Arrays;
 
 //https://leetcode.com/problems/next-permutation/

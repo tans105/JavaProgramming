@@ -1,7 +1,6 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
-import Utils.LoggingUtil;
+import utils.ArrayUtils;
 
 //https://leetcode.com/problems/zigzag-conversion/
 public class ZigZagConversion {

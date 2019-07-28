@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
 //https://www.geeksforgeeks.org/oyorooms-interview-experience-set-12-4-experience-backend-developer/
 public class FetchEachNumberFromString {

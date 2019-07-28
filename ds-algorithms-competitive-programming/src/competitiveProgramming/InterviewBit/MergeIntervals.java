@@ -1,7 +1,6 @@
-package competitiveProgramming.InterviewBit;
+package competitiveProgramming.interviewbit;
 
-import Utils.ArrayUtils;
-import Utils.LoggingUtil;
+import utils.ArrayUtils;
 
 import java.util.*;
 

@@ -1,10 +1,8 @@
 package competitiveProgramming.leetcode;
 
-import Utils.LinkedListUtil;
-import Utils.ListNode;
-import Utils.LoggingUtil;
+import utils.LinkedListUtil;
+import utils.ListNode;
 
-import java.util.List;
 import java.util.Stack;
 
 /**

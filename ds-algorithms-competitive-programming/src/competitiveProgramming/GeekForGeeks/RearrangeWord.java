@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 /*
 Given String, arrange in such a way that no two alphabets are together
 For eg. aabbc => ababc/acbab..

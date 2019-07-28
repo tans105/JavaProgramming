@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
 class LongestIncreasingSubsequence {
     private static int max_ref;

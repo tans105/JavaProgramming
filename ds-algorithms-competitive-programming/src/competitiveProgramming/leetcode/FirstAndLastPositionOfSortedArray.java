@@ -2,8 +2,6 @@ package competitiveProgramming.leetcode;
 
 //https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
-import Utils.ArrayUtils;
-
 public class FirstAndLastPositionOfSortedArray {
     public static void main(String[] args) {
         int[] arr = new int[]{8, 8, 8, 8, 8, 8};

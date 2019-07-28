@@ -1,7 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import Utils.LoggingUtil;
-
 //https://leetcode.com/problems/palindrome-number/
 class PalindromeNumber {
 

@@ -1,4 +1,4 @@
-package competitiveProgramming.Hackerrank;
+package competitiveProgramming.hackerrank;
 
 public class CountHoles {
     public static void main(String[] args) {

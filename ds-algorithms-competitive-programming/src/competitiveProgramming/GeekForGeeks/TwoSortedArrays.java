@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 //https://www.geeksforgeeks.org/oyo-interview-experience-off-campus/
 
 public class TwoSortedArrays {

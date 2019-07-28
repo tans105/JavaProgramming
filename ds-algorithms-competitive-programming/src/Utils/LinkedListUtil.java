@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 public class LinkedListUtil {
     public static final String LL_SEPARATOR = " -> ";

@@ -1,8 +1,8 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
 //https://www.geeksforgeeks.org/segregate-0s-and-1s-in-an-array-by-traversing-array-once/
 
-import Utils.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * You are given an array of 0s and 1s in random order. Segregate 0s on left side and 1s on right side of the array. Traverse array only once.

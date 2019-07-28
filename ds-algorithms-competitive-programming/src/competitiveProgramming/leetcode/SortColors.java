@@ -1,6 +1,6 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
  * https://leetcode.com/problems/sort-colors/

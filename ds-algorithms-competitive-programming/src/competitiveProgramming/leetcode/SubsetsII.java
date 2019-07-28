@@ -1,7 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import Utils.LoggingUtil;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

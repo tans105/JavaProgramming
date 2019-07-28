@@ -1,9 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
-
-import java.util.Arrays;
-
 //https://leetcode.com/problems/maximum-subarray/
 public class MaximumSubarray {
     public static void main(String[] args) {

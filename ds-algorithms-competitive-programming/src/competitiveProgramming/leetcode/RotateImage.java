@@ -1,7 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
-
 //https://leetcode.com/problems/rotate-image/
 public class RotateImage {
 

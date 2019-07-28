@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 //https://www.geeksforgeeks.org/find-time-taken-for-signal-to-reach-all-positions-in-a-string/
 
 public class TimeTakenSignal {

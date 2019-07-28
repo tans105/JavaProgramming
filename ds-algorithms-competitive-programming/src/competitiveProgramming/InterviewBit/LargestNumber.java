@@ -1,4 +1,4 @@
-package competitiveProgramming.InterviewBit;
+package competitiveProgramming.interviewbit;
 
 import java.util.*;
 

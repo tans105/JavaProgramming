@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
 /**
  * Given a string str we need to tell minimum characters to be added at front of string to make string palindrome.

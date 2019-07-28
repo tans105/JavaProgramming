@@ -1,7 +1,7 @@
 package competitiveProgramming.leetcode;
 
-import Utils.LinkedListUtil;
-import Utils.ListNode;
+import utils.LinkedListUtil;
+import utils.ListNode;
 
 /**
  * Remove Duplicates from Sorted List II

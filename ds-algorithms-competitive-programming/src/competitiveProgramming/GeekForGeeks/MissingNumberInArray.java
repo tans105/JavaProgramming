@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
 //https://practice.geeksforgeeks.org/problems/missing-number-in-array/0
 public class MissingNumberInArray {

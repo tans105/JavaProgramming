@@ -1,8 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
-
-import java.lang.reflect.Array;
 import java.util.*;
 
 //https://leetcode.com/problems/3sum/

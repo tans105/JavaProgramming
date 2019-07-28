@@ -1,8 +1,6 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
-
-import java.util.ArrayList;
+import utils.ArrayUtils;
 
 //https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 public class RemoveDuplicateFromSortedArray {

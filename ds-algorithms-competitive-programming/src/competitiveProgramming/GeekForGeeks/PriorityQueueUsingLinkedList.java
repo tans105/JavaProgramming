@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
 public class PriorityQueueUsingLinkedList {
     private static Element head;

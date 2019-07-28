@@ -1,6 +1,6 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
-import Utils.ArrayUtils;
+import utils.ArrayUtils;
 
 import java.util.Arrays;
 

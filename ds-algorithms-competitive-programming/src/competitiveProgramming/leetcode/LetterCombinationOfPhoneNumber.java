@@ -1,11 +1,6 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 //https://leetcode.com/problems/letter-combinations-of-a-phone-number/

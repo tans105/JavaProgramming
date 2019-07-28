@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 public class TreeNode {
     public TreeNode left;

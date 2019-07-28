@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
 //https://practice.geeksforgeeks.org/problems/equilibrium-point/0
 public class EquillibriumPoint {

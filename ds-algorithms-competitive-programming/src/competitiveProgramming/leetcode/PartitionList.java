@@ -1,9 +1,8 @@
 package competitiveProgramming.leetcode;
 
 
-import Utils.LinkedListUtil;
-import Utils.ListNode;
-import Utils.LoggingUtil;
+import utils.LinkedListUtil;
+import utils.ListNode;
 
 
 /**

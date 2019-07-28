@@ -1,7 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import Utils.LoggingUtil;
-
 import java.util.Arrays;
 
 //https://leetcode.com/problems/3sum-closest/

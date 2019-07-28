@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
 
 //https://www.geeksforgeeks.org/stock-buy-sell/

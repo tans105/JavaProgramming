@@ -1,7 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
-
 public class MinimumPathSum {
 
     public static void main(String[] args) {

@@ -1,9 +1,6 @@
 package competitiveProgramming.leetcode;
 
-import Utils.LoggingUtil;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * https://leetcode.com/problems/word-search/

@@ -1,6 +1,4 @@
-package competitiveProgramming.Hackerrank;
-
-import Utils.LoggingUtil;
+package competitiveProgramming.hackerrank;
 
 import java.util.ArrayList;
 import java.util.List;

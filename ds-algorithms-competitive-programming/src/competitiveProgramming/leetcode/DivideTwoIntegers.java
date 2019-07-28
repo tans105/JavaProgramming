@@ -1,6 +1,6 @@
 package competitiveProgramming.leetcode;
 
-import Utils.LoggingUtil;
+import utils.LoggingUtil;
 
 //https://leetcode.com/problems/divide-two-integers/
 public class DivideTwoIntegers {

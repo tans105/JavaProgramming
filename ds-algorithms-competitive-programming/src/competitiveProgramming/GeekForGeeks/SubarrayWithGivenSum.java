@@ -1,4 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
 //https://practice.geeksforgeeks.org/problems/subarray-with-given-sum/0
 public class SubarrayWithGivenSum {

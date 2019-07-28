@@ -1,6 +1,6 @@
 package competitiveProgramming.leetcode;
 
-import Utils.TreeNode;
+import utils.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

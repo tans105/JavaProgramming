@@ -1,7 +1,7 @@
-package competitiveProgramming.GeekForGeeks;
+package competitiveProgramming.geekforgeeks;
 
-import Utils.ArrayUtils;
-import Utils.LoggingUtil;
+import utils.ArrayUtils;
+import utils.LoggingUtil;
 
 public class MaximumSumOfLIS {
     private static int maxSumIs(int arr[], int n) {

@@ -1,4 +1,4 @@
-package competitiveProgramming.Hackerrank;
+package competitiveProgramming.hackerrank;
 
 import java.util.*;
 

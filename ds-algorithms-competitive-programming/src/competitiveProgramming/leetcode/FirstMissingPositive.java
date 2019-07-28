@@ -1,7 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import Utils.ArrayUtils;
-
 //https://leetcode.com/problems/first-missing-positive/
 public class FirstMissingPositive {
     public static void main(String[] args) {

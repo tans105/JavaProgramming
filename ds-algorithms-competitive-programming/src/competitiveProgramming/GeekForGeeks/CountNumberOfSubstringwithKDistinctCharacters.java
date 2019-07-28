@@ -1,6 +1,4 @@
-package competitiveProgramming.GeekForGeeks;
-
-import Utils.ArrayUtils;
+package competitiveProgramming.geekforgeeks;
 
 import java.util.*;
 

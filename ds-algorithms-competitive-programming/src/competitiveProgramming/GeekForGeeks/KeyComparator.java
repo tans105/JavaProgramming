@@ -1,7 +1,6 @@
-package competitiveProgramming.GeekForGeeks;// Java program to rearrange characters in a string
+package competitiveProgramming.geekforgeeks;// Java program to rearrange characters in a string
 // so that no two adjacent characters are same.
 
-import java.io.*;
 import java.util.*;
 
 class KeyComparator implements Comparator<Key> {
@@ -58,10 +57,10 @@ class GFG {
         // it's frequency '-1' )
         Key prev = new Key(-1, '#');
 
-        // traverse queue
+        // traverse datastructures.queue
         while (pq.size() != 0) {
 
-            // pop top element from queue and add it
+            // pop top element from datastructures.queue and add it
             // to string.
             Key k = pq.peek();
             pq.poll();
