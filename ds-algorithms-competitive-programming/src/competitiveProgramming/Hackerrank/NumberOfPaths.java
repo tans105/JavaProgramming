@@ -9,13 +9,16 @@ import java.util.List;
 public class NumberOfPaths {
     public static void main(String[] args) {
 
-        List a = Arrays.asList(1, 1);
-        List b = Arrays.asList(0, 1);
+        List a = Arrays.asList(1, 1, 1, 1);
+        List b = Arrays.asList(0, 1, 1, 1);
+        List c = Arrays.asList(1, 1, 1, 1);
         List tot = new ArrayList();
         tot.add(a);
         tot.add(b);
-//        tot.add(c);
+        tot.add(c);
         System.out.println(numberOfPaths(tot));
+        numberOfPathsHelpder(tot, 0, 0);
+        System.out.println(count);
     }
 
     static int count = 0;
@@ -45,21 +48,18 @@ public class NumberOfPaths {
 
     }
 
-    private static int numberOfPathsHelpder(List<List<Integer>> a, int x, int y) {
+
+    private static void numberOfPathsHelpder(List<List<Integer>> a, int x, int y) {
         if (x < 0 || y < 0 || x >= a.size() || y >= a.get(0).size()) {
-            return 0;
+            return;
         }
-        if (a.get(x).get(y) == 0) {
-            return 0;
-        } else {
-            LoggingUtil.logNewLine(x, y);
-            if (x + 1 < a.size() && a.get(x + 1).get(y) == 1) {
-                return 1 + numberOfPathsHelpder(a, x + 1, y);
-            }
-            if (y + 1 < a.get(0).size() && a.get(x).get(y + 1) == 1) {
-                return 1 + numberOfPathsHelpder(a, x, y + 1);
-            }
-        }
-        return 0;
+        if (a.get(x).get(y) == 0) return;
+
+        if (x == (a.size() - 1) && y == a.get(x).size() - 1) count++;
+
+        numberOfPathsHelpder(a, x + 1, y);
+        numberOfPathsHelpder(a, x, y + 1);
+
+
     }
 }
