@@ -2,7 +2,7 @@ package competitiveProgramming.leetcode;
 
 
 import utils.LinkedListUtil;
-import utils.ListNode;
+import utils.pojo.ListNode;
 
 
 /**

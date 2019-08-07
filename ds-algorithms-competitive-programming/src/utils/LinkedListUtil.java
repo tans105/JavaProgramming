@@ -1,5 +1,7 @@
 package utils;
 
+import utils.pojo.ListNode;
+
 public class LinkedListUtil {
     public static final String LL_SEPARATOR = " -> ";
 

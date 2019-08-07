@@ -1,4 +1,4 @@
-package utils;
+package utils.pojo;
 
 public class TreeNode {
     public TreeNode left;

@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Utils {
 
-    public static Stack<Character> populateStack(String s1) {
+    public static Stack<Character> populateStackFromString(String s1) {
         Stack<Character> s = new Stack<>();
         int len = s1.length();
         for (int i = len - 1; i >= 0; i--) {
