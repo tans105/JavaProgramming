@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class TreeUtils {
 
-    public static TreeNode generateBinaryTreeFromArray(int[] array) {
+    public static TreeNode generateBinaryTreeFromArray(Integer[] array) {
         if (array == null || array.length == 0) return null;
         TreeNode root = new TreeNode(array[0]);
         Queue<TreeNode> queue = new ConcurrentLinkedDeque<>();
@@ -16,17 +16,27 @@ public class TreeUtils {
         TreeNode node = null;
         while (currentIndex < array.length) {
             node = queue.poll();
-            node.left = new TreeNode(array[currentIndex]);
-            queue.add(node.left);
+            if (array[currentIndex] != null) {
+                node.left = new TreeNode(array[currentIndex]);
+                queue.add(node.left);
+            }
             currentIndex++;
 
             if (currentIndex < array.length) {
-                node.right = new TreeNode(array[currentIndex]);
-                queue.add(node.right);
+                if (array[currentIndex] != null) {
+                    node.right = new TreeNode(array[currentIndex]);
+                    queue.add(node.right);
+                }
                 currentIndex++;
             }
         }
         return root;
+    }
+
+    public static void main(String[] args) {
+        TreeNode node = generateBinaryTreeFromArray(new Integer[]{5, 1, 4, null, null, 3, 6});
+        inorderTraversal(node);
+
     }
 
     public static void inorderTraversal(TreeNode node) {
