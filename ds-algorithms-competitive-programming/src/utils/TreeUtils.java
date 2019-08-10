@@ -65,4 +65,12 @@ public class TreeUtils {
         inorderTraversal(node.right);
         System.out.print(node.val + "\t");
     }
+
+    public static int getHeight(TreeNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return 1 + Math.max(getHeight(node.left), getHeight(node.right));
+        }
+    }
 }
