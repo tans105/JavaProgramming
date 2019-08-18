@@ -15,7 +15,7 @@ package competitiveProgramming.leetcode;
  */
 public class MinimumWindowSubstring {
     public static void main(String[] args) {
-        String S = "a", T = "a";
+        String S = "ADOBECODEBANC", T = "ABC";
         System.out.println(minWindow(S, T));
     }
 
