@@ -89,7 +89,7 @@ public class ArrayUtils {
         List<int[]> finalList = new ArrayList<>();
 
         for (String array : filteredArraysAsString) {
-            finalList.add(parseArray(array, true));
+            finalList.add(parseArray(array));
         }
 
         int[][] result = new int[finalList.size()][finalList.get(0).length];
@@ -100,10 +100,20 @@ public class ArrayUtils {
         return result;
     }
 
-    public static int[] parseArray(String str, boolean checked) {
-        if (!checked) {
-            str = str.substring(2, str.length() - 2);
+    public static int[] parseArray(String str) {
+        int startIndex = 0;
+        int endIndex = str.length() - 1;
+
+        while (str.charAt(startIndex) == '[') {
+            startIndex++;
         }
+
+        while (str.charAt(endIndex) == ']') {
+            endIndex--;
+        }
+
+        endIndex++;
+        str = str.substring(startIndex, endIndex);
         return Arrays.stream(str.split(",")).mapToInt(Integer::parseInt).toArray();
     }
 
