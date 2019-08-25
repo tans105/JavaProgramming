@@ -1,14 +1,13 @@
 package utils;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Stack;
 
 public class ArrayUtils {
 
     public static void print2DArray(char[][] T) {
+        if (T == null) return;
         for (int i = 0; i < T.length; i++) {
             for (int j = 0; j < T[i].length; j++) {
                 System.out.print("T[" + i + "," + j + "] " + T[i][j] + "\t");
@@ -18,6 +17,7 @@ public class ArrayUtils {
     }
 
     public static void print2DArray(int[][] T) {
+        if (T == null) return;
         for (int i = 0; i < T.length; i++) {
             for (int j = 0; j < T[i].length; j++) {
                 System.out.print("T[" + i + "," + j + "] " + T[i][j] + "\t");
@@ -27,6 +27,7 @@ public class ArrayUtils {
     }
 
     public static void print2DArray(String[][] T) {
+        if (T == null) return;
         for (int i = 0; i < T.length; i++) {
             for (int j = 0; j < T[i].length; j++) {
                 System.out.print("T[" + i + "," + j + "] " + T[i][j] + "\t");
@@ -45,6 +46,7 @@ public class ArrayUtils {
     }
 
     public static void printArray(int[] array) {
+        if (array == null) return;
         for (int j : array) {
             System.out.print(j + "\t");
         }
@@ -52,6 +54,7 @@ public class ArrayUtils {
     }
 
     public static void printArray(char[] array) {
+        if (array == null) return;
         for (char j : array) {
             System.out.print(j + "\t");
         }
@@ -59,6 +62,7 @@ public class ArrayUtils {
     }
 
     public static void printArray(Object[] array) {
+        if (array == null) return;
         for (Object j : array) {
             System.out.print(j + "\t");
         }
@@ -113,7 +117,7 @@ public class ArrayUtils {
         }
 
         endIndex++;
-        str = str.substring(startIndex, endIndex);
+        str = str.substring(startIndex, endIndex).replaceAll("\\s+", "");
         return Arrays.stream(str.split(",")).mapToInt(Integer::parseInt).toArray();
     }
 

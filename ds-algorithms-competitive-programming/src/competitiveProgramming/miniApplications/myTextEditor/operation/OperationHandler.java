@@ -39,7 +39,7 @@ public class OperationHandler {
         if (index - 1 < builder.length()) {
             System.out.println(builder.charAt(index - 1));
         } else {
-            System.out.println("No Sufficient text");
+            //"No Sufficient text"
         }
     }
 
@@ -80,14 +80,14 @@ public class OperationHandler {
                     String deletedCharacters = delete(Integer.parseInt(operand));
                     if (deletedCharacters != null) undoStack.push("1 " + deletedCharacters);
                 } catch (Exception e) {
-                    System.out.println("Invalid Operand");
+                    new IllegalArgumentException("Invalid Operand");
                 }
                 break;
             case "3":  //print
                 try {
                     print(Integer.parseInt(operand));
                 } catch (Exception e) {
-                    System.out.println("Invalid Operand");
+                    new IllegalArgumentException("Invalid Operand");
                 }
                 break;
             case "4":  //undo
