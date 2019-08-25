@@ -1,6 +1,6 @@
-package competitiveProgramming.miniApplications.myTextEditor;
+package miniApplications.myTextEditor;
 
-import competitiveProgramming.miniApplications.myTextEditor.operation.OperationHandler;
+import miniApplications.myTextEditor.operation.OperationHandler;
 
 /**
  * You must implement a simple text editor. Operations:

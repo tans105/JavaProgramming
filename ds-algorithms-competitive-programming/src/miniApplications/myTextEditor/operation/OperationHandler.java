@@ -1,4 +1,4 @@
-package competitiveProgramming.miniApplications.myTextEditor.operation;
+package miniApplications.myTextEditor.operation;
 
 import java.util.Stack;
 
