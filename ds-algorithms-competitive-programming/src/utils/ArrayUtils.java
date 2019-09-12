@@ -121,4 +121,15 @@ public class ArrayUtils {
         return Arrays.stream(str.split(",")).mapToInt(Integer::parseInt).toArray();
     }
 
+    public static int[] generateArray(int num, boolean fromZero) {
+        int[] arr = new int[num];
+        int start = (fromZero) ? 0 : 1;
+
+        for (int i = 0; i < num; i++) {
+            arr[i] = start++;
+        }
+        ArrayUtils.printArray(arr);
+        return arr;
+    }
+
 }
