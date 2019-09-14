@@ -1,4 +1,4 @@
-package core.advanced.legacy;
+package core.java.dependencyinjection.legacy;
 
 public class MyApplication {
 

@@ -1,7 +1,7 @@
-package core.advanced.dependencyinjection.injector;
+package core.java.dependencyinjection.di.injector;
 
-import core.advanced.dependencyinjection.consumer.MyDIApplication;
-import core.advanced.dependencyinjection.service.EmailServiceImpl;
+import core.java.dependencyinjection.di.consumer.MyDIApplication;
+import core.java.dependencyinjection.di.service.EmailServiceImpl;
 
 public class EmailServiceInjector implements MessageServiceInjector {
 

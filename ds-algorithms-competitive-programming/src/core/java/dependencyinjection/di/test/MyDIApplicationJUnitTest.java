@@ -1,9 +1,9 @@
-package core.advanced.dependencyinjection.test;
+package core.java.dependencyinjection.di.test;
 
-import core.advanced.dependencyinjection.consumer.Consumer;
-import core.advanced.dependencyinjection.consumer.MyDIApplication;
-import core.advanced.dependencyinjection.injector.MessageServiceInjector;
-import core.advanced.dependencyinjection.service.MessageService;
+import core.java.dependencyinjection.di.consumer.Consumer;
+import core.java.dependencyinjection.di.consumer.MyDIApplication;
+import core.java.dependencyinjection.di.injector.MessageServiceInjector;
+import core.java.dependencyinjection.di.service.MessageService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

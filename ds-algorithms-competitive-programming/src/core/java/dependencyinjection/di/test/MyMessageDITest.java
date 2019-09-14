@@ -1,9 +1,9 @@
-package core.advanced.dependencyinjection.test;
+package core.java.dependencyinjection.di.test;
 
-import core.advanced.dependencyinjection.consumer.Consumer;
-import core.advanced.dependencyinjection.injector.EmailServiceInjector;
-import core.advanced.dependencyinjection.injector.MessageServiceInjector;
-import core.advanced.dependencyinjection.injector.SMSServiceInjector;
+import core.java.dependencyinjection.di.consumer.Consumer;
+import core.java.dependencyinjection.di.injector.EmailServiceInjector;
+import core.java.dependencyinjection.di.injector.MessageServiceInjector;
+import core.java.dependencyinjection.di.injector.SMSServiceInjector;
 
 public class MyMessageDITest {
 

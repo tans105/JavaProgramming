@@ -1,4 +1,4 @@
-package core.advanced.dependencyinjection.consumer;
+package core.java.dependencyinjection.di.consumer;
 
 public interface Consumer {
 

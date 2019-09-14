@@ -1,4 +1,4 @@
-package core.advanced.dependencyinjection.service;
+package core.java.dependencyinjection.di.service;
 
 public class SMSServiceImpl implements MessageService {
 

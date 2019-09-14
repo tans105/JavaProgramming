@@ -1,6 +1,6 @@
-package core.advanced.dependencyinjection.consumer;
+package core.java.dependencyinjection.di.consumer;
 
-import core.advanced.dependencyinjection.service.MessageService;
+import core.java.dependencyinjection.di.service.MessageService;
 
 public class MyDIApplication implements Consumer{
 
