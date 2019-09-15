@@ -3,6 +3,9 @@ package core.java.practise;
 import core.java.serialization.Person;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Tester {
     Tester(String s) {
@@ -37,6 +40,14 @@ public class Tester {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+
+        SortedSet set = new TreeSet();
+        set.add(4);
+        set.add(3);
+        set.add(2);
+        set.add(1);
+        System.out.println(set);
 
     }
 }
