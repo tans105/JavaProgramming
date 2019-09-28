@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import utils.ArrayUtils;
 import com.google.gson.*;
@@ -14,6 +15,7 @@ public class RequestMovies {
 
     public static void main(String[] args) {
         String[] arr = getResponseList("spiderman");
+        System.out.println(arr.length);
         ArrayUtils.printArray(arr);
     }
 
@@ -33,9 +35,12 @@ public class RequestMovies {
                 } else {
                     hasMore = false;
                 }
+            } else {
+                hasMore = false;
             }
         }
 
+        responses.sort(String::compareTo);
         return responses.toArray(new String[0]);
     }
 

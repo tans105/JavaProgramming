@@ -1,8 +1,5 @@
-package random;
+package competitiveProgramming.random;
 
-import utils.ArrayUtils;
-
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 

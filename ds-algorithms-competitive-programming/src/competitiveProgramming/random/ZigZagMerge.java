@@ -1,4 +1,4 @@
-package random;
+package competitiveProgramming.random;
 
 import utils.ArrayUtils;
 
