@@ -5,24 +5,48 @@ import java.util.HashMap;
 public class LRUCache {
 
     private int capacity;
-    HashMap<Integer, DLLNode> lookup;
+    private int currentCapacity;
+    private HashMap<Integer, DLLNode> lookup;
+    private DoublyLinkedList linkedList;
 
-    public LRUCache(int capacity) {
+    private LRUCache(int capacity) {
         this.capacity = capacity;
-        lookup = new HashMap();
+        lookup = new HashMap<>();
+        linkedList = new DoublyLinkedList();
+        currentCapacity = 0;
     }
 
     public int get(int key) {
-        return 0;
+        DLLNode node = lookup.get(key);
+        if (node == null) {
+            return -1;
+        } else {
+            linkedList.moveToHead(node);
+        }
+        linkedList.print();
+
+        return node.value;
+
     }
 
     public void put(int key, int value) {
-
+        if (!lookup.containsKey(key)) {
+            DLLNode node = new DLLNode(key, value);
+            if (currentCapacity != capacity) {
+                linkedList.addAtStart(node);
+                lookup.put(key, node);
+                currentCapacity++;
+            } else {
+                DLLNode removedNode = linkedList.removeFromEnd();
+                linkedList.addAtStart(node);
+            }
+        }
+//        LoggingUtil.logNewLine(lookup);
+        linkedList.print();
     }
 
-
     public static void main(String[] args) {
-        LRUCache cache = new LRUCache(5);
+        LRUCache cache = new LRUCache(7);
         cache.put(1, 1);
         cache.put(2, 2);
         cache.get(1);       // returns 1
@@ -36,27 +60,48 @@ public class LRUCache {
 }
 
 class DoublyLinkedList {
-    DLLNode head;
-    DLLNode tail;
+    private DLLNode head;
+    private DLLNode tail;
 
+    DoublyLinkedList() {
+        head = new DLLNode();
+        tail = new DLLNode();
+        head.next = tail;
+        tail.prev = head;
+    }
 
-    public void addAtStart(int value) {
+    public static void main(String[] args) {
+        DoublyLinkedList dll = new DoublyLinkedList();
+        dll.addAtStart(new DLLNode(1,1));
+        dll.addAtStart(new DLLNode(2,2));
+        dll.addAtStart(new DLLNode(3,3));
+        dll.print();
+        dll.removeFromEnd();
+        dll.print();
+        dll.removeFromEnd();
+        dll.print();
+        dll.removeFromEnd();
+        dll.print();
+    }
+
+    void addAtStart(DLLNode temp) {
         DLLNode back = head;
         DLLNode ahead = head.next;
-        DLLNode temp = new DLLNode(value);
         temp.next = ahead;
         back.next = temp;
         temp.prev = back;
         ahead.prev = temp;
     }
 
-    public void removeFromEnd() {
+    DLLNode removeFromEnd() {
         DLLNode last = tail;
+        DLLNode lastNotNullNode = last.prev;
         if (last.prev != null && last.prev.prev != null) {
             DLLNode temp = last.prev.prev;
             temp.next = tail;
             tail.prev = temp;
         }
+        return lastNotNullNode;
     }
 
     public void print() {
@@ -84,22 +129,43 @@ class DoublyLinkedList {
             System.out.println();
         }
     }
+
+    void moveToHead(DLLNode node) {
+        removeFromList(node);
+        addAtStart(node);
+    }
+
+    private void removeFromList(DLLNode node) {
+        DLLNode savedPrev = node.prev;
+        DLLNode savedNext = node.next;
+
+        savedPrev.next = savedNext;
+        savedNext.prev = savedPrev;
+    }
 }
 
 class DLLNode {
     public Integer value;
+    public Integer key;
     public DLLNode prev;
     public DLLNode next;
 
-    public DLLNode(Integer value) {
+    DLLNode(Integer key, Integer value) {
+        this.key = key;
         this.value = value;
         this.next = null;
         this.prev = null;
     }
 
-    public DLLNode() {
+    DLLNode() {
+        this.key = null;
         this.value = null;
         this.next = null;
         this.prev = null;
+    }
+
+    @Override
+    public String toString() {
+        return "[value=" + value + ", key=" + key +"]";
     }
 }
