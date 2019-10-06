@@ -24,7 +24,24 @@ import java.util.Arrays;
 
 public class MaxProductSubarray {
     public static void main(String[] args) {
-        System.out.println(maxProduct(new int[]{-2, 0, -1}));
+//        System.out.println(maxProduct(new int[]{-2, 0, -1}));
+        System.out.println(maxProduct2(new int[]{2, 3, -2, 4}));
+    }
+
+    public static int maxProduct2(int[] A) {
+        if (A == null || A.length == 0) {
+            return 0;
+        }
+        int max = A[0], min = A[0], result = A[0];
+        for (int i = 1; i < A.length; i++) {
+            int temp = max;
+            max = Math.max(Math.max(max * A[i], min * A[i]), A[i]);
+            min = Math.min(Math.min(temp * A[i], min * A[i]), A[i]);
+            if (max > result) {
+                result = max;
+            }
+        }
+        return result;
     }
 
     private static int maxProduct(int[] arr) {
