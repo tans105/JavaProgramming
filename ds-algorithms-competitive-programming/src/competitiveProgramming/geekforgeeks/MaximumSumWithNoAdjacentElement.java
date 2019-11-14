@@ -20,6 +20,7 @@ public class MaximumSumWithNoAdjacentElement {
     public static void main(String[] args) {
         int[] arr = new int[]{5, 5, 10, 100, 10, 5};
         System.out.println(findMaxSum(arr));
+        System.out.println(maxSum(arr, arr.length));
     }
 
 
@@ -35,6 +36,20 @@ public class MaximumSumWithNoAdjacentElement {
             prevExcl = excl;
         }
         return Math.max(incl, excl);
+    }
+
+    private static int maxSum(int list[], int list_len) {
+        int prev_prev_sum = 0;
+        int prev_sum = list[0];
+        int i, current_sum;
+        for (i = 1; i < list_len; i++) {
+            current_sum = prev_prev_sum + list[i];
+            /* Sum calculated. Ready the variables for the next iteration */
+            prev_prev_sum = Math.max(prev_prev_sum, prev_sum);
+            prev_sum = current_sum;
+        }
+
+        return (Math.max(prev_prev_sum, prev_sum));
     }
 }
 
