@@ -31,8 +31,12 @@ public class WordSearch {
         System.out.println(exist(arr, "SEE"));
     }
 
+
+    static boolean[][] visited;
+
     private static boolean exist(char[][] board, String word) {
         char[] arr = word.toCharArray();
+        visited = new boolean[board.length][board[0].length];
 
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
@@ -49,12 +53,16 @@ public class WordSearch {
             return true;
         }
 
-        if (i < 0 || i >= rows || j < 0 || j >= columns || board[i][j] != arr[index]) return false;
+        if (i < 0 || i >= rows || j < 0 || j >= columns || board[i][j] != arr[index] || visited[i][j]) return false;
 
-        return existHelper(board, arr, i + 1, j, rows, columns, index + 1) ||
+        visited[i][j] = true;
+        if (existHelper(board, arr, i + 1, j, rows, columns, index + 1) ||
                 existHelper(board, arr, i - 1, j, rows, columns, index + 1) ||
                 existHelper(board, arr, i, j + 1, rows, columns, index + 1) ||
-                existHelper(board, arr, i, j - 1, rows, columns, index + 1);
+                existHelper(board, arr, i, j - 1, rows, columns, index + 1)) return true;
+
+        visited[i][j] = false;
+        return false;
     }
 
 }
