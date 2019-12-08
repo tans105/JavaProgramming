@@ -1,8 +1,9 @@
 package competitiveProgramming.geekforgeeks;
 
-import utils.ArrayUtils;
-import utils.LoggingUtil;
+/*
+https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
 
+ */
 public class KnapsackProblem {
     public static void main(String[] args) {
         int[] wt = new int[]{1, 3, 4, 5};
