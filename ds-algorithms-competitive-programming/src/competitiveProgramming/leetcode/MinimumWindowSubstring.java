@@ -1,5 +1,8 @@
 package competitiveProgramming.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
  * <p>
@@ -15,8 +18,8 @@ package competitiveProgramming.leetcode;
  */
 public class MinimumWindowSubstring {
     public static void main(String[] args) {
-        String S = "ADOBECODEBANC", T = "ABC";
-        System.out.println(minWindow(S, T));
+        String S = "this is a test string", T = "tist";
+        System.out.println(minWindow2(S, T));
     }
 
     private static String minWindow(String s, String t) {
@@ -51,4 +54,55 @@ public class MinimumWindowSubstring {
         }
         return true;
     }
+
+    public static String minWindow2(String s, String t) {
+
+        if (s.length() == 0 || t.length() == 0) {
+            return "";
+        }
+
+        int[] ans = {-1, 0, 0};
+        Map<Character, Integer> dict = new HashMap<>();
+        Map<Character, Integer> windowDict = new HashMap<>();
+
+        for (int i = 0; i < t.length(); i++) {
+            int count = dict.getOrDefault(t.charAt(i), 0);
+            dict.put(t.charAt(i), count + 1);
+        }
+
+        int l = 0, r = 0;
+        int desired = dict.size();
+        int formed = 0;
+
+        while (r < s.length()) {
+            char c = s.charAt(r);
+            int count = windowDict.getOrDefault(c, 0);
+            windowDict.put(c, count + 1);
+
+            //increased the formed character only when the count matches
+            if (dict.containsKey(c) && dict.get(c).equals(windowDict.get(c))) {
+                formed++;
+            }
+
+            //contract the window
+            while (l <= r && formed == desired) {
+                c = s.charAt(l);
+                if (ans[0] == -1 || r - l + 1 < ans[0]) {
+                    ans[0] = r - l + 1;
+                    ans[1] = l;
+                    ans[2] = r;
+                }
+
+                windowDict.put(c, windowDict.get(c) - 1);
+                if (dict.containsKey(c) && windowDict.get(c) < dict.get(c)) formed--;
+                l++;
+            }
+
+            r++;
+        }
+
+        return ans[0] == -1 ? "" : s.substring(ans[1], ans[2] + 1);
+
+    }
+
 }
