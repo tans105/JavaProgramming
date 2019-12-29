@@ -3,6 +3,8 @@ package competitiveProgramming.geekforgeeks;
 import utils.ArrayUtils;
 import utils.LoggingUtil;
 
+import java.util.Arrays;
+
 /*
 443. String Compression
 
@@ -59,7 +61,9 @@ All characters have an ASCII value in [35, 126].
  */
 public class CompressString {
     public static void main(String[] args) {
-        System.out.println(compress("abbbbbbbbbbbb".toCharArray()));
+        String s = "accddffc";
+        System.out.println(compress(s.toCharArray()));
+        System.out.println(Arrays.toString(compressString(s)));
     }
 
     public static int compress(char[] chars) {
@@ -77,10 +81,10 @@ public class CompressString {
                     chars[replaceIndex] = chars[i - 1];
                     replaceIndex++;
                     if (count >= 10) {
-                        chars[replaceIndex+1] = (char) (count % 10 + '0');
+                        chars[replaceIndex + 1] = (char) (count % 10 + '0');
                         count = count / 10;
                         chars[replaceIndex] = (char) (count % 10 + '0');
-                        replaceIndex+=2;
+                        replaceIndex += 2;
                     } else {
                         chars[replaceIndex] = (char) (count + '0');
                         replaceIndex++;
@@ -94,10 +98,10 @@ public class CompressString {
             chars[replaceIndex] = chars[chars.length - 1];
             replaceIndex++;
             if (count >= 10) {
-                chars[replaceIndex+1] = (char) (count % 10 + '0');
+                chars[replaceIndex + 1] = (char) (count % 10 + '0');
                 count = count / 10;
                 chars[replaceIndex] = (char) (count % 10 + '0');
-                replaceIndex+=2;
+                replaceIndex += 2;
             } else {
                 chars[replaceIndex] = (char) (count + '0');
                 replaceIndex++;
@@ -105,6 +109,45 @@ public class CompressString {
         }
 
         return replaceIndex + 1;
+    }
+
+    public static char[] compressString(String s) {
+        char[] arr = s.toCharArray();
+        int currentIndex = 1;
+        int replaceIndex = 1;
+        char prev = arr[0];
+        int prevCount = 1;
+        boolean replaceSet = false;
+
+
+        while (currentIndex < arr.length) {
+            char current = arr[currentIndex];
+            if (current != prev) {
+                if (prevCount != 1) {
+                    arr[replaceIndex - 1] = prev;
+                    arr[replaceIndex] = Character.forDigit(prevCount, 10);
+                    replaceIndex = replaceIndex + 2;
+                }
+                prev = current;
+                currentIndex++;
+                replaceSet = prevCount != 1;
+                prevCount = 1;
+            } else {
+                if (!replaceSet) {
+                    replaceIndex = currentIndex;
+                    replaceSet = true;
+                }
+                prevCount++;
+                currentIndex++;
+            }
+        }
+
+        if (prevCount != 1) {
+            arr[replaceIndex - 1] = prev;
+            arr[replaceIndex] = Character.forDigit(prevCount, 10);
+        }
+
+        return arr;
     }
 
 

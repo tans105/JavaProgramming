@@ -37,7 +37,6 @@ public class CreatePossibleWords {
 
     private static void getCombinations(List<List<Integer>> points, List<Integer> temp, char[] arr, int index) {
         if (index >= arr.length - 1) {
-            temp.add(Integer.parseInt(String.valueOf(arr[index])));
             points.add(temp);
             return;
         }
@@ -50,17 +49,17 @@ public class CreatePossibleWords {
         if (combinedValue < 26) {
             List<Integer> temp1 = new ArrayList<>(temp);
 
-            if (index + 1 < arr.length) {
+            if (index + 1 <= arr.length) {
                 temp.add(current);
                 getCombinations(points, temp, arr, index + 1);
             }
 
-            if (index + 2 < arr.length) {
+            if (index + 2 <= arr.length) {
                 temp1.add(combinedValue);
                 getCombinations(points, temp1, arr, index + 2);
             }
         } else {
-            if (index + 1 < arr.length) {
+            if (index + 1 <= arr.length) {
                 temp.add(current);
                 getCombinations(points, temp, arr, index + 1);
             }
