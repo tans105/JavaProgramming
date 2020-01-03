@@ -1,30 +1,58 @@
 package competitiveProgramming.geekforgeeks;
 
-import utils.ArrayUtils;
+import java.util.Stack;
 
 /*
-https://www.geeksforgeeks.org/replace-every-element-with-the-greatest-on-right-side/
+https://www.geeksforgeeks.org/next-greater-element/
 
-Replace every element with the greatest element on right side
+Next Greater Element
+Given an array, print the Next Greater Element (NGE) for every element. The Next greater Element for an element x is the first greater element on the right side of x in array. Elements for which no greater element exist, consider next greater element as -1.
 
-Given an array of integers, replace every element with the next greatest element (greatest element on the right side) in the array. Since there is no element next to the last element, replace it with -1. For example, if the array is {16, 17, 4, 3, 5, 2}, then it should be modified to {17, 5, 5, 5, 2, -1}.
+Examples:
+
+For any array, rightmost element always has next greater element as -1.
+For an array which is sorted in decreasing order, all elements have next greater element as -1.
+For the input array [4, 5, 2, 25}, the next greater elements for each element are as follows.
+Element       NGE
+   4      -->   5
+   5      -->   25
+   2      -->   25
+   25     -->   -1
+d) For the input array [13, 7, 6, 12}, the next greater elements for each element are as follows.
+
+
+
+  Element        NGE
+   13      -->    -1
+   7       -->     12
+   6       -->     12
+   12      -->     -1
  */
 public class NextGreaterElement {
     public static void main(String[] args) {
-        ArrayUtils.printArray(getNextGreaterElement(new int[]{16, 17, 4, 3, 5, 2}));
+        nextGreaterElement(new int[]{98, 23, 54, 12, 20, 7, 27});
     }
 
-    private static int[] getNextGreaterElement(int[] arr) {
-        int currentMax = arr[arr.length - 1];
-        arr[arr.length - 1] = -1;
-        for (int i = arr.length - 2; i >= 0; i--) {
-            if (arr[i] > currentMax) {
-                currentMax = arr[i];
-            } else {
-                arr[i] = currentMax;
+    private static void nextGreaterElement(int[] arr) {
+        Stack<Integer> s = new Stack<>();
+        s.push(arr[0]);
+
+        for (int i = 1; i < arr.length; i++) {
+            int current = arr[i];
+
+            if (s.size() > 0) {
+                while (current > s.peek()) {
+                    System.out.println(s.peek() + " -> " + current);
+                    if (s.isEmpty()) break;
+                    s.pop();
+                }
             }
+
+            s.push(arr[i]);
         }
 
-        return arr;
+        while (!s.isEmpty()) {
+            System.out.println(s.pop() + " -> " + -1);
+        }
     }
 }
