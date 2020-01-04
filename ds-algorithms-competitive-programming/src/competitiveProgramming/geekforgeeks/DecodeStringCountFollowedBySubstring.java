@@ -26,7 +26,7 @@ Output : bcacabcacabcaca
  */
 public class DecodeStringCountFollowedBySubstring {
     public static void main(String[] args) {
-        System.out.println(decode("1[b]"));
+        System.out.println(decode("3[b2[ca]]"));
     }
 
     private static String decode(String s) {
@@ -36,17 +36,17 @@ public class DecodeStringCountFollowedBySubstring {
 
     private static String decode(char[] arr) {
         StringBuilder builder = new StringBuilder();
-        String temp = "";
+        StringBuilder temp = new StringBuilder();
         for (int i = arr.length - 1; i >= 0; i--) {
             try {
                 int count = Integer.parseInt(String.valueOf(arr[i]));
                 String s = builder.toString();
                 for (int j = 0; j < count; j++) {
-                    temp += s;
+                    temp.append(s);
                 }
                 builder = new StringBuilder();
                 builder.append(temp);
-                temp = "";
+                temp = new StringBuilder();
             } catch (Exception e) {
                 builder.insert(0, arr[i]);
             }
