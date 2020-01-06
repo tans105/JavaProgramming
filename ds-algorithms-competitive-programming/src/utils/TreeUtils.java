@@ -2,6 +2,7 @@ package utils;
 
 import utils.pojo.TreeNode;
 
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
@@ -34,9 +35,8 @@ public class TreeUtils {
     }
 
     public static void main(String[] args) {
-        TreeNode node = generateBinaryTreeFromArray(new Integer[]{5, 1, 4, null, null, 3, 6});
-        inorderTraversal(node);
-
+        TreeNode node = generateBinaryTreeFromArray(new Integer[]{5, 1, 4, 2, 6, 3, 6, 7, 9});
+        levelOrderTraversalWithQueue(node);
     }
 
     public static void inorderTraversal(TreeNode node) {
@@ -72,5 +72,39 @@ public class TreeUtils {
         } else {
             return 1 + Math.max(getHeight(node.left), getHeight(node.right));
         }
+    }
+
+    public static void levelOrderTraversalWithQueue(TreeNode node) {
+        if (node == null) return;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(node);
+        queue.add(null);
+        TreeNode current = null;
+
+        while (!queue.isEmpty()) {
+            current = queue.poll();
+
+            if (current == null) {
+                System.out.println();
+                if (queue.size() > 0) {
+                    queue.add(null);
+                    continue;
+                } else {
+                    break;
+                }
+            }
+
+            if (current.left != null) {
+                queue.add(current.left);
+            }
+
+            if (current.right != null) {
+                queue.add(current.right);
+            }
+
+            System.out.print(current.val + "\t");
+        }
+
     }
 }
