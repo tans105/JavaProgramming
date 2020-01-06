@@ -28,17 +28,26 @@ public class PowX {
         System.out.println(myPow(2, -2));
     }
 
+
     public static double myPow(double x, int n) {
+        if (n < 0) {
+            x = 1 / x;
+            n = n * -1;
+        }
+        return myPowHelper(x, n);
+    }
+
+    public static double myPowHelper(double x, int n) {
         if (n == 0) return 1;
-        double temp = myPow(x, n / 2);
+        double temp = myPowHelper(x, n / 2);
         if (n % 2 == 0) {
             return temp * temp;
         } else {
-            if (n > 0) {
-                return x * temp * temp;
-            } else {
-                return (temp * temp) / x;
-            }
+//            if (n > 0) { //if n = 3 => int of 3/2 = 1 so add x to compensate
+            return x * temp * temp;
+//            } else {
+//                return (temp * temp) / x; //
+//            }
 
         }
     }
