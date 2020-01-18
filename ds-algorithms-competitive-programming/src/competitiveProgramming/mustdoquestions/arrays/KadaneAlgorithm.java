@@ -1,4 +1,4 @@
-package competitiveProgramming.geekforgeeks;
+package competitiveProgramming.mustdoquestions.arrays;
 
 //https://practice.geeksforgeeks.org/problems/kadanes-algorithm/0
 public class KadaneAlgorithm {
