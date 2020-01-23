@@ -46,7 +46,7 @@ Testcase 1: Minimum 3 platforms are required to safely arrive and depart all tra
  */
 public class MinimumPlatforms {
     public static void main(String[] args) {
-        int[] arr = new int[]{900,1100, 1500, 1800};
+        int[] arr = new int[]{900, 940, 950, 1100, 1500, 1800};
         int[] dep = new int[]{910, 1200, 1120, 1130, 1900, 2000};
         System.out.println(minimumNumber(arr, dep));
     }
