@@ -2,6 +2,7 @@ package competitiveProgramming.leetcode;
 
 import utils.ArrayUtils;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /*
@@ -15,39 +16,24 @@ Output: 10
 public class LargestRectangleInHistogram {
 
     public static void main(String[] args) {
-        System.out.println(largestRectangleArea(ArrayUtils.parseArray("[1,2,4]")));
+        System.out.println(largestRectangleArea(ArrayUtils.parseArray("[4,2,0,3,2,5]")));
     }
 
     public static int largestRectangleArea(int[] arr) {
-        if (arr == null || arr.length == 0) return 0;
-
-        Stack<Integer> stack = new Stack<>();
-        int index = 1;
-        int maxArea = arr[0];
-        stack.push(0);
-
-        while (index < arr.length) {
-            int top = stack.peek();
-
-            while (index <= arr.length - 1 && arr[index] >= arr[top]) {
-                top = stack.peek();
-                stack.push(index);
-                index++;
+        int len = arr.length;
+        Stack<Integer> s = new Stack<Integer>();
+        int maxArea = 0;
+        for (int i = 0; i <= len; i++) {
+            int current = (i == len ? 0 : arr[i]);
+            if (s.isEmpty() || current >= arr[s.peek()]) { // keep adding elements to the stack if increasing
+                s.push(i);
+            } else {
+                int top = s.pop();
+                int area = arr[top] * (s.isEmpty() ? i : i - 1 - s.peek());
+                maxArea = Math.max(maxArea, area);
+                i--;
             }
-
-            int area = 0;
-
-            while (index <= arr.length - 1 && stack.size() >= 1 && arr[index] <= arr[top]) {
-                top = stack.pop();
-                area = (stack.size() == 0) ? arr[top] * index : arr[top] * (index - top);
-                maxArea = Math.max(area, maxArea);
-            }
-
-
-            stack.push(index++);
-
         }
-
         return maxArea;
     }
 }
