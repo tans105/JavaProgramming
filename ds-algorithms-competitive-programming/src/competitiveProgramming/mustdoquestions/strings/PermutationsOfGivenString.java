@@ -1,7 +1,5 @@
 package competitiveProgramming.mustdoquestions.strings;
 
-import utils.LoggingUtil;
-
 import java.util.*;
 
 /*
@@ -36,7 +34,7 @@ Testcase 1: Given string ABC has permutations in 6 forms as ABC, ACB, BAC, BCA, 
  */
 public class PermutationsOfGivenString {
     public static void main(String[] args) {
-        System.out.println(permuteDuplicates("AABC"));
+        System.out.println(permuteDuplicates("AAB"));
     }
 
 
@@ -44,26 +42,27 @@ public class PermutationsOfGivenString {
         List<List<Character>> finalList = new ArrayList<>();
         List<Character> tempList = new ArrayList<>();
         boolean[] used = new boolean[str.length()];
-        backtrackDuplicates(finalList, tempList, str.toCharArray(), used);
+        char[] arr = str.toCharArray();
+        Arrays.sort(arr);
+        backtrackDuplicates(finalList, tempList, arr, used);
         return finalList;
     }
 
-    private static void backtrackDuplicates(List<List<Character>> finalList, List<Character> tempList, char[] chars, boolean[] used) {
-        if (tempList.size() == chars.length) {
+    private static void backtrackDuplicates(List<List<Character>> finalList, List<Character> tempList, char[] arr, boolean[] used) {
+        if (tempList.size() == arr.length) {
             finalList.add(new ArrayList<>(tempList));
         }
 
-        for (int i = 0; i < chars.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (used[i]) continue;
-            if (i > 0 && chars[i - 1] == chars[i] && !used[i - 1]) {
-                continue;
-            }
+            if (i > 0 && used[i] == used[i - 1] && used[i - 1]) continue;
+            tempList.add(arr[i]);
             used[i] = true;
-            tempList.add(chars[i]);
-            backtrackDuplicates(finalList, tempList, chars, used);
+            backtrackDuplicates(finalList, tempList, arr, used);
             used[i] = false;
             tempList.remove(tempList.size() - 1);
         }
     }
+
 
 }
