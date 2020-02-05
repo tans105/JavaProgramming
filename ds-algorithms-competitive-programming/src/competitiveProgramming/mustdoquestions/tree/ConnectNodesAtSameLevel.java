@@ -1,4 +1,4 @@
-package competitiveProgramming.geekforgeeks;
+package competitiveProgramming.mustdoquestions.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;

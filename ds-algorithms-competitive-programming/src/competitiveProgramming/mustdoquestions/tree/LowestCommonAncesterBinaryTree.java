@@ -1,4 +1,4 @@
-package competitiveProgramming.leetcode;
+package competitiveProgramming.mustdoquestions.tree;
 
 
 import utils.TreeUtils;
