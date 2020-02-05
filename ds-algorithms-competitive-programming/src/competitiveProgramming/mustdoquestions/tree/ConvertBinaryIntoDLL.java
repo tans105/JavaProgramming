@@ -6,16 +6,13 @@ import utils.pojo.TreeNode;
 import java.util.Stack;
 
 /*
-https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
+https://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/
 
-             1
-          /   \
-        2      3
-      /  \
-    4     5
+Convert a given Binary Tree to Doubly Linked List | Set 3
+Given a Binary Tree (BT), convert it to a Doubly Linked List(DLL) In-Place. The left and right pointers in nodes are to be used as previous and next pointers respectively in converted DLL. The order of nodes in DLL must be same as Inorder of the given Binary Tree. The first node of Inorder traversal (left most node in BT) must be head node of the DLL.
 
  */
-public class InorderTraversalUsingStack {
+public class ConvertBinaryIntoDLL {
     public static void main(String[] args) {
         TreeNode node = TreeUtils.generateBinaryTreeFromArray(new Integer[]{10, 12, 15, 25, 30, 36, null});
         inorderTraversalWithoutRecursion(node);
