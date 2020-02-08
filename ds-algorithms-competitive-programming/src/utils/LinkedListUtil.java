@@ -36,5 +36,21 @@ public class LinkedListUtil {
         }
 
         System.out.print("null");
+        System.out.println();
+    }
+
+    public static ListNode reverse(ListNode node) {
+        return recurse(node, null);
+    }
+
+    private static ListNode recurse(ListNode node, ListNode prev) {
+        if (node == null) {
+            return prev;
+        }
+
+        ListNode next = node.next;
+        node.next = prev;
+        prev = node;
+        return recurse(next, prev);
     }
 }
