@@ -1,4 +1,4 @@
-package competitiveProgramming.geekforgeeks.mustdoquestions;
+package competitiveProgramming.geekforgeeks.mustdoquestions.tree;
 
 import utils.ArrayUtils;
 import utils.TreeUtils;
