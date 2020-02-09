@@ -107,4 +107,17 @@ public class TreeUtils {
         }
 
     }
+
+    public static TreeNode getTemplateTree()  {
+        /*
+                      20
+                    /    \
+                  8       22
+                /   \      \
+              5      3      25
+                    / \
+                  10    14
+         */
+        return TreeUtils.generateBinaryTreeFromArray(new Integer[]{20, 8, 22, 5, 3, null, 25, null, null, 10, 14, null, null});
+    }
 }
