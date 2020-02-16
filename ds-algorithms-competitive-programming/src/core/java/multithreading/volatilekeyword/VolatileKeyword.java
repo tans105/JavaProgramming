@@ -5,16 +5,16 @@ import java.util.Scanner;
 public class VolatileKeyword {
 
     public static void main(String[] args) {
-        Threade threade = new Threade();
-        threade.start();
+        MyThread t = new MyThread();
+        t.start();
         System.out.println("Press enter to terminate..");
         Scanner sc = new Scanner(System.in);
         sc.nextLine();
-        threade.shutdown();
+        t.shutdown();
     }
 }
 
-class Threade extends Thread {
+class MyThread extends Thread {
     private volatile boolean running = true;
 
     public void run() {
