@@ -1,8 +1,8 @@
-package core.java.multithreading.producerconsumer;
+package core.java.multithreading.producerconsumer.app3;
 
 import java.util.Scanner;
 
-public class App2 {
+public class App {
     public static void main(String[] args) throws InterruptedException {
         Processor p = new Processor();
         Thread t1 = new Thread(new Runnable() {
