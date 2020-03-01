@@ -1,6 +1,7 @@
 package competitiveProgramming.geekforgeeks.mustdoquestions.linkedlist;
 
 
+import datastructures.linkedList.linkList.LinkedList;
 import utils.LinkedListUtil;
 import utils.pojo.ListNode;
 
@@ -38,8 +39,10 @@ Testcase 2: Since, k = 4. So, we have to reverse everty group of two elements. M
  */
 public class ReverseLinkedListinAGroupOfGivenSize {
     public static void main(String[] args) {
+//        ListNode node = LinkedListUtil.populateList(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+//        LinkedListUtil.printList(reverse(node, 2));
         ListNode node = LinkedListUtil.populateList(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
-        LinkedListUtil.printList(reverse(node, 2));
+        LinkedListUtil.printList(reverseInGroup(node, 2));
     }
 
 
@@ -112,7 +115,6 @@ public class ReverseLinkedListinAGroupOfGivenSize {
         return listNodes.get(0)[0];
     }
 
-
     private static ListNode[] reverse(ListNode node) {
         ListNode prev = null;
         ListNode head = node;
@@ -125,5 +127,24 @@ public class ReverseLinkedListinAGroupOfGivenSize {
         }
 
         return new ListNode[]{prev, head};
+    }
+
+    private static ListNode reverseInGroup(ListNode node, int k) {
+        ListNode current = node;
+        ListNode prev = null;
+        ListNode next = null;
+        int count = 0;
+
+        while (current != null && count != k) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+            count++;
+        }
+
+        if (next != null) node.next = reverseInGroup(next, k);
+
+        return prev;
     }
 }
