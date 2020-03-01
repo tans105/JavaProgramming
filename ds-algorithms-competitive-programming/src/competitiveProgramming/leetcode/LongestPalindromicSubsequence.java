@@ -1,5 +1,8 @@
 package competitiveProgramming.leetcode;
 
+import utils.ArrayUtils;
+import utils.LoggingUtil;
+
 /*
 516. Longest Palindromic Subsequence
 
@@ -21,8 +24,35 @@ Output:
  */
 public class LongestPalindromicSubsequence {
     public static void main(String[] args) {
-        System.out.println(longestPalindromeSubseqRecursieve("babbab"));
-        System.out.println(longestPalindromeSubseqDP("babbab"));
+        System.out.println(longestPalindromeSubseqRecursieve("agbdba"));
+        System.out.println(longestPalindromeSubseqDP("agbdba"));
+        System.out.println(longestPalindromeSubseqMyApproach("agbdba"));
+    }
+
+    private static int longestPalindromeSubseqMyApproach(String str) {
+        int len = str.length();
+        int[][] arr = new int[len][len];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i][i] = 1;
+        }
+
+        int k = arr.length - 1;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < k; j++) {
+                int x = j;
+                int y = j + i + 1;
+
+                if (str.charAt(x) == str.charAt(y)) {
+                    arr[x][y] = arr[x + 1][y - 1] + 2;
+                } else {
+                    arr[x][y] = Math.max(arr[x][y - 1], arr[x + 1][y]);
+                }
+            }
+            k--;
+        }
+
+        return arr[0][arr.length - 1];
     }
 
     private static int longestPalindromeSubseqDP(String s) {
@@ -46,11 +76,6 @@ public class LongestPalindromicSubsequence {
 
         return arr[0][arr.length - 1];
     }
-
-
-
-    /*-----------------------------------------------------------------------------*/
-
 
     public static int longestPalindromeSubseqRecursieve(String s) {
         return calculateRecursive(s.toCharArray(), 0, s.length());
