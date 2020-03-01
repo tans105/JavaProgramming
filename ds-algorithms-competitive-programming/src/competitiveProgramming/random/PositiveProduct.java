@@ -3,6 +3,11 @@ package competitiveProgramming.random;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Given the numbers in the array, find the maximum length of subarray who gives a positive product
+
+Company - Arcesium
+ */
 public class PositiveProduct {
     public static void main(String[] args) {
         System.out.println(positiveProduct(new int[]{5, 1, 6, 2, -1, 4, 5, 6}));

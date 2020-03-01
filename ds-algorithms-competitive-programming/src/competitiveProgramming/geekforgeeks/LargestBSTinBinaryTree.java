@@ -68,16 +68,11 @@ public class LargestBSTinBinaryTree {
         Metadata mLeft = largestBSTHelper(node.left);
         Metadata mRight = largestBSTHelper(node.right);
 
-        if (mLeft.valid && mRight.valid) {
-            if (node.val > mLeft.maxLeft && node.val < mRight.minRight) {
-                return new Metadata(true, 1 + mLeft.count + mRight.count, node.left != null ? mLeft.maxLeft : node.val, node.right != null ? mLeft.minRight : node.val);
-            } else {
-                return new Metadata(false, Math.max(mLeft.count, mRight.count), 0, 0);
-            }
+        if (mLeft.valid && mRight.valid && node.val > mLeft.maxLeft && node.val < mRight.minRight) {
+            return new Metadata(true, 1 + mLeft.count + mRight.count, node.left != null ? mLeft.maxLeft : node.val, node.right != null ? mLeft.minRight : node.val);
         } else {
             return new Metadata(false, Math.max(mLeft.count, mRight.count), 0, 0);
         }
-
     }
 }
 
