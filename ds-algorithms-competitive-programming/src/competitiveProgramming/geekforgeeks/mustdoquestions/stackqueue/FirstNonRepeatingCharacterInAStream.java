@@ -1,4 +1,4 @@
-package competitiveProgramming.geekforgeeks.mustdoquestions.arrays;
+package competitiveProgramming.geekforgeeks.mustdoquestions.stackqueue;
 
 import java.util.ArrayList;
 import java.util.List;
