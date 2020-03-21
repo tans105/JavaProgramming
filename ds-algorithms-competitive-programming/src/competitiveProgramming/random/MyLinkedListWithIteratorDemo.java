@@ -5,14 +5,14 @@ import utils.LinkedListUtil;
 import java.util.Iterator;
 
 public class MyLinkedListWithIteratorDemo implements Iterable {
-    ListNode head = null;
+    ListNodeItr head = null;
 
     public static void main(String[] args) {
         MyLinkedListWithIteratorDemo list = new MyLinkedListWithIteratorDemo();
-        list.head = new ListNode(1);
-        list.head.next = new ListNode(2);
-        list.head.next.next = new ListNode(3);
-        list.head.next.next.next = new ListNode(4);
+        list.head = new ListNodeItr(1);
+        list.head.next = new ListNodeItr(2);
+        list.head.next.next = new ListNodeItr(3);
+        list.head.next.next.next = new ListNodeItr(4);
 
         Iterator itr = list.iterator();
 
@@ -27,11 +27,11 @@ public class MyLinkedListWithIteratorDemo implements Iterable {
     }
 }
 
-class ListNode {
+class ListNodeItr {
     public int val;
-    public ListNode next;
+    public ListNodeItr next;
 
-    ListNode(int val) {
+    ListNodeItr(int val) {
         this.val = val;
         this.next = null;
     }
@@ -46,7 +46,7 @@ class ListNode {
 }
 
 class ListIterator implements Iterator {
-    ListNode current;
+    ListNodeItr current;
 
     ListIterator(MyLinkedListWithIteratorDemo list) {
         current = list.head;
