@@ -2,6 +2,7 @@ package utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayUtils {
@@ -86,6 +87,9 @@ public class ArrayUtils {
     }
 
     public static int[][] parse2DArray(String str) {
+        str = str.replace("\n", "").replace("\r", "");
+        str = str.trim();
+        str = str.replaceAll("\\s", "");
         str = str.substring(2, str.length() - 2);
         str = str.replace("]", "#");
         str = str.replace("[", "#");
@@ -130,6 +134,24 @@ public class ArrayUtils {
         }
         ArrayUtils.printArray(arr);
         return arr;
+    }
+
+    public static List<List<Integer>> getNestedListFrom2DArray(int[][] arr) {
+        List<List<Integer>> list = new ArrayList<>();
+        for (int[] ints : arr) {
+            List<Integer> temp = new ArrayList<>();
+            for (int anInt : ints) {
+                temp.add(anInt);
+            }
+            list.add(temp);
+        }
+
+        return list;
+    }
+
+    public static List<List<Integer>> getNestedListFromString(String str) {
+        int[][] arr = parse2DArray(str);
+        return getNestedListFrom2DArray(arr);
     }
 
 }

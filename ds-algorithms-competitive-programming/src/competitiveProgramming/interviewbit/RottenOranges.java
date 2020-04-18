@@ -1,5 +1,7 @@
 package competitiveProgramming.interviewbit;
 
+import utils.ArrayUtils;
+
 import java.util.*;
 
 /*
@@ -49,23 +51,14 @@ Output 2:
  */
 public class RottenOranges {
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer>> list;
+        String str = "[[2,1,1],[1,1,0],[0,1,1]]";
+        System.out.println(solve(ArrayUtils.getNestedListFromString(str)));
 
-        list = new ArrayList<>();
-        list.add(new ArrayList<>(Arrays.asList(2, 1, 1)));
-        list.add(new ArrayList<>(Arrays.asList(1, 1, 0)));
-        list.add(new ArrayList<>(Arrays.asList(0, 1, 1)));
-        System.out.println(solve(list));
-
-
-        list = new ArrayList<>();
-        list.add(new ArrayList<>(Arrays.asList(2, 1, 1)));
-        list.add(new ArrayList<>(Arrays.asList(0, 1, 1)));
-        list.add(new ArrayList<>(Arrays.asList(1, 0, 1)));
-        System.out.println(solve(list));
+        str = "[[2,1,1],[0,1,1],[1,0,1]]";
+        System.out.println(solve(ArrayUtils.getNestedListFromString(str)));
     }
 
-    public static int solve(ArrayList<ArrayList<Integer>> list) {
+    public static int solve(List<List<Integer>> list) {
         Queue<Coordinate> queue = new LinkedList<>();
         int days = 0;
         int rows = list.size();
@@ -124,7 +117,7 @@ public class RottenOranges {
             }
         }
 
-        for (ArrayList<Integer> integers : list) {
+        for (List<Integer> integers : list) {
             for (int j = 0; j < columns; j++) {
                 if (integers.get(j) == 1) return -1;
             }
