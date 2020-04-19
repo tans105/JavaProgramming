@@ -27,13 +27,13 @@ Output: -1
  */
 public class SearchInRotatedSortedArray {
     public static void main(String[] args) {
-//        int[] arr = ArrayUtils.parseArray("[4,5,6,7,8,9,0,1,2]");
-//        System.out.println(search(arr, 2)); //8
-//
-//        arr = ArrayUtils.parseArray("[1]");
-//        System.out.println(search(arr, 1)); //0
+        int[] arr = ArrayUtils.parseArray("[4,5,6,7,8,9,0,1,2]");
+        System.out.println(search(arr, 2)); //8
 
-        int[] arr = ArrayUtils.parseArray("[3,5,1]");
+        arr = ArrayUtils.parseArray("[1]");
+        System.out.println(search(arr, 1)); //0
+
+        arr = ArrayUtils.parseArray("[3,5,1]");
         System.out.println(search(arr, 3)); //0
     }
 
