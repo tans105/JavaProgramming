@@ -113,22 +113,4 @@ public class PartitionLabels {
         }
     }
 
-
-    public static void printMap(Map<Character, int[]> map) {
-        for (Map.Entry<Character, int[]> entry : map.entrySet()) {
-            LoggingUtil.logNewLine(entry.getKey(), Arrays.toString(entry.getValue()));
-        }
-    }
-
-    public static void printList(List<int[]> list) {
-        for (int[] arr : list) {
-            System.out.println(Arrays.toString(arr));
-        }
-    }
-
-    public static void printStack(Stack<int[]> list) {
-        for (int[] arr : list) {
-            System.out.println(Arrays.toString(arr));
-        }
-    }
 }
