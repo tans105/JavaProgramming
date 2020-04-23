@@ -42,24 +42,23 @@ public class MaximumOfAllSubarrayOfSizeK {
 
     private static void maximumSubarrayOfSizeK(int[] arr, int k) {
         Deque<Integer> queue = new LinkedList<>();
-        queue.add(0);
+
         int count = 0;
         while (count != arr.length + 1) {
             if (count < k) {
-                //check the deque to keep relevant values
+                //Removing all the values (from right to left)  in the queue that are less than the current value, then add the current value
                 while (!queue.isEmpty() && arr[queue.peekLast()] < arr[count]) {
                     queue.pop();
                 }
                 queue.addLast(count);
             } else {
-                while (!queue.isEmpty() && queue.peekFirst() < count - k) {
+                while (!queue.isEmpty() && queue.peekFirst() < count - k) { //removing old values (from left to right) that went out of range
                     queue.pop();
                 }
-                //start printing values
 
                 System.out.println(arr[queue.peekFirst()]);
 
-                //check the deque to keep relevant values
+                //Removing all the values (from right to left)  in the queue that are less than the current value, then add the current value
                 while (count < arr.length && !queue.isEmpty() && arr[queue.peekLast()] < arr[count]) {
                     queue.removeLast();
                 }
