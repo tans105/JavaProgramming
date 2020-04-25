@@ -28,8 +28,15 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
 public class JumpGame {
     public static void main(String[] args) {
         System.out.println(canJump(new int[]{2, 3, 1, 1, 4}));
+        System.out.println(minCount);
+        minCount = Integer.MAX_VALUE;
+
         System.out.println(canJump(new int[]{3, 2, 1, 0, 4}));
+        System.out.println(minCount);
+        minCount = Integer.MAX_VALUE;
     }
+
+    static int minCount = Integer.MAX_VALUE;
 
     public static boolean canJump(int[] nums) {
         int[] memo = new int[nums.length];
@@ -39,10 +46,10 @@ public class JumpGame {
         -1 - bad
          */
         Arrays.fill(memo, 0);
-        return canJump(nums, 0, nums.length - 1, memo);
+        return canJump(nums, 0, nums.length - 1, memo, 0);
     }
 
-    private static boolean canJump(int[] nums, int currentIndex, int target, int[] memo) {
+    private static boolean canJump(int[] nums, int currentIndex, int target, int[] memo, int count) {
         if (memo[currentIndex] != 0) {
             return memo[currentIndex] == 1;
         }
@@ -52,11 +59,12 @@ public class JumpGame {
         }
 
         if (currentIndex == target) {
+            minCount = Math.min(count, minCount);
             return true;
         }
 
         for (int i = 1; i <= nums[currentIndex]; i++) {
-            if (canJump(nums, currentIndex + i, target, memo)) {
+            if (canJump(nums, currentIndex + i, target, memo, count + 1)) {
                 memo[i] = 1;
                 return true;
             }
