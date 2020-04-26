@@ -28,25 +28,25 @@ public class FourSum {
         int[] arr;
         int target;
 
-//        arr = new int[]{1, 0, -1, 0, -2, 2};
-//        target = 0;
-//        System.out.println(fourSum(arr, target));
-//
-//        arr = new int[]{0, 0, 0};
-//        target = 0;
-//        System.out.println(fourSum(arr, target));
-//
-//        arr = new int[]{-3, -1, 0, 2, 4, 5};
-//        target = 0;
-//        System.out.println(fourSum(arr, target));
-//
-//        arr = new int[]{-3, -2, -1, 0, 0, 1, 2, 3};
-//        target = 0;
-//        System.out.println(fourSum(arr, target));
+        arr = new int[]{1, 0, -1, 0, -2, 2};
+        target = 0;
+        System.out.println(fourSum(arr, target));
 
-//        arr = new int[]{-3, -1, 0, 2, 4, 5};
-//        target = 0;
-//        System.out.println(fourSum(arr, target));
+        arr = new int[]{0, 0, 0};
+        target = 0;
+        System.out.println(fourSum(arr, target));
+
+        arr = new int[]{-3, -1, 0, 2, 4, 5};
+        target = 0;
+        System.out.println(fourSum(arr, target));
+
+        arr = new int[]{-3, -2, -1, 0, 0, 1, 2, 3};
+        target = 0;
+        System.out.println(fourSum(arr, target));
+
+        arr = new int[]{-3, -1, 0, 2, 4, 5};
+        target = 0;
+        System.out.println(fourSum(arr, target));
 
         arr = new int[]{-3, -2, -1, 0, 0, 1, 2, 3};
         target = 0;
