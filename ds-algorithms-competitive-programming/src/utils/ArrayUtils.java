@@ -1,5 +1,6 @@
 package utils;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -109,20 +110,31 @@ public class ArrayUtils {
     }
 
     public static int[] parseArray(String str) {
-        int startIndex = 0;
-        int endIndex = str.length() - 1;
+        int indexOfB1 = str.indexOf("[");
+        int indexOfB2 = str.indexOf("]");
 
-        while (str.charAt(startIndex) == '[') {
-            startIndex++;
+        if (indexOfB1 >= 0 && indexOfB2 >= 0) str = str.substring(str.indexOf("[") + 1, str.indexOf("]"));
+
+        str = str.replace(",", " ");
+        str = str.trim();
+        String[] arr = str.split(" ");
+        List<Integer> list = new ArrayList<>();
+
+        int i = 0;
+        while (i != arr.length) {
+            try {
+                if (arr[i].length() == 0) {
+                    i++;
+                    continue;
+                }
+                list.add(Integer.parseInt(arr[i].trim()));
+            } catch (NumberFormatException e) {
+                //nothing
+            }
+            i++;
         }
 
-        while (str.charAt(endIndex) == ']') {
-            endIndex--;
-        }
-
-        endIndex++;
-        str = str.substring(startIndex, endIndex).replaceAll("\\s+", "");
-        return Arrays.stream(str.split(",")).mapToInt(Integer::parseInt).toArray();
+        return list.stream().mapToInt(ij -> ij).toArray();
     }
 
     public static int[] generateArray(int num, boolean fromZero) {
