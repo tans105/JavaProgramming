@@ -22,7 +22,7 @@ public class TopologicalSort {
         Stack<Integer> sorted = new Stack<>();
         Set<Integer> visited = new HashSet<>();
 
-        for (int i = 0; i < g.v; i++) {
+        for (int i = 0; i < g.vertices; i++) {
             if (visited.add(i)) {
                 exploreChildren(i, g, sorted, visited);
             }
