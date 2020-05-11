@@ -144,7 +144,7 @@ public class ArrayUtils {
         for (int i = 0; i < num; i++) {
             arr[i] = start++;
         }
-        ArrayUtils.printArray(arr);
+
         return arr;
     }
 

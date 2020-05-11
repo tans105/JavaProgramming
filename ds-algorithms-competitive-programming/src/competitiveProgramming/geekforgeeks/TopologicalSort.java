@@ -7,7 +7,7 @@ import java.util.*;
 public class TopologicalSort {
 
     public static void main(String[] args) {
-        Graph g = new Graph(6);
+        Graph g = new Graph(6, true, true);
         g.addEdge(5, 2);
         g.addEdge(5, 0);
         g.addEdge(4, 0);
@@ -22,7 +22,7 @@ public class TopologicalSort {
         Stack<Integer> sorted = new Stack<>();
         Set<Integer> visited = new HashSet<>();
 
-        for (int i = 0; i < g.vertices; i++) {
+        for (int i = 0; i < g.getVertices().size(); i++) {
             if (visited.add(i)) {
                 exploreChildren(i, g, sorted, visited);
             }
