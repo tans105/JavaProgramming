@@ -9,28 +9,38 @@ public class Graph {
     public List<Integer> vertices;
     private boolean isDirected;
 
-    private void init() {
+    private void init(boolean isDirected) {
         this.vertices = new ArrayList<>();
         this.adjacentVertices = new HashMap<>();
+        this.isDirected = isDirected;
     }
 
     public Graph(boolean isDirected) {
-        init();
-        this.isDirected = isDirected;
+        init(isDirected);
     }
 
     public Graph(int N, boolean isDirected, boolean fromZero) {
-        init();
-        this.isDirected = isDirected;
+        init(isDirected);
         int[] arr = ArrayUtils.generateArray(N, fromZero);
         addVertices(arr);
     }
 
     public Graph(int N, boolean isDirected) {
-        init();
-        this.isDirected = isDirected;
+        init(isDirected);
         int[] arr = ArrayUtils.generateArray(N, false);
         addVertices(arr);
+    }
+
+    public Graph(String edgeSet, boolean isDirected) {
+        init(isDirected);
+        int[] edgeSetArray = ArrayUtils.parseArray(edgeSet);
+        for(int vertex: edgeSetArray) {
+            if(!this.vertices.contains(vertex)) {
+                adjacentVertices.put(vertex, new ArrayList<>());
+                this.vertices.add(vertex);
+            }
+        }
+        addEdges(edgeSet);
     }
 
     public void addVertex(int vertex) {
@@ -60,6 +70,19 @@ public class Graph {
         } else {
             throw new IllegalArgumentException("Either of the vertex is not registered");
         }
+    }
+
+    public void addEdges(int[] edgeSet) {
+        if (edgeSet.length % 2 != 0) {
+            throw new IllegalArgumentException("Edge set cannot be odd");
+        }
+        for (int i = 0; i < edgeSet.length; i += 2) {
+            addEdge(edgeSet[i], edgeSet[i + 1]);
+        }
+    }
+
+    public void addEdges(String edgeSet) {
+        addEdges(ArrayUtils.parseArray(edgeSet));
     }
 
     @Override
