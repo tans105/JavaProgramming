@@ -1,6 +1,6 @@
 package competitiveProgramming.geekforgeeks.mustdoquestions.graph;
 
-import utils.pojo.Graph;
+import utils.Graph;
 
 import java.util.HashSet;
 import java.util.List;

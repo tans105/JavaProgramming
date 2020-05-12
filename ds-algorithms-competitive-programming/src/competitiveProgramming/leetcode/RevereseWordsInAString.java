@@ -1,8 +1,6 @@
 package competitiveProgramming.leetcode;
 
-import utils.ArrayUtils;
-import utils.LoggingUtil;
-import utils.Utils;
+import utils.StringUtils;
 
 /*
 151. Reverse Words in a String
@@ -37,12 +35,12 @@ public class RevereseWordsInAString {
     }
 
     public static String reverseWords(String s) {
-        if(Utils.isNullOrEmpty(s.trim())) return s;
+        if(StringUtils.isNullOrEmpty(s.trim())) return s;
 
         String[] arr = s.split(" ");
         StringBuilder builder = new StringBuilder();
         for (int i = arr.length - 1; i >= 0; i--) {
-            if (!Utils.isNullOrEmpty(arr[i])) {
+            if (!StringUtils.isNullOrEmpty(arr[i])) {
                 builder.append(arr[i].trim());
                 builder.append(" ");
             }

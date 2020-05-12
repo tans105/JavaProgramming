@@ -1,6 +1,6 @@
 package competitiveProgramming.geekforgeeks;
 
-import utils.pojo.Graph;
+import utils.Graph;
 
 import java.util.*;
 

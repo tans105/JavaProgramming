@@ -2,7 +2,7 @@ package utils;
 
 import java.util.Stack;
 
-public class Utils {
+public class StringUtils {
 
     public static Stack<Character> populateStackFromString(String s1) {
         Stack<Character> s = new Stack<>();

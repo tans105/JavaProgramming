@@ -1,12 +1,12 @@
-package utils.pojo;
+package utils;
 
 import utils.ArrayUtils;
 
 import java.util.*;
 
 public class Graph {
-    public Map<Integer, List<Integer>> adjacentVertices;
-    public List<Integer> vertices;
+    private Map<Integer, List<Integer>> adjacentVertices;
+    private List<Integer> vertices;
     private boolean isDirected;
 
     private void init(boolean isDirected) {
