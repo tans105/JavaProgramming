@@ -18,4 +18,8 @@ public class LoggingUtil {
         System.out.format(format.toString(), arguments);
         System.out.println();
     }
+
+    public static void logTabSeparated(Object value) {
+        System.out.print(value + "\t");
+    }
 }
