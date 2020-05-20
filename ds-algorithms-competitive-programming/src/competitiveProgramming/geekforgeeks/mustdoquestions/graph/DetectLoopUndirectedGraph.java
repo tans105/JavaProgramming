@@ -47,11 +47,12 @@ Testcase 1: There is a graph with 2 vertices and 1 edge from 0 to 1. So there is
 Testcase 2: There is a graph with 3 vertices and 3 edges from 0 to 1, 1 to 2 and 2 to 3.
 Testcase 3: There is a cycle in the given graph formed by vertices 2, 3 and 4.
  */
-public class DetectLoop {
+public class DetectLoopUndirectedGraph {
     public static void main(String[] args) {
-        Graph graph = new Graph("0 1 2 3 3 4 4 2", true);
+        Graph graph;
+        graph = new Graph("0 1 2 3 3 4 4 2", false);
         System.out.println(hasLoop(graph));
-        graph = new Graph("0 1 1 2 2 3", true);
+        graph = new Graph("0 1 1 2", false);
         System.out.println(hasLoop(graph));
 
     }
@@ -63,20 +64,21 @@ public class DetectLoop {
         for (int vertex : vertices) {
             found = new HashSet<>();
             found.add(vertex);
-            if (hasLoop(graph, vertex, found)) return true;
+            if (hasLoop(graph, vertex, found, null)) return true;
         }
 
         return false;
     }
 
-    private static boolean hasLoop(Graph graph, int vertex, Set<Integer> found) {
+    private static boolean hasLoop(Graph graph, int vertex, Set<Integer> found, Integer prev) {
         List<Integer> adjs = graph.getAdjacent(vertex);
 
         for (Integer adjacent : adjs) {
-            if(found.contains(adjacent)) return true;
+            if(adjacent.equals(prev)) continue;
+            if (found.contains(adjacent)) return true;
             else {
                 found.add(adjacent);
-                return hasLoop(graph,adjacent, found);
+                return hasLoop(graph, adjacent, found, vertex);
             }
         }
 

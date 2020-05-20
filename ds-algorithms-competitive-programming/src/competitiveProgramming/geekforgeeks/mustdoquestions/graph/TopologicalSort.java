@@ -1,4 +1,4 @@
-package competitiveProgramming.geekforgeeks;
+package competitiveProgramming.geekforgeeks.mustdoquestions.graph;
 
 import utils.Graph;
 
