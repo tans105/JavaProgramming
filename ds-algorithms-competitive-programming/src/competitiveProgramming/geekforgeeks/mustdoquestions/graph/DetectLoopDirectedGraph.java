@@ -1,6 +1,7 @@
 package competitiveProgramming.geekforgeeks.mustdoquestions.graph;
 
 import utils.Graph;
+import utils.pojo.Vertex;
 
 import java.util.HashSet;
 import java.util.List;
@@ -49,18 +50,19 @@ Testcase 3: There is a cycle in the given graph formed by vertices 2, 3 and 4.
  */
 public class DetectLoopDirectedGraph {
     public static void main(String[] args) {
-        Graph graph = new Graph("0 1 2 3 3 4 4 2", true);
+        Graph<Integer> graph = new Graph<Integer>(true);
+        graph.addEdge(0,1);
+        graph.addEdge(2,3);
+        graph.addEdge(3,4);
+        graph.addEdge(4,2);
         System.out.println(hasLoop(graph));
-        graph = new Graph("0 1 1 2 2 3", true);
-        System.out.println(hasLoop(graph));
-
     }
 
-    private static boolean hasLoop(Graph graph) {
-        List<Integer> vertices = graph.getVertices();
-        Set<Integer> found;
+    private static boolean hasLoop(Graph<Integer> graph) {
+        List<Vertex<Integer>> vertices = graph.getVertices();
+        Set<Vertex<Integer>> found;
 
-        for (int vertex : vertices) {
+        for (Vertex<Integer> vertex : vertices) {
             found = new HashSet<>();
             found.add(vertex);
             if (hasLoop(graph, vertex, found)) return true;
@@ -69,10 +71,10 @@ public class DetectLoopDirectedGraph {
         return false;
     }
 
-    private static boolean hasLoop(Graph graph, int vertex, Set<Integer> found) {
-        List<Integer> adjs = graph.getAdjacent(vertex);
+    private static boolean hasLoop(Graph<Integer> graph, Vertex<Integer> vertex, Set<Vertex<Integer>> found) {
+        List<Vertex<Integer>> adjs = graph.getAdjacent(vertex);
 
-        for (Integer adjacent : adjs) {
+        for (Vertex<Integer> adjacent : adjs) {
             if(found.contains(adjacent)) return true;
             else {
                 found.add(adjacent);

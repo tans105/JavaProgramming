@@ -137,8 +137,8 @@ public class ArrayUtils {
         return list.stream().mapToInt(ij -> ij).toArray();
     }
 
-    public static int[] generateArray(int num, boolean fromZero) {
-        int[] arr = new int[num];
+    public static Integer[] generateArray(int num, boolean fromZero) {
+        Integer[] arr = new Integer[num];
         int start = (fromZero) ? 0 : 1;
 
         for (int i = 0; i < num; i++) {

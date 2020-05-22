@@ -1,13 +1,14 @@
 package competitiveProgramming.geekforgeeks.mustdoquestions.graph;
 
 import utils.Graph;
+import utils.pojo.Vertex;
 
 import java.util.*;
 
 public class TopologicalSort {
 
     public static void main(String[] args) {
-        Graph g = new Graph(6, true, true);
+        Graph<Integer> g = new Graph<>(true);
         g.addEdge(5, 2);
         g.addEdge(5, 0);
         g.addEdge(4, 0);
@@ -18,13 +19,14 @@ public class TopologicalSort {
         topologicalSort(g);
     }
 
-    private static void topologicalSort(Graph g) {
-        Stack<Integer> sorted = new Stack<>();
-        Set<Integer> visited = new HashSet<>();
+    private static void topologicalSort(Graph<Integer> g) {
+        Stack<Vertex<Integer>> sorted = new Stack<>();
+        Set<Vertex<Integer>> visited = new HashSet<>();
 
         for (int i = 0; i < g.getVertices().size(); i++) {
-            if (visited.add(i)) {
-                exploreChildren(i, g, sorted, visited);
+            Vertex<Integer> v =  new Vertex<>(i);
+            if (visited.add(v)) {
+                exploreChildren(v, g, sorted, visited);
             }
         }
 
@@ -33,13 +35,13 @@ public class TopologicalSort {
         }
     }
 
-    private static void exploreChildren(int current, Graph g, Stack<Integer> sorted, Set<Integer> visited) {
+    private static void exploreChildren(Vertex<Integer> current, Graph<Integer> g, Stack<Vertex<Integer>> sorted, Set<Vertex<Integer>> visited) {
         if (g.getAdjacent(current).size() == 0) { //nothing more to explore
             sorted.add(current);
         } else {
             //explore all the chilren of current
             for (int i = 0; i < g.getAdjacent(current).size(); i++) {
-                int temp = g.getAdjacent(current).get(i);
+                Vertex<Integer> temp = g.getAdjacent(current).get(i);
                 if (!visited.contains(temp)) {
                     exploreChildren(temp, g, sorted, visited);
                 }

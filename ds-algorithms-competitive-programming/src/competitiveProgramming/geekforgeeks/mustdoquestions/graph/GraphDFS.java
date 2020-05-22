@@ -1,6 +1,7 @@
 package competitiveProgramming.geekforgeeks.mustdoquestions.graph;
 
 import utils.Graph;
+import utils.pojo.Vertex;
 
 import java.util.HashSet;
 import java.util.List;
@@ -53,23 +54,31 @@ so starting from 0 , dfs will be 0 1 2 4 3.
  */
 public class GraphDFS {
     public static void main(String[] args) {
-        Graph graph = new Graph("0 1 0 2 0 3 2 4", false);
-        dfs(graph, 0);
-        graph = new Graph("0 1 1 2 0 3", false);
-        dfs(graph, 0);
+        Graph<Integer> graph = new Graph<>(false);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(0, 3);
+        graph.addEdge(2, 4);
+        dfs(graph, new Vertex<>(0));
+
+        graph = new Graph<>(false);
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(0, 3);
+        dfs(graph, new Vertex<>(0));
     }
 
-    private static void dfs(Graph graph, int root) {
-        Set<Integer> found = new HashSet<>();
+    private static void dfs(Graph<Integer> graph, Vertex<Integer> root) {
+        Set<Vertex<Integer>> found = new HashSet<>();
         found.add(root);
         System.out.print(root + "\t");
         dfs(graph, root, found);
         System.out.println();
     }
 
-    private static void dfs(Graph graph, int index, Set<Integer> found) {
-        List<Integer> adj = graph.getAdjacent(index);
-        for (Integer vertex : adj) {
+    private static void dfs(Graph<Integer> graph, Vertex<Integer> index, Set<Vertex<Integer>> found) {
+        List<Vertex<Integer>> adj = graph.getAdjacent(index);
+        for (Vertex<Integer> vertex : adj) {
             if (!found.contains(vertex)) {
                 System.out.print(vertex + "\t");
                 found.add(vertex);

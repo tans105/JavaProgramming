@@ -2,6 +2,7 @@ package competitiveProgramming.geekforgeeks.mustdoquestions.graph;
 
 import utils.Graph;
 import utils.LoggingUtil;
+import utils.pojo.Vertex;
 
 import java.util.*;
 
@@ -49,23 +50,31 @@ so starting from 0 , bfs will be 0 1 2 3 4.
  */
 public class GraphBFS {
     public static void main(String[] args) {
-        Graph graph = new Graph("0 1 0 2 0 3 2 4", false);
+        Graph<Integer> graph = new Graph<>(false);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(0, 3);
+        graph.addEdge(2, 4);
         bfs(graph);
         System.out.println();
-        graph = new Graph("0 1 0 2", false);
+
+
+        graph = new Graph<>(false);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
         bfs(graph);
     }
 
-    private static void bfs(Graph graph) {
-        Queue<Integer> queue = new LinkedList<>();
-        Set<Integer> found = new HashSet<>();
+    private static void bfs(Graph<Integer> graph) {
+        Queue<Vertex<Integer>> queue = new LinkedList<>();
+        Set<Vertex<Integer>> found = new HashSet<>();
         LoggingUtil.logTabSeparated(0);
-        queue.add(0);
-        found.add(0);
+        queue.add(new Vertex<>(0));
+        found.add(new Vertex<>(0));
         queue.add(null);
 
         while (!queue.isEmpty()) {
-            Integer ele = queue.poll();
+            Vertex<Integer> ele = queue.poll();
             if (ele == null) {
                 if (queue.isEmpty()) {
                     break;
@@ -75,8 +84,8 @@ public class GraphBFS {
                 }
             }
 
-            List<Integer> adjacent = graph.getAdjacent(ele);
-            for (Integer integer : adjacent) {
+            List<Vertex<Integer>> adjacent = graph.getAdjacent(ele);
+            for (Vertex<Integer> integer : adjacent) {
                 if (!found.contains(integer)) {
                     found.add(integer);
                     queue.offer(integer);

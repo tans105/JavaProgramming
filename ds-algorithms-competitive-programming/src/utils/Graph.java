@@ -1,12 +1,13 @@
 package utils;
 
-import utils.ArrayUtils;
+import utils.pojo.Edge;
+import utils.pojo.Vertex;
 
 import java.util.*;
 
-public class Graph {
-    private Map<Integer, List<Integer>> adjacentVertices;
-    private List<Integer> vertices;
+public class Graph<T> {
+    private Map<Vertex<T>, List<Vertex<T>>> adjacentVertices;
+    private List<Vertex<T>> vertices;
     private boolean isDirected;
 
     private void init(boolean isDirected) {
@@ -19,60 +20,49 @@ public class Graph {
         init(isDirected);
     }
 
-    public Graph(int N, boolean isDirected, boolean fromZero) {
-        init(isDirected);
-        int[] arr = ArrayUtils.generateArray(N, fromZero);
-        addVertices(arr);
-    }
-
-    public Graph(int N, boolean isDirected) {
-        init(isDirected);
-        int[] arr = ArrayUtils.generateArray(N, false);
-        addVertices(arr);
-    }
-
-    public Graph(String edgeSet, boolean isDirected) {
-        init(isDirected);
-        int[] edgeSetArray = ArrayUtils.parseArray(edgeSet);
-        for(int vertex: edgeSetArray) {
-            if(!this.vertices.contains(vertex)) {
-                adjacentVertices.put(vertex, new ArrayList<>());
-                this.vertices.add(vertex);
-            }
-        }
-        addEdges(edgeSet);
-    }
-
-    public void addVertex(int vertex) {
-        vertices.add(vertex);
-        adjacentVertices.put(vertex, new ArrayList<>());
-    }
-
-    public void addVertices(int[] vertices) {
-        for (int v : vertices) {
-            adjacentVertices.put(v, new ArrayList<>());
-            this.vertices.add(v);
+    public void addVertex(T v) {
+        Vertex<T> vertex = new Vertex<>(v);
+        if (!vertices.contains(vertex)) {
+            vertices.add(vertex);
+            adjacentVertices.put(vertex, new ArrayList<>());
         }
     }
 
-    public List<Integer> getVertices() {
+    public void addVertices(T[] vertices) {
+        for (T v : vertices) {
+            addVertex(v);
+        }
+    }
+
+    public List<Vertex<T>> getVertices() {
         return vertices;
     }
 
-    public void addEdge(int v, int w) {
-        if (vertices.contains(v) && vertices.contains(w)) {
+    private boolean isAbsent(Vertex<T> v) {
+        return !vertices.contains(v);
+    }
+
+    public void addEdge(T v, T w) {
+        Vertex<T> v1 = new Vertex<>(v);
+        Vertex<T> v2 = new Vertex<>(w);
+
+        if(isAbsent(v1)) addVertex(v);
+        if(isAbsent(v2)) addVertex(w);
+
+        if (vertices.contains(v1) && vertices.contains(v2)) {
+            Edge<T> edge = new Edge<T>(v1, v2, isDirected);
             if (isDirected) {
-                adjacentVertices.get(v).add(w);
+                adjacentVertices.get(v1).add(v2);
             } else {
-                adjacentVertices.get(v).add(w);
-                adjacentVertices.get(w).add(v);
+                adjacentVertices.get(v1).add(v2);
+                adjacentVertices.get(v2).add(v1);
             }
         } else {
             throw new IllegalArgumentException("Either of the vertex is not registered");
         }
     }
 
-    public void addEdges(int[] edgeSet) {
+    public void addEdges(T[] edgeSet) {
         if (edgeSet.length % 2 != 0) {
             throw new IllegalArgumentException("Edge set cannot be odd");
         }
@@ -81,17 +71,21 @@ public class Graph {
         }
     }
 
-    public void addEdges(String edgeSet) {
-        addEdges(ArrayUtils.parseArray(edgeSet));
-    }
-
-    @Override
-    public String toString() {
-        return "Graph{" + "adj=" + adjacentVertices + '}';
-    }
-
-
-    public List<Integer> getAdjacent(int vertex) {
+    public List<Vertex<T>> getAdjacent(Vertex<T> vertex) {
         return this.adjacentVertices.get(vertex);
     }
+
+    public Map<Vertex<T>, List<Vertex<T>>> getAdjacentVertices() {
+        return adjacentVertices;
+    }
+
+//    @Override
+//    public String toString(){
+//        StringBuffer buffer = new StringBuffer();
+//        for(Edge<T> edge : getAllEdges()){
+//            buffer.append(edge.getVertex1() + " " + edge.getVertex2() + " " + edge.getWeight());
+//            buffer.append("\n");
+//        }
+//        return buffer.toString();
+//    }
 }

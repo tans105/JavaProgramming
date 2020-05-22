@@ -1,6 +1,7 @@
 package competitiveProgramming.geekforgeeks.mustdoquestions.graph;
 
 import utils.Graph;
+import utils.pojo.Vertex;
 
 import java.util.HashSet;
 import java.util.List;
@@ -49,19 +50,24 @@ Testcase 3: There is a cycle in the given graph formed by vertices 2, 3 and 4.
  */
 public class DetectLoopUndirectedGraph {
     public static void main(String[] args) {
-        Graph graph;
-        graph = new Graph("0 1 2 3 3 4 4 2", false);
-        System.out.println(hasLoop(graph));
-        graph = new Graph("0 1 1 2", false);
+        Graph<Integer> graph = new Graph<Integer>(false);
+        graph.addEdge(0, 1);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 4);
+        graph.addEdge(4, 2);
         System.out.println(hasLoop(graph));
 
+        graph = new Graph<>(false);
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        System.out.println(hasLoop(graph));
     }
 
-    private static boolean hasLoop(Graph graph) {
-        List<Integer> vertices = graph.getVertices();
-        Set<Integer> found;
+    private static boolean hasLoop(Graph<Integer> graph) {
+        List<Vertex<Integer>> vertices = graph.getVertices();
+        Set<Vertex<Integer>> found;
 
-        for (int vertex : vertices) {
+        for (Vertex<Integer> vertex : vertices) {
             found = new HashSet<>();
             found.add(vertex);
             if (hasLoop(graph, vertex, found, null)) return true;
@@ -70,11 +76,11 @@ public class DetectLoopUndirectedGraph {
         return false;
     }
 
-    private static boolean hasLoop(Graph graph, int vertex, Set<Integer> found, Integer prev) {
-        List<Integer> adjs = graph.getAdjacent(vertex);
+    private static boolean hasLoop(Graph<Integer> graph, Vertex<Integer> vertex, Set<Vertex<Integer>> found, Vertex<Integer> prev) {
+        List<Vertex<Integer>> adjs = graph.getAdjacent(vertex);
 
-        for (Integer adjacent : adjs) {
-            if(adjacent.equals(prev)) continue;
+        for (Vertex<Integer> adjacent : adjs) {
+            if (adjacent.equals(prev)) continue;
             if (found.contains(adjacent)) return true;
             else {
                 found.add(adjacent);
