@@ -1,12 +1,13 @@
 package utils.pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Vertex<T> {
     private T value;
     private List<Vertex<T>> adjacentVertices;
-    private List<Edge<T>> adjacentEdges;
+    private List<Edge<T>> edges;
 
     public T getValue() {
         return value;
@@ -16,11 +17,21 @@ public class Vertex<T> {
         return adjacentVertices;
     }
 
-    public List<Edge<T>> getAdjacentEdges() {
-        return adjacentEdges;
+    public List<Edge<T>> getEdges() {
+        return edges;
+    }
+
+    public void addAdjacentVertices(Vertex<T> vertex) {
+        this.adjacentVertices.add(vertex);
+    }
+
+    public void addEdge(Edge<T> edge) {
+        this.edges.add(edge);
     }
 
     public Vertex(T value) {
+        this.adjacentVertices = new ArrayList<>();
+        this.edges = new ArrayList<>();
         this.value = value;
     }
 

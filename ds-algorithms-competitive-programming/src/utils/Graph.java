@@ -7,25 +7,35 @@ import java.util.*;
 
 public class Graph<T> {
     private Map<Vertex<T>, List<Vertex<T>>> adjacentVertices;
+    private Map<T, Vertex<T>> vertexMap;
     private List<Vertex<T>> vertices;
+    private List<Edge<T>> allEdges;
     private boolean isDirected;
 
     private void init(boolean isDirected) {
         this.vertices = new ArrayList<>();
         this.adjacentVertices = new HashMap<>();
         this.isDirected = isDirected;
+        this.allEdges = new ArrayList<>();
+        this.vertexMap = new HashMap<>();
     }
 
     public Graph(boolean isDirected) {
         init(isDirected);
     }
 
-    public void addVertex(T v) {
-        Vertex<T> vertex = new Vertex<>(v);
-        if (!vertices.contains(vertex)) {
+    public Vertex<T> addVertex(T v) {
+        Vertex<T> vertex;
+        if (!vertexMap.containsKey(v)) {
+            vertex = new Vertex<>(v);
             vertices.add(vertex);
             adjacentVertices.put(vertex, new ArrayList<>());
+            vertexMap.put(v, vertex);
+        } else {
+            vertex = vertexMap.get(v);
         }
+
+        return vertex;
     }
 
     public void addVertices(T[] vertices) {
@@ -38,38 +48,49 @@ public class Graph<T> {
         return vertices;
     }
 
-    private boolean isAbsent(Vertex<T> v) {
-        return !vertices.contains(v);
+    private boolean isPresent(Vertex<T> v) {
+        return vertices.contains(v);
     }
 
     public void addEdge(T v, T w) {
-        Vertex<T> v1 = new Vertex<>(v);
-        Vertex<T> v2 = new Vertex<>(w);
+        addEdge(v, w, 1);
+    }
 
-        if(isAbsent(v1)) addVertex(v);
-        if(isAbsent(v2)) addVertex(w);
+    public void addEdge(T v, T w, Integer weight) {
+        Vertex<T> v1 = addVertex(v);
+        Vertex<T> v2 = addVertex(w);
 
         if (vertices.contains(v1) && vertices.contains(v2)) {
-            Edge<T> edge = new Edge<T>(v1, v2, isDirected);
             if (isDirected) {
-                adjacentVertices.get(v1).add(v2);
+                connectVertices(v1, v2, weight);
             } else {
-                adjacentVertices.get(v1).add(v2);
-                adjacentVertices.get(v2).add(v1);
+                connectVertices(v1, v2, weight);
+                connectVertices(v2, v1, weight);
             }
         } else {
             throw new IllegalArgumentException("Either of the vertex is not registered");
         }
     }
 
-    public void addEdges(T[] edgeSet) {
-        if (edgeSet.length % 2 != 0) {
-            throw new IllegalArgumentException("Edge set cannot be odd");
+    private void connectVertices(Vertex<T> v1, Vertex<T> v2, int weight) {
+        Edge<T> edge = new Edge<>(v1, v2, weight, this.isDirected);
+        allEdges.add(edge);
+        v1.addEdge(edge);
+        adjacentVertices.get(v1).add(v2);
+        v1.addAdjacentVertices(v2);
+    }
+
+    public void addEdges(T[] edgeSet, boolean hasWeight) {
+        int k = (hasWeight) ? 2 : 3;
+        if (edgeSet.length % k != 0) {
+            throw new IllegalArgumentException("Edge set not right. Check the params again");
         }
-        for (int i = 0; i < edgeSet.length; i += 2) {
-            addEdge(edgeSet[i], edgeSet[i + 1]);
+        for (int i = 0; i < edgeSet.length; i += k) {
+            if (hasWeight) addEdge(edgeSet[i], edgeSet[i + 1], (Integer) edgeSet[i + 2]);
+            else addEdge(edgeSet[i], edgeSet[i + 1]);
         }
     }
+
 
     public List<Vertex<T>> getAdjacent(Vertex<T> vertex) {
         return this.adjacentVertices.get(vertex);
@@ -77,6 +98,10 @@ public class Graph<T> {
 
     public Map<Vertex<T>, List<Vertex<T>>> getAdjacentVertices() {
         return adjacentVertices;
+    }
+
+    public List<Edge<T>> getAllEdges() {
+        return allEdges;
     }
 
 //    @Override

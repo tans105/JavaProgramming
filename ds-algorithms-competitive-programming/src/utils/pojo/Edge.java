@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Edge<T> {
     private Vertex<T> v1;
     private Vertex<T> v2;
-    private int weight = 1;
+    private Integer weight = 1;
     private boolean isDirected = false;
 
     public Edge(Vertex<T> v1, Vertex<T> v2) {
@@ -20,13 +20,13 @@ public class Edge<T> {
         this.isDirected = isDirected;
     }
 
-    public Edge(Vertex<T> v1, Vertex<T> v2, int weight) {
+    public Edge(Vertex<T> v1, Vertex<T> v2, Integer weight) {
         this.v1 = v1;
         this.v2 = v2;
         this.weight = weight;
     }
 
-    public Edge(Vertex<T> v1, Vertex<T> v2, int weight, boolean isDirected) {
+    public Edge(Vertex<T> v1, Vertex<T> v2, Integer weight, boolean isDirected) {
         this.v1 = v1;
         this.v2 = v2;
         this.weight = weight;
@@ -35,12 +35,7 @@ public class Edge<T> {
 
     @Override
     public String toString() {
-        return "Edge{" +
-                "v1=" + v1 +
-                ", v2=" + v2 +
-                ", weight=" + weight +
-                ", isDirected=" + isDirected +
-                '}';
+        return "{" + v1 + ", " + v2 + ", " + weight + '}';
     }
 
     @Override
