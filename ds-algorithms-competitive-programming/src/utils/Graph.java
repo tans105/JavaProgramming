@@ -20,6 +20,10 @@ public class Graph<T> {
         this.vertexMap = new HashMap<>();
     }
 
+    public Vertex<T> getVertex(T v) {
+        return vertexMap.get(v);
+    }
+
     public Graph(boolean isDirected) {
         init(isDirected);
     }
@@ -104,13 +108,24 @@ public class Graph<T> {
         return allEdges;
     }
 
-//    @Override
-//    public String toString(){
-//        StringBuffer buffer = new StringBuffer();
-//        for(Edge<T> edge : getAllEdges()){
-//            buffer.append(edge.getVertex1() + " " + edge.getVertex2() + " " + edge.getWeight());
-//            buffer.append("\n");
-//        }
-//        return buffer.toString();
-//    }
+    public int getDistanceBetweenVertex(Vertex<T> from, Vertex<T> to) {
+        int distance = -1;
+        for (Edge<T> e : from.getEdges()) {
+            if (e.getV2().equals(to)) {
+                distance = e.getWeight();
+                break;
+            }
+        }
+        return distance;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder buffer = new StringBuilder();
+        for(Edge<T> edge : getAllEdges()){
+            buffer.append(edge.getV1() + " " + edge.getV2() + " " + edge.getWeight());
+            buffer.append("\n");
+        }
+        return buffer.toString();
+    }
 }
