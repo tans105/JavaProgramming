@@ -42,37 +42,20 @@ public class KClosestPointToOrigin {
     }
 
     public static int[][] kClosest(int[][] points, int K) {
-        Map<int[], Double> distanceMap = new HashMap<>();
+        List<int[]> coordinates = Arrays.asList(points);
+        coordinates.sort((p1, p2) -> {
+            int x1 = p1[0];
+            int y1 = p1[1];
+            int x2 = p2[0];
+            int y2 = p2[1];
+            return (x1 * x1 + y1 * y1) - (x2 * x2 + y2 * y2);
+        });
+
         int[][] result = new int[K][2];
-        List<int[]> coordinates = new ArrayList<>();
-
-        for (int[] point : points) {
-            distanceMap.put(point, Math.sqrt(point[0] * point[0] + point[1] * point[1]));
-            coordinates.add(point);
-        }
-
-        DistanceComparator comparator = new DistanceComparator(distanceMap);
-        coordinates.sort(comparator);
-
-
         for (int i = 0; i < K; i++) {
             result[i] = coordinates.get(i);
         }
 
         return result;
-    }
-
-    static class DistanceComparator implements Comparator<int[]> {
-
-        Map<int[], Double> distanceMap;
-
-        DistanceComparator(Map<int[], Double> distanceMap) {
-            this.distanceMap = distanceMap;
-        }
-
-        @Override
-        public int compare(int[] ints, int[] t1) {
-            return distanceMap.get(ints).compareTo(distanceMap.get(t1));
-        }
     }
 }
