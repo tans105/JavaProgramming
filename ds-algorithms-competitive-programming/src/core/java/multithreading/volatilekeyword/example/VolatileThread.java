@@ -1,5 +1,7 @@
 package core.java.multithreading.volatilekeyword.example;
 
+import core.java.multithreading.volatilekeyword.VolatileData;
+
 public class VolatileThread extends Thread {
     private final VolatileData data;
 

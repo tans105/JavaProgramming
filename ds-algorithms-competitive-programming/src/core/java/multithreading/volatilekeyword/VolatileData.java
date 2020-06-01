@@ -1,4 +1,4 @@
-package core.java.multithreading.volatilekeyword.example;
+package core.java.multithreading.volatilekeyword;
 
 public class VolatileData {
     private volatile int counter = 0;
