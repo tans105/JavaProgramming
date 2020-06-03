@@ -55,12 +55,17 @@ public class PermutationsOfGivenString {
 
         for (int i = 0; i < arr.length; i++) {
             if (used[i]) continue;
-            if (i > 0 && used[i] == used[i - 1] && used[i - 1]) continue;
+            if (i > 0 && arr[i] == arr[i - 1] && used[i - 1]) continue;
             tempList.add(arr[i]);
             used[i] = true;
             backtrackDuplicates(finalList, tempList, arr, used);
             used[i] = false;
             tempList.remove(tempList.size() - 1);
+
+            // OR
+//            while (i + 1 < arr.length && arr[i] == arr[i + 1]) {  //  not considering the same elements again
+//                i++;
+//            }
         }
     }
 
