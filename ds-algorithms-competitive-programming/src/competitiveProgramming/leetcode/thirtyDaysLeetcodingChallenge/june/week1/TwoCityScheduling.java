@@ -1,4 +1,4 @@
-package competitiveProgramming.leetcode.thirtyDaysLeetcodingChallenge.june;
+package competitiveProgramming.leetcode.thirtyDaysLeetcodingChallenge.june.week1;
 
 import utils.ArrayUtils;
 

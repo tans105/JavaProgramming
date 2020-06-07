@@ -1,9 +1,6 @@
-package competitiveProgramming.leetcode.thirtyDaysLeetcodingChallenge.june;
-
-import utils.ArrayUtils;
+package competitiveProgramming.leetcode.thirtyDaysLeetcodingChallenge.june.week1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /*
