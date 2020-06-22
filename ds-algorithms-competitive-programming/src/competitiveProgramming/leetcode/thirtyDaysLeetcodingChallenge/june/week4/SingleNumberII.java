@@ -39,14 +39,12 @@ public class SingleNumberII {
         Set<Long> hash = new HashSet<>();
 
         for (int num : nums) {
-            hash.add((long) num);
+            if (hash.add((long) num)) {
+                threeSum += 3 * (long) num;
+            }
             sum += num;
         }
 
-        for (Long num : hash) {
-            threeSum += 3 * num;
-        }
-
-        return (int) ( (threeSum - sum) / 2);
+        return (int) ((threeSum - sum) / 2);
     }
 }
