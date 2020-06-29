@@ -1,6 +1,8 @@
-package competitiveProgramming.random;
+package competitiveProgramming.geekforgeeks;
 
 /*
+https://www.geeksforgeeks.org/determinant-of-a-matrix/
+
 Matrix Determinant
 Have the function MatrixDeterminant(strArr) read strArr which will be an array of integers represented as strings. Within the array there will also be "<>" elements which represent break points. The array will make up a matrix where the (number of break points + 1) represents the number of rows. Here is an example of how strArr may look: ["1","2","<>","3","4"]. The contents of this array are row1=[1 2] and row2=[3 4]. Your program should take the given array of elements, create the proper matrix, and then calculate the determinant. For the example above, your program should return -2. If the matrix is not a square matrix, return -1. The maximum size of strArr will be a 6x6 matrix. The determinant will always be an integer.
 Examples
@@ -35,35 +37,51 @@ public class Determinant {
             col++;
         }
 
-        return String.valueOf(calculateDeterminant(matrix));
+        return String.valueOf(calculateDeterminant(matrix, matrix.length));
     }
 
-    private static int calculateDeterminant(int[][] matrix) {
+    private static int calculateDeterminant(int[][] matrix, int n) {
         int sum = 0;
-        int sign;
+        int sign = 1;
         int len = matrix.length;
 
         if (len == 1) {
             return matrix[0][0];
         }
 
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < len; i++) {//finds determinant using row-by-row expansion
             int[][] part = new int[len - 1][len - 1];
-            for (int a = 1; a < len; a++) {
-                for (int b = 0; b < len; b++) {
-                    if (b < i) part[a - 1][b] = matrix[a][b];
-                    else if (b > i) part[a - 1][b - 1] = matrix[a][b];
-                }
-            }
-
-            if (i % 2 == 0) sign = 1;
-            else sign = -1;
-
-            sum += sign * matrix[0][i] * (calculateDeterminant(part));
+            getCofactor(matrix, part, 0, i, n); //creates smaller matrix- values not in same row, column
+            sum += sign * matrix[0][i] * (calculateDeterminant(part, n - 1)); //recursive step: determinant of larger determined by smaller.
+            sign = sign * -1;
         }
 
 
         return sum;
     }
 
+    static void getCofactor(int mat[][], int temp[][], int refRow, int refCol, int n) {
+        int i = 0, j = 0;
+
+        // Looping for each element of the matrix
+        for (int row = 0; row < n; row++) {
+            for (int col = 0; col < n; col++) {
+
+                // Copying into temporary matrix
+                // only those element which are
+                // not in given row and column
+                if (row != refRow && col != refCol) {
+                    temp[i][j++] = mat[row][col];
+
+                    // Row is filled, so increase
+                    // row index and reset col
+                    //index
+                    if (j == n - 1) {
+                        j = 0;
+                        i++;
+                    }
+                }
+            }
+        }
+    }
 }
