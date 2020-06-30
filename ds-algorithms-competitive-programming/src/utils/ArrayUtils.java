@@ -1,9 +1,6 @@
 package utils;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class ArrayUtils {
@@ -88,13 +85,7 @@ public class ArrayUtils {
     }
 
     public static int[][] parse2DArray(String str) {
-        str = str.replace("\n", "").replace("\r", "");
-        str = str.trim();
-        str = str.replaceAll("\\s", "");
-        str = str.substring(2, str.length() - 2);
-        str = str.replace("]", "#");
-        str = str.replace("[", "#");
-        String[] filteredArraysAsString = str.split("#,#");
+        String[] filteredArraysAsString = sanitize(str);
         List<int[]> finalList = new ArrayList<>();
 
         for (String array : filteredArraysAsString) {
@@ -107,6 +98,32 @@ public class ArrayUtils {
             result[i] = finalList.get(i);
         }
         return result;
+    }
+
+    public static char[][] parse2DCharArray(String str) {
+        String[] filteredArraysAsString = sanitize(str);
+        List<char[]> finalList = new ArrayList<>();
+
+        for (String array : filteredArraysAsString) {
+            finalList.add(parseCharArray(array));
+        }
+
+        char[][] result = new char[finalList.size()][finalList.get(0).length];
+
+        for (int i = 0; i < finalList.size(); i++) {
+            result[i] = finalList.get(i);
+        }
+        return result;
+    }
+
+    private static String[] sanitize(String str) {
+        str = str.replace("\n", "").replace("\r", "");
+        str = str.trim();
+        str = str.replaceAll("\\s", "");
+        str = str.substring(2, str.length() - 2);
+        str = str.replace("]", "#");
+        str = str.replace("[", "#");
+        return str.split("#,#");
     }
 
     public static int[] parseArray(String str) {
@@ -135,6 +152,25 @@ public class ArrayUtils {
         }
 
         return list.stream().mapToInt(ij -> ij).toArray();
+    }
+
+    public static char[] parseCharArray(String str) {
+        int indexOfB1 = str.indexOf("[");
+        int indexOfB2 = str.indexOf("]");
+
+        if (indexOfB1 >= 0 && indexOfB2 >= 0) str = str.substring(str.indexOf("[") + 1, str.indexOf("]"));
+
+        str = str.replace(",", " ");
+        str = str.replace("'", "");
+        str = str.replace(" ", "");
+        str = str.trim();
+        char[] charArr = new char[str.length()];
+
+        for(int i=0;i<charArr.length;i++) {
+            charArr[i] = str.charAt(i);
+        }
+
+        return charArr;
     }
 
     public static Integer[] generateArray(int num, boolean fromZero) {
