@@ -52,6 +52,14 @@ public class ArrayUtils {
         System.out.println();
     }
 
+    public static void printArray(boolean[] array) {
+        if (array == null) return;
+        for (boolean j : array) {
+            System.out.print(j + "\t");
+        }
+        System.out.println();
+    }
+
     public static void printArray(char[] array) {
         if (array == null) return;
         for (char j : array) {
