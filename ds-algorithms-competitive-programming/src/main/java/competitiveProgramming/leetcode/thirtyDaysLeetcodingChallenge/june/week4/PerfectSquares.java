@@ -1,8 +1,6 @@
 package competitiveProgramming.leetcode.thirtyDaysLeetcodingChallenge.june.week4;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /*
 https://leetcode.com/explore/featured/card/june-leetcoding-challenge/542/week-4-june-22nd-june-28th/3373/
@@ -35,12 +33,12 @@ public class PerfectSquares {
     int minSize = Integer.MAX_VALUE;
 
     public int numSquares(int n) {
-        Set<Integer> perfectSquare = getPerfectSquares(n);
-        backtrack(n, 0, 0, n, perfectSquare);
+        List<Integer> perfectSquare = getPerfectSquares(n);
+        backtrack(n, 0, 0, perfectSquare);
         return minSize;
     }
 
-    private void backtrack(int n, int currentSum, int count, int start, Set<Integer> perfectSquares) {
+    private void backtrack(int n, int currentSum, int count, List<Integer> perfectSquares) {
         if (currentSum > n) return;
 
         if (currentSum == n) {
@@ -48,20 +46,17 @@ public class PerfectSquares {
             return;
         }
 
-        for (int i = 1; i * i <= n; i++) {
-            if (perfectSquares.contains(i)) {
-                backtrack(n, currentSum + i, count + 1, i, perfectSquares);
-            }
+        for (Integer square : perfectSquares) {
+            backtrack(n, currentSum + square, count + 1, perfectSquares);
         }
     }
 
-    private Set<Integer> getPerfectSquares(int n) {
-        Set<Integer> ps = new HashSet<>();
-        for (int i = 1; i <= n; i++) {
-            double sr = Math.sqrt(i);
-            if ((sr - Math.floor(sr)) == 0) {
-                ps.add(i);
-            }
+    private List<Integer> getPerfectSquares(int n) {
+        List<Integer> ps = new ArrayList<>();
+        int i = 1;
+        while (i * i < n) {
+            ps.add(i * i);
+            i++;
         }
 
         return ps;
