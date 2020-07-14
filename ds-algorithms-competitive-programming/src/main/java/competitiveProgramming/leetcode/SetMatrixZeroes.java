@@ -3,6 +3,7 @@ package competitiveProgramming.leetcode;
 import utils.ArrayUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -41,7 +42,9 @@ Output:
  */
 public class SetMatrixZeroes {
     public static void main(String[] args) {
-        int[][] matrix = ArrayUtils.parse2DArray("[" +
+        int[][] matrix;
+
+        matrix= ArrayUtils.parse2DArray("[" +
                 "[3,7,2,8,2]," +
                 "[2,2,4,1,8]," +
                 "[0,5,7,6,3]," +
@@ -57,6 +60,14 @@ public class SetMatrixZeroes {
                 "[7,2,5,9,3]" +
                 "]");
         setZeroes(matrix);
+        ArrayUtils.print2DArray(matrix);
+
+        matrix = ArrayUtils.parse2DArray("[\n" +
+                "  [1,1,1],\n" +
+                "  [1,0,1],\n" +
+                "  [1,1,1]\n" +
+                "]");
+        setZeroesInPlace(matrix);
         ArrayUtils.print2DArray(matrix);
     }
 
@@ -86,5 +97,29 @@ public class SetMatrixZeroes {
             }
         }
         return zeroList;
+    }
+
+    public static void setZeroesInPlace(int[][] matrix) {
+        //if there is a 0, set the corresponding first row cell and first column cell as -1 and deal with it later.
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][0] = -1; //setting 1st cell of  row as -1
+                    matrix[0][j] = -1; //setting 1st cell of column as -1
+                }
+            }
+        }
+
+        for (int[] ints : matrix) { //traversing rows and marking all the values as 0 that were marked as -1
+            if (ints[0] == -1) Arrays.fill(ints, 0);
+        }
+
+        for (int i = 0; i < matrix[0].length; i++) { //traversing rows and marking all the values as 0 that were marked as -1
+            if (matrix[0][i] == -1) {
+                for (int j = 0; j < matrix.length; j++) {
+                    matrix[j][i] = 0;
+                }
+            }
+        }
     }
 }
