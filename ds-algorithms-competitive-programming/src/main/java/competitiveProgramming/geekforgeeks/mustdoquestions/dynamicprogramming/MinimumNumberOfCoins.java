@@ -1,4 +1,4 @@
-package competitiveProgramming.geekforgeeks.mustdoquestions.dynamicprogramming;
+package competitiveProgramming.geekforgeeks.mustdoquestions.dynamicprogramming; 
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,12 +36,19 @@ public class MinimumNumberOfCoins {
     public static void main(String[] args) {
         int[] coins = new int[]{1, 2, 5};
         int amount = 7;
-
         System.out.println(findNumberOfCoins2(coins, amount));
 
         coins = new int[]{1, 2, 5, 10, 20, 50, 100, 200, 500, 2000};
         amount = 43;
-        System.out.println(findNumberOfCoins2(coins,amount));
+        System.out.println(findNumberOfCoins2(coins, amount));
+
+        coins = new int[]{1, 2, 5, 10, 20, 50, 100, 200, 500, 2000};
+        amount = 43;
+        System.out.println(findNumberOfCoins3(coins, amount));
+
+        coins = new int[]{1, 2, 5, 10};
+        amount = 11;
+        System.out.println(findNumberOfCoins3(coins, amount));
 
     }
 
@@ -101,4 +108,38 @@ public class MinimumNumberOfCoins {
         }
     }
     //
+
+    //Solution 3 --> Using Binary Search
+    public static List<Integer> findNumberOfCoins3(int[] coins, int amount) {
+        List<Integer> denomination = new ArrayList<>();
+        int low = 0;
+        int high = coins.length - 1;
+
+        while (amount > 0) { //Keep updating the amount and eliminate all the denomination greater than the current amount
+            int mid = searchNearest(coins, low, high, amount);
+            if(mid == -1) return new ArrayList<>();
+            denomination.add(coins[mid]);
+            amount = amount - coins[mid];
+            high = mid;
+        }
+
+        return denomination;
+    }
+
+    private static int searchNearest(int[] coins, int low, int high, int target) {
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (coins[mid] == target) return mid;
+
+            if (target < coins[mid]) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return low - 1;
+    }
+    //
+
 }
