@@ -1,7 +1,6 @@
 package competitiveProgramming.leetcode.thirtyDaysLeetcodingChallenge.july.week3;
 
 import utils.ArrayUtils;
-import utils.LoggingUtil;
 
 import java.util.*;
 
@@ -36,10 +35,10 @@ You may assume that there are no duplicate edges in the input prerequisites.
 public class CourseScheduleII {
     public static void main(String[] args) {
         ArrayUtils.printArray(findOrder2(4, ArrayUtils.parse2DArray("[[1,0],[2,0],[3,1],[3,2]]")));
-//        ArrayUtils.printArray(findOrder2(2, ArrayUtils.parse2DArray("[[1,0]]")));
-//        ArrayUtils.printArray(findOrder2(2, ArrayUtils.parse2DArray("[[0,1]]")));
-//        ArrayUtils.printArray(findOrder2(2, ArrayUtils.parse2DArray("[[0,1],[1,0]]")));
-//        ArrayUtils.printArray(findOrder2(3, ArrayUtils.parse2DArray("[[0,1],[0,2],[1,2]]")));
+        ArrayUtils.printArray(findOrder2(2, ArrayUtils.parse2DArray("[[1,0]]")));
+        ArrayUtils.printArray(findOrder2(2, ArrayUtils.parse2DArray("[[0,1]]")));
+        ArrayUtils.printArray(findOrder2(2, ArrayUtils.parse2DArray("[[0,1],[1,0]]")));
+        ArrayUtils.printArray(findOrder2(3, ArrayUtils.parse2DArray("[[0,1],[0,2],[1,2]]")));
     }
 
     //Approach 1 - BFS
@@ -108,7 +107,7 @@ public class CourseScheduleII {
 
 
     //Approach 2
-    public int[] findOrder2(int numCourses, int[][] prerequisites) {
+    public static int[] findOrder2(int numCourses, int[][] prerequisites) {
         if (numCourses == 0) return null;
         // Convert graph presentation from edges to indegree of adjacent list.
         int[] indegree = new int[numCourses];
