@@ -1,7 +1,6 @@
 package competitiveProgramming.geekforgeeks.mustdoquestions.linkedlist;
 
 
-import datastructures.linkedList.linkList.LinkedList;
 import utils.LinkedListUtil;
 import utils.pojo.ListNode;
 

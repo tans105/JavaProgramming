@@ -1,6 +1,6 @@
 package competitiveProgramming.leetcode;
 
-import algorithms.sorting.QuickSort;
+import competitiveProgramming.archive.algorithms.sorting.QuickSort;
 
 import java.util.Arrays;
 import java.util.List;

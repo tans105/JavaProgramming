@@ -1,6 +1,5 @@
 package competitiveProgramming.leetcode;
 
-import datastructures.linkedList.linkList.LinkedList;
 import utils.LinkedListUtil;
 import utils.pojo.ListNode;
 

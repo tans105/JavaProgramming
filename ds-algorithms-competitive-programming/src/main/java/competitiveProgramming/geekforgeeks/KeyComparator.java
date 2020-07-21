@@ -57,10 +57,10 @@ class GFG {
         // it's frequency '-1' )
         Key prev = new Key(-1, '#');
 
-        // traverse datastructures.queue
+        // traverse competitiveProgramming.archive.datastructures.queue
         while (pq.size() != 0) {
 
-            // pop top element from datastructures.queue and add it
+            // pop top element from competitiveProgramming.archive.datastructures.queue and add it
             // to string.
             Key k = pq.peek();
             pq.poll();
