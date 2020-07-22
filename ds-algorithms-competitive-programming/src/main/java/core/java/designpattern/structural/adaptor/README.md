@@ -8,3 +8,4 @@ This pattern involves a single class which is responsible to join functionalitie
 
 Source: 
 - https://www.tutorialspoint.com/design_pattern/adapter_pattern.htm
+- https://refactoring.guru/design-patterns/adapter
