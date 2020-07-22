@@ -1,8 +1,8 @@
-package core.java.designpattern.structural.adaptor;
+package core.java.designpattern.structural.adaptor.example;
 
-import core.java.designpattern.structural.adaptor.advanced.AdvancedMusicPlayer;
-import core.java.designpattern.structural.adaptor.advanced.Mp4Player;
-import core.java.designpattern.structural.adaptor.advanced.MpegPlayer;
+import core.java.designpattern.structural.adaptor.example.advanced.AdvancedMusicPlayer;
+import core.java.designpattern.structural.adaptor.example.advanced.Mp4Player;
+import core.java.designpattern.structural.adaptor.example.advanced.MpegPlayer;
 
 public class MusicPlayerAdaptor {
     AdvancedMusicPlayer player;

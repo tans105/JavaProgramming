@@ -1,4 +1,4 @@
-package core.java.designpattern.structural.adaptor;
+package core.java.designpattern.structural.adaptor.example;
 
 public class Runner {
     public static void main(String[] args) {

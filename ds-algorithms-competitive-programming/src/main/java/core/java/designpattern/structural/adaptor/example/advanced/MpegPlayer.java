@@ -1,4 +1,4 @@
-package core.java.designpattern.structural.adaptor.advanced;
+package core.java.designpattern.structural.adaptor.example.advanced;
 
 public class MpegPlayer implements AdvancedMusicPlayer {
     @Override
