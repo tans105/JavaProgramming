@@ -1,4 +1,4 @@
-package core.java.multithreading.producerconsumer.app2;
+package core.java.multithreading.ProducerConsumer.app2;
 
 import java.util.LinkedList;
 import java.util.Random;

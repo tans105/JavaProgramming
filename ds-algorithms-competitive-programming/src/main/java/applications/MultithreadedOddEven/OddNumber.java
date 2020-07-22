@@ -1,4 +1,4 @@
-package miniApplications.oddeven;
+package applications.MultithreadedOddEven;
 
 import utils.LoggingUtil;
 

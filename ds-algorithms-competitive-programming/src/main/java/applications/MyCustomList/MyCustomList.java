@@ -1,4 +1,4 @@
-package miniApplications.myCustomList;
+package applications.MyCustomList;
 
 import java.util.Arrays;
 

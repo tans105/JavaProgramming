@@ -1,4 +1,4 @@
-package miniApplications.oddeven;
+package applications.MultithreadedOddEven;
 
 public class LogNumber {
     int counter = 0;

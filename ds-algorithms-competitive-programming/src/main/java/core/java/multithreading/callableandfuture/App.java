@@ -1,4 +1,4 @@
-package core.java.multithreading.callableandfuture;
+package core.java.multithreading.CallableAndFuture;
 
 import java.io.IOException;
 import java.util.Random;

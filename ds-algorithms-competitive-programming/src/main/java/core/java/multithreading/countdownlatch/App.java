@@ -1,4 +1,4 @@
-package core.java.multithreading.countdownlatch;
+package core.java.multithreading.CountdownLatch;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

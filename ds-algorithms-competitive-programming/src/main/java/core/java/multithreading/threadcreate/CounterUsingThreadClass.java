@@ -1,4 +1,4 @@
-package core.java.multithreading.threadcreate;
+package core.java.multithreading.ThreadCreate;
 
 public class CounterUsingThreadClass {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package core.java.multithreading.renentrantlocks;
+package core.java.multithreading.RenentrantLocks;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

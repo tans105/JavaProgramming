@@ -1,4 +1,4 @@
-package miniApplications.multithreadedBank;
+package applications.MultithreadedBank;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

@@ -1,4 +1,4 @@
-package miniApplications.multithreadedBank;
+package applications.MultithreadedBank;
 
 public class Person {
     public Person(String name, int id) {

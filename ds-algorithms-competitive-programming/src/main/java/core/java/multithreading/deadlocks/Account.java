@@ -1,4 +1,4 @@
-package core.java.multithreading.deadlocks;
+package core.java.multithreading.Deadlocks;
 
 class Account {
     private int balance = 10000;

@@ -1,4 +1,4 @@
-package core.java.multithreading.deadlocks;
+package core.java.multithreading.Deadlocks;
 
 import java.util.Random;
 import java.util.concurrent.locks.Lock;

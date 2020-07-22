@@ -1,4 +1,4 @@
-package core.java.multithreading.producerconsumer.app3;
+package core.java.multithreading.ProducerConsumer.app3;
 
 import java.util.Scanner;
 

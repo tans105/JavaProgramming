@@ -1,4 +1,4 @@
-package core.java.multithreading.synchronizedkeyword;
+package core.java.multithreading.SynchronizedKeyword;
 
 public class App {
 

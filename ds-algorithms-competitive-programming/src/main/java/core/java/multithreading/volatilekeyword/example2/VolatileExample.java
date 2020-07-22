@@ -1,4 +1,4 @@
-package core.java.multithreading.volatilekeyword.example2;
+package core.java.multithreading.VolatileKeyword.example2;
 
 import utils.LoggingUtil;
 
