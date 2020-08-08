@@ -35,8 +35,9 @@ Return 3. The paths that sum to 8 are:
  */
 public class PathSumIII {
     public static void main(String[] args) {
+        PathSumIII sum = new PathSumIII();
         TreeNode node = TreeUtils.generateBinaryTreeFromArray(new Integer[]{10, 5, -3, 3, 2, null, 11, 3, -2, null, 1});
-        System.out.println(pathSum(node, 8));
+        System.out.println(sum.pathSum(node, 8));
     }
 
     int count = 0;
