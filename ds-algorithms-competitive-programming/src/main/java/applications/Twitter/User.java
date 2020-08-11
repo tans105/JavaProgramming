@@ -21,7 +21,7 @@ public class User {
      */
     void postTweet(int userId, int tweetId) {
         Tweet tweet = new Tweet(userId, tweetId);
-        newsFeed.add(tweet);
+        updateNewsFeed(tweet);
 
         broadcastToFollowers(tweet); //channel-subscriber design pattern
     }
