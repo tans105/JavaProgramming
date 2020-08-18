@@ -1,4 +1,4 @@
-package competitiveProgramming.interview.microsoft;
+package competitiveProgramming.interview.Microsoft;
 
 /*
 Exp: https://www.geeksforgeeks.org/microsoft-interview-experience-3-yrs-experienced/

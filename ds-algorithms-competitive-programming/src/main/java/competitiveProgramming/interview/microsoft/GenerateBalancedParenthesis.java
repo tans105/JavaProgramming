@@ -1,7 +1,6 @@
-package competitiveProgramming.interview.microsoft;
+package competitiveProgramming.interview.Microsoft;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /*

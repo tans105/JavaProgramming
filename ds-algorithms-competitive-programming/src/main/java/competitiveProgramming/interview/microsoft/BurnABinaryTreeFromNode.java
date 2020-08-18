@@ -1,4 +1,4 @@
-package competitiveProgramming.interview.microsoft;
+package competitiveProgramming.interview.Microsoft;
 
 import utils.TreeUtils;
 import utils.pojo.TreeNode;

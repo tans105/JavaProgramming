@@ -1,4 +1,4 @@
-package competitiveProgramming.interview.microsoft;
+package competitiveProgramming.interview.Microsoft;
 
 /*
 Find the largest Alphabetic character present in the string

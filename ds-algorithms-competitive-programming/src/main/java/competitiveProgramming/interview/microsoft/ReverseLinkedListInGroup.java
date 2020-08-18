@@ -1,7 +1,6 @@
-package competitiveProgramming.interview.microsoft;
+package competitiveProgramming.interview.Microsoft;
 
 import utils.LinkedListUtil;
-import utils.LoggingUtil;
 import utils.pojo.ListNode;
 
 /*
