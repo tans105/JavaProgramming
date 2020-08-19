@@ -7,6 +7,7 @@
 - https://www.geeksforgeeks.org/microsoft-telephonic-interviews-for-software-engineer-2-year-experienced/
 - https://www.geeksforgeeks.org/microsoft-interview-experience-for-full-time-position-of-software-engineer-at-bangalore/
 - https://www.geeksforgeeks.org/microsoft-interview-experience-3-yrs-experienced/
+- https://www.geeksforgeeks.org/microsoft-interview-experience-2-3-years-experienced/
 
 
 
@@ -19,3 +20,4 @@
 5. competitiveProgramming/leetcode/IterativePostOrderTraversal.java (https://www.geeksforgeeks.org/iterative-postorder-traversal/)
 6. competitiveProgramming/leetcode/ImplementQueueUsingTwoStack.java (https://leetcode.com/problems/implement-queue-using-stacks/)
 7. competitiveProgramming/geekforgeeks/RowWiseSortBinaryMatrix.java
+8. src/main/java/competitiveProgramming/leetcode/thirtyDaysLeetcodingChallenge/april/week2/MinStack.java(https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/)
