@@ -60,7 +60,7 @@ public class KthSmallestElement {
 
     private static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
-        int i = 0;
+        int i = low;
         int j = high - 1;
 
         while (i <= j) {
