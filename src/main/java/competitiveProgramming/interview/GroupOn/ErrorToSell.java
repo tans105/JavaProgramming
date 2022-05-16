@@ -1,4 +1,4 @@
-package competitiveProgramming.interview.GroupOn;
+package competitiveProgramming.interview.groupon;
 
 import java.util.*;
 

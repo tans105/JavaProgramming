@@ -1,4 +1,4 @@
-package competitiveProgramming.interview.GroupOn;
+package competitiveProgramming.interview.groupon;
 
 /*
 Find the number of ways the sum can be divided Eg.
