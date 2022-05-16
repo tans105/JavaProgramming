@@ -1,4 +1,4 @@
-package applications.BlockingQueue;
+package applications.blockingqueue;
 
 import utils.LoggingUtil;
 import java.util.ArrayList;

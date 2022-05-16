@@ -1,6 +1,6 @@
-package applications.MyTextEditor;
+package applications.mytexteditor;
 
-import applications.MyTextEditor.operation.OperationHandler;
+import applications.mytexteditor.operation.OperationHandler;
 
 /**
  * You must implement a simple text editor. Operations:

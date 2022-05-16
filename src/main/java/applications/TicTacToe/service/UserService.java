@@ -1,6 +1,6 @@
-package applications.TicTacToe.service;
+package applications.tictactoe.service;
 
-import applications.TicTacToe.pojo.Game;
+import applications.tictactoe.pojo.Game;
 
 public interface UserService {
     Game register(String u1, String u2);

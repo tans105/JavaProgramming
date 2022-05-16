@@ -1,4 +1,4 @@
-package applications.MyTextEditor.operation;
+package applications.mytexteditor.operation;
 
 import java.util.Stack;
 

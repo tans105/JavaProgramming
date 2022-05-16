@@ -1,4 +1,4 @@
-package applications.TicTacToe.pojo;
+package applications.tictactoe.pojo;
 
 public class User {
     private String name;

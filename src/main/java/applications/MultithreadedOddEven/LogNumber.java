@@ -1,4 +1,4 @@
-package applications.MultithreadedOddEven;
+package applications.multithreadedoddeven;
 
 public class LogNumber {
     int counter = 0;

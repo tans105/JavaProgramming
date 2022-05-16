@@ -1,4 +1,4 @@
-package applications.TicTacToe.pojo;
+package applications.tictactoe.pojo;
 
 public class Move {
     private int user;

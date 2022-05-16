@@ -1,4 +1,4 @@
-package applications.MultithreadedOddEven;
+package applications.multithreadedoddeven;
 
 import utils.LoggingUtil;
 

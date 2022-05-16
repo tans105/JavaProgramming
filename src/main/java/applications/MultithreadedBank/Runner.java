@@ -1,4 +1,4 @@
-package applications.MultithreadedBank;
+package applications.multithreadedbank;
 
 public class Runner {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
-package applications.TicTacToe.service;
+package applications.tictactoe.service;
 
-import applications.TicTacToe.pojo.Game;
-import applications.TicTacToe.pojo.User;
+import applications.tictactoe.pojo.Game;
+import applications.tictactoe.pojo.User;
 
 public class UserServiceImpl implements UserService {
 

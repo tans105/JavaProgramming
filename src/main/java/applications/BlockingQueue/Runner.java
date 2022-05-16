@@ -1,4 +1,4 @@
-package applications.BlockingQueue;
+package applications.blockingqueue;
 
 public class Runner {
 

@@ -1,4 +1,4 @@
-package applications.HashSet;
+package applications.hashset;
 
 public class Entry {
     Entry next;

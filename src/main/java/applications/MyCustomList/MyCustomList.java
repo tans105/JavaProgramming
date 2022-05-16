@@ -1,4 +1,4 @@
-package applications.MyCustomList;
+package applications.mycustomlist;
 
 import java.util.Arrays;
 

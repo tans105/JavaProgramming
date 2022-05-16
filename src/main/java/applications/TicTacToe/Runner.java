@@ -1,8 +1,8 @@
-package applications.TicTacToe;
+package applications.tictactoe;
 
-import applications.TicTacToe.pojo.Game;
-import applications.TicTacToe.service.UserService;
-import applications.TicTacToe.service.UserServiceImpl;
+import applications.tictactoe.pojo.Game;
+import applications.tictactoe.service.UserService;
+import applications.tictactoe.service.UserServiceImpl;
 
 public class Runner {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package applications.Twitter;
+package applications.twitter;
 
 public class Tweet {
     private int id;

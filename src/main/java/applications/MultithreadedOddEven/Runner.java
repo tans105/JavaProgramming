@@ -1,4 +1,4 @@
-package applications.MultithreadedOddEven;
+package applications.multithreadedoddeven;
 
 public class Runner {
     public static void main(String[] args) {
