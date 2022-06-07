@@ -32,7 +32,7 @@ public class Atoi {
                 numberStarts = true;
             }
 
-            if (builder.isEmpty() && numberStarts) break;
+            if (builder.length() == 0 && numberStarts) break;
         }
 
         long result = Long.parseLong(builder.toString());
